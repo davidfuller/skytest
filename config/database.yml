@@ -50,5 +50,4 @@ test:
 production:
   <<: *default
   database: mmdb_production
-  username: skytest
-  password: <%= ENV['SKYMMDB_DATABASE_PASSWORD'] %>
+  
