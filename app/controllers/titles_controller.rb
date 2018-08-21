@@ -4,7 +4,7 @@ class TitlesController < ApplicationController
   # GET /titles
   # GET /titles.json
   def index
-    @titles = Title.all
+    @titles = Title.search(params[:search], params[:page])
   end
 
   # GET /titles/1

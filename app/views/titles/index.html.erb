@@ -1,6 +1,22 @@
-<p id="notice"><%= notice %></p>
+<% content_for(:title) do%>
+	Titles: Sky Clarity Media Management
+<% end %>
 
-<h1>Listing Titles</h1>
+<h1>Titles</h1>
+
+<fieldset>
+	<legend>Titles</legend>
+	<% form_tag titles_path, :method => 'get' do %>
+		<p>
+			<%= text_field_tag :search, params[:search], :size => 45 %>
+			<%= submit_tag "Search", :name => nil %>
+		</p>
+	<% end %>
+</fieldset>
+
+<br/>
+<%= link_to 'New Title', new_title_path %>
+<%= will_paginate @titles %>
 
 <table>
   <thead>
@@ -22,6 +38,7 @@
   </tbody>
 </table>
 
-<br>
+<br/>
+<%= will_paginate @titles %>
 
-<%= link_to 'New Title', new_title_path %>
+
