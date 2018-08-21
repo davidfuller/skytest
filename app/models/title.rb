@@ -12,7 +12,7 @@ class Title < ActiveRecord::Base
 			paginate	:per_page => 20, :page => page,
 								:conditions => ['name like ?', "%#{:search}"]
 		else
-			paginate :all, :per_page => 20, :page => page
+			paginate  :per_page => 20, :page => page
 		end
 	end
 	
