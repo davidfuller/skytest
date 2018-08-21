@@ -13,12 +13,14 @@
 <body id="store">
 		<div id="banner">
 			<%= image_tag("logo_muvi2_sky.png") %>
-			<%= @page_title || "Sky Clarity Media Management" %>
+			<%= @page_title || "MuVi2 Sky Clarity Media Management" %>
 		</div> 
 		<div id="columns">
 			<div id="side">
 				<p>Version 1.0 BETA</p>
 				<%= link_to 'Home', root_url%><br /> 
+				<%= link_to 'Titles', titles_path%><br />
+				<%= link_to 'Episodes', episodes_path%><br />
 			</div> 
 			<div id="main">
 				<p style="color: green">
