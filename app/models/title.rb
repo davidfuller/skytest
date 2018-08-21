@@ -14,5 +14,6 @@ class Title < ActiveRecord::Base
 		else
 			paginate :all, :per_page => 20, :page => params[:page]
 		end
+	end
 	
 end
