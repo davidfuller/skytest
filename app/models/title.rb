@@ -2,7 +2,7 @@ class Title < ActiveRecord::Base
 
 	has_many :episodes
 	
-	default_scope :order => :title
+	default_scope { order(:title) }
 	
 	validates_uniqueness_of :title, :messsage => " is already in system"
 	validates_presence_of :title
