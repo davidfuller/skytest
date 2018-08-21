@@ -4,15 +4,13 @@
 
 <h1>Titles</h1>
 
-<fieldset>
-	<legend>Titles</legend>
-	<%= form_tag ({titles_path}, method: "get") do %>
-		<p>
-			<%= text_field_tag (:search) %>
-			<%= submit_tag ("Search") %>
-		</p>
-	<% end %>
-</fieldset>
+
+
+<%= form_tag titles_path, :method => 'get' do %>
+		<%= text_field_tag :search %>
+		<%= submit_tag "Search" %>
+<% end %>
+
 
 <br/>
 <%= link_to 'New Title', new_title_path %>
