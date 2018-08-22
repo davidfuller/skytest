@@ -9,8 +9,8 @@ class Title < ActiveRecord::Base
 	
 	def self.search(search, page)
 		if search
-			paginate	:per_page => 20, :page => page,
-								:conditions => ['name like ?', "%#{:search}"]
+			where('name like ?', "%#{:search}")
+			.paginate	(:per_page => 20, :page => page)
 		else
 			paginate  :per_page => 20, :page => page
 		end
