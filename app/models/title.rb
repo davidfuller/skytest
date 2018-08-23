@@ -7,11 +7,13 @@ class Title < ActiveRecord::Base
 	validates_uniqueness_of :title, :messsage => " is already in system"
 	validates_presence_of :title
 	
+	self.per_page = 5
+	
 	def self.search(search, page)
 		if search
-			where('title LIKE ?', "%#{search}%").paginate(page: page, per_page: 20)
+			where('title LIKE ?', "%#{search}%").paginate(page: page)
 		else
-			paginate  :per_page => 20, :page => page
+			paginate	:page => page
 		end
 	end
 	
