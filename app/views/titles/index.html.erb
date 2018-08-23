@@ -7,7 +7,7 @@
 <fieldset>
   <legend>Titles</legend>
   <%= form_tag titles_path, :method => 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
+    <%= text_field_tag :search, params[:search], {:size =>45,:class => 'text-field'} %>
     <%= submit_tag "Search", :class => 'form-submit-button' %>
   <% end %>
 </fieldset>
