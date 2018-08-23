@@ -5,11 +5,12 @@
 <h1>Titles</h1>
 
 
-
-<%= form_tag titles_path, :method => 'get' do %>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search" %>
-<% end %>
+<fieldset>
+	<%= form_tag titles_path, :method => 'get' do %>
+			<%= text_field_tag :search, params [:search] %>
+			<%= submit_tag "Search" %>
+	<% end %>
+</fieldset>
 
 
 <br/>
