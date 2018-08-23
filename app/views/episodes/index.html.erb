@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
+      <th>Title</th>
       <th>Year</th>
       <th>Season</th>
       <th>Episode</th>
-      <th>Title</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,10 @@
   <tbody>
     <% @episodes.each do |episode| %>
       <tr>
+        <td><%= episode.title.title unless episode.title.nil? %></td>
         <td><%= episode.year %></td>
         <td><%= episode.season %></td>
         <td><%= episode.episode %></td>
-        <td><%= episode.title.title unless episode.title.nil? %></td>
         <td><%= link_to 'Show', episode %></td>
         <td><%= link_to 'Edit', edit_episode_path(episode) %></td>
         <td><%= link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
