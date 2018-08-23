@@ -1,24 +1,16 @@
 // Place all the styles related to the titles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-button {
-   display: inline-block; 
-   padding: .938em 1.875em;
-   border: .094em solid #743EA5; 
-   border-radius: .625em;
-   background-color: #9A68C7;
-   box-shadow: 0 .375em .313em -0.313em rgba(0,0,0,.8), inset 0 .063em rgba(255,255,255,.4), inset 0 -0.188em rgba(0,0,0,.15);
-   color: #FFF;
-   text-decoration: none;
-   text-transform: uppercase;
-   text-shadow: 0 .063em #000;
-   cursor:pointer;
-   font: bold 1.8rem sans-serif;
+
+.form-submit-button {
+	background: #0066A2;
+	color: white;
+	border-style: outset;
+	border-color: #0066A2;
+	height: 50px;
+	width: 100px;
+	font: bold 15px arial, sans-serif;
+	text-shadow:none;
 }
-button:hover {
-   background-color: #8A58B7;
-   box-shadow: 0 .125em rgba(255,255,255,.4), inset 0 .063em rgba(255,255, 255,.4), inset 0 -0.188em #804FAD;
-}
-button:active {
-   box-shadow: inset 0 0 1.094em #472566, inset 0 .063em #390668, inset 0 -0.188em #682CA0, 0 .063em rgba(255,255,255,.4); 
-}
+
+
