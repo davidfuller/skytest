@@ -60,7 +60,21 @@ class TitlesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  
+  #=================================
+  # Muvi2 Additions
+  #=================================
+  
+  # add_episode 
+  def add_episode
+  	@title = Title.find(params[:id])
+  	respond_to do |format|
+	  	format.html {redirect_to @title, notice: 'Episode added'}
+	  	format.json {render :show, status: :created, location: @title}
+  	end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_title

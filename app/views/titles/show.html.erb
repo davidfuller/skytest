@@ -1,35 +1,41 @@
-<p id="notice"><%= notice %></p>
-
-<h2>Title</h2>
-  <%= @title.title %>
-<br/>
-
-<% if @title.episodes.count > 0 %>
-	<h2>Episodes</h2>
-	<table>
-		<thead>
-			<tr>
-				<th>Year</th>
-				<th>Season</th>
-				<th>Episode</th>
-				<th colspan="3"></th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<% @title.episodes.each do |episode| %>
-				<tr>
-					<td><%= episode.year %></td>
-					<td><%= episode.season %></td>
-					<td><%= episode.episode %></td>
-					<td><%= link_to 'Show', episode %></td>
-					<td><%= link_to 'Edit', edit_episode_path(episode) %></td>
-					<td><%= link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+<% content for(:title) do%>
+	  Title: <%= @title.title %> Sky Clarity Media Management
 <% end %>
 
-<%= link_to 'Edit', edit_title_path(@title) %> |
+<p>
+<label>Title</label>
+<%= @title.title %>
+</p>
+
+
+<label><%= pluralize(@title.episodes.count, 'Episode')%></label>
+<table>
+	<thead>
+		<tr>
+			<th>Year</th>
+			<th>Season</th>
+			<th>Episode</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @title.episodes.each do |episode| %>
+			<tr>
+				<td><%= episode.year %></td>
+				<td><%= episode.season %></td>
+				<td><%= episode.episode %></td>
+				<td><%= link_to 'Show', episode %></td>
+				<td><%= link_to 'Edit', edit_episode_path(episode) %></td>
+				<td><%= link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<p>
+	<% link_to 'Add Episode', :action => :add_episode, :id => @title %>
+</p>
+
+<%= link_to 'Edit Title', edit_title_path(@title) %> |
 <%= link_to 'Back', titles_path %>
