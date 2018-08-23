@@ -2,15 +2,14 @@
 	Titles: Sky Clarity Media Management
 <% end %>
 
-<h1>Titles</h1>
-
-
 <fieldset>
-	<%= form_tag titles_path, :method => 'get' do %>
-			<%= text_field_tag :search, params [:search] %>
-			<%= submit_tag "Search" %>
-	<% end %>
+  <legend>Titles</legend>
+  <%= form_tag titles_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  <% end %>
 </fieldset>
+
 
 
 <br/>
