@@ -11,3 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+# More David ones
+._*
+config/database_old.yml
+
