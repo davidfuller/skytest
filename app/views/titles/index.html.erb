@@ -1,0 +1,35 @@
+<% content_for(:title) do%>
+	Titles: Sky Clarity Media Management
+<% end %>
+
+<h1>Titles</h1>
+
+
+
+<%= form_tag titles_path, :method => 'get' do %>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search" %>
+<% end %>
+
+
+<br/>
+<%= link_to 'New Title', new_title_path %>
+<%= will_paginate @titles %>
+
+<table>
+  <tbody>
+    <% @titles.each do |title| %>
+      <tr>
+        <td><%= title.title %></td>
+        <td><%= link_to 'Show', title %></td>
+        <td><%= link_to 'Edit', edit_title_path(title) %></td>
+        <td><%= link_to 'Destroy', title, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+<%= will_paginate @titles %>
+
+
