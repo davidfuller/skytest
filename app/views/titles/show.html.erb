@@ -28,7 +28,7 @@
 				<td><%= episode.episode %></td>
 				<td><%= episode.year %></td>
 				<td><%= link_to 'Edit', edit_episode_path(episode, :source => :title_show) %></td>
-				<td><%= link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' }, :source => :title_show %></td>
+				<td><%= link_to 'Destroy', episode, method: :delete, :source => :title_show, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
 		<% end %>
 	</tbody>

@@ -65,10 +65,10 @@ class EpisodesController < ApplicationController
   # DELETE /episodes/1.json
   def destroy
   	title = @episode.title
-    @episode.destroy
+  	@episode.destroy
     respond_to do |format|
       format.html { 
-										if title || params[:source] == 'title_show'
+										if title && params[:source] == 'title_show'
 											redirect_to title_path(@episode.title), notice: 'Episode: ' + @episode.episode_title + ' was successfully deleted.'  
 										else
 											redirect_to episodes_url, notice: 'Episode was successfully destroyed.'
