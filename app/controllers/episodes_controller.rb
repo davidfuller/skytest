@@ -43,7 +43,13 @@ class EpisodesController < ApplicationController
   def update
     respond_to do |format|
       if @episode.update(episode_params)
-        format.html { redirect_to @episode, notice: 'Episode was successfully updated.' }
+        format.html { 
+        							if @episode.source == :title_show
+        								redirect_to @episode, notice: 'Episode was successfully updated. :title_show'
+        							else
+	        							redirect_to @episode, notice: 'Episode was successfully updated.'
+	        						end
+	        					}
         format.json { render :show, status: :ok, location: @episode }
       else
         format.html { render :edit }

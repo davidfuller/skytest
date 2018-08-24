@@ -12,7 +12,8 @@
   <% end %>
   
   <h2><%= @episode.source %></h2>
-
+	<% f.hidden_field :source %>
+	
 	<div class="field">
     <%= f.label :episode_title %><br>
     <%= f.text_field :episode_title %>
