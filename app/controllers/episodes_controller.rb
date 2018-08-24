@@ -43,6 +43,8 @@ class EpisodesController < ApplicationController
   def update
   	respond_to do |format|
       if @episode.update(episode_params)
+      	Episode.numericise @episode
+      	@episode.save
        	@episode.source = episode_params[:source]
         format.html { 
         							if @episode.source == 'title_show'
