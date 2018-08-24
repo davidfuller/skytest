@@ -41,6 +41,7 @@ class EpisodesController < ApplicationController
   # PATCH/PUT /episodes/1
   # PATCH/PUT /episodes/1.json
   def update
+  	@episode.source = params[:source]
     respond_to do |format|
       if @episode.update(episode_params)
         format.html { 
