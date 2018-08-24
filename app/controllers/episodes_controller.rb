@@ -46,13 +46,14 @@ class EpisodesController < ApplicationController
       	Episode.numericise @episode
       	@episode.save
        	@episode.source = episode_params[:source]
-        format.html { 
-        							if @episode.source == 'title_show'
-        								redirect_to title_path(@episode.title), notice: 'Episode: ' + @episode.episode_title + ' was successfully updated.' 
-        							else
-	        							redirect_to @episode, notice: 'Episode was successfully updated.'
-	        						end
-	        					}
+        format.html 
+        	{ 
+						if @episode.source == 'title_show'
+							redirect_to title_path(@episode.title), notice: 'Episode: ' + @episode.episode_title + ' was successfully updated.' 
+						else
+							redirect_to @episode, notice: 'Episode was successfully updated.'
+						end
+					}
         format.json { render :show, status: :ok, location: @episode }
       else
         format.html { render :edit }
@@ -64,9 +65,17 @@ class EpisodesController < ApplicationController
   # DELETE /episodes/1
   # DELETE /episodes/1.json
   def destroy
+  	title = @episode.title
     @episode.destroy
     respond_to do |format|
-      format.html { redirect_to episodes_url, notice: 'Episode was successfully destroyed.' }
+      format.html 
+      	{ 
+      		if title || params[:source] == 'title_show'
+      			redirect_to title_path(@episode.title), notice: 'Episode: ' + @episode.episode_title + ' was successfully deleted.'  
+      		else
+      			redirect_to episodes_url, notice: 'Episode was successfully destroyed.'
+      		end
+      	}
       format.json { head :no_content }
     end
   end
