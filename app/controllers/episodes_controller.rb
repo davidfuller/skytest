@@ -42,13 +42,13 @@ class EpisodesController < ApplicationController
   # PATCH/PUT /episodes/1.json
   def update
   	
-  	logger.debug "Episode params: #{episode_params}"
+  	logger.debug "Episode params: #{episode_params[:source]}"
   	logger.debug "Episode data: #{@episode.attributes.inspect}"
     respond_to do |format|
       if @episode.update(episode_params)
        	logger.debug "Post update Episode data: #{@episode.attributes.inspect}"
       	@episode.source = episode_params[:source]
-				logger.debug "Post source Episode data: #{@episode.attributes.inspect}"
+				logger.debug "Post source Episode data: #{@episode.source}"
         format.html { 
         							if @episode.source == :title_show
         								redirect_to @episode, notice: 'Episode was successfully updated. :title_show'
