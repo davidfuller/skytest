@@ -36,7 +36,7 @@
 </table>
 
 <p>
-		<%= link_to 'Add an Episode', :action => :add_episode, {:id => @title, :source => :title_show} %>
+		<%= link_to 'Add an Episode', :action => :add_episode, :id => @title, :source => :title_show %>
 </p>
 
 <%= link_to 'Edit Title', edit_title_path(@title) %> |
