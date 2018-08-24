@@ -1,4 +1,9 @@
-<h1>Editing Episode</h1>
+
+<% if @episode.title.title %>
+	<h1><%='Editing Episode of ' + @episode.title.title %></h1>
+<% else %>
+	<h1>Editing Episode</h1>
+<% end %>
 
 <%= render 'form' %>
 
