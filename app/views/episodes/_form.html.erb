@@ -11,10 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :year %><br>
-    <%= f.text_field :year %>
+	<div class="field">
+    <%= f.label :episode_title %><br>
+    <%= f.text_field :season %>
   </div>
+  
   <div class="field">
     <%= f.label :season %><br>
     <%= f.text_field :season %>
@@ -24,9 +25,15 @@
     <%= f.text_field :episode %>
   </div>
   <div class="field">
+    <%= f.label :year %><br>
+    <%= f.text_field :year %>
+  </div>
+  
+  <div class="field">
     <%= f.label :title_id %><br>
     <%= f.text_field :title_id %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
