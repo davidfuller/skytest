@@ -51,7 +51,7 @@ class EpisodesController < ApplicationController
 				logger.debug "Post source Episode data: #{@episode.source}"
         format.html { 
         							if @episode.source == 'title_show'
-        								redirect_to title_path(@episode.title), notice: 'Episode: #{@episode.episode_title} was successfully updated.' 
+        								redirect_to title_path(@episode.title), notice: 'Episode: ' + @episode.episode_title + ' was successfully updated.' 
         							else
 	        							redirect_to @episode, notice: 'Episode was successfully updated.'
 	        						end
