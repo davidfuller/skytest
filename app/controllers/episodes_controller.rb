@@ -41,8 +41,8 @@ class EpisodesController < ApplicationController
   # PATCH/PUT /episodes/1
   # PATCH/PUT /episodes/1.json
   def update
-  	@episode.source = params[:source]
-  	logger.debug params[:source]
+  	
+  	logger.debug "Episode params: #{episode_params}"
   	logger.debug "Episode data: #{@episode.attributes.inspect}"
     respond_to do |format|
       if @episode.update(episode_params)
