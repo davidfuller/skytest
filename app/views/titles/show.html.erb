@@ -7,8 +7,8 @@
 <%= @title.title %>
 </p>
 
-<% form_tag titles_path(@title), method: 'get' do %>
-	Seasons <% select_tag :season_choice, options_for_select(@season_list, params[:season_choice]), onchange: 'this.form.submit()'%><br/>
+<%= form_tag @title, method: 'get' do %>
+	<label>Seasons</label> <%= select_tag :season_choice, options_for_select(@season_list, params[:season_choice]), onchange: 'this.form.submit()'%><br/>
 <% end %>
 
 <label><%= pluralize(@title.episodes.count, 'Episode')%></label>
