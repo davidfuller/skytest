@@ -17,4 +17,8 @@ class Title < ActiveRecord::Base
 		end
 	end
 	
+	def season_list
+		episodes.pluck(:season).uniq.insert(0,"All")
+	end
+	
 end
