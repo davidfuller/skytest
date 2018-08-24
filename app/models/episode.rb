@@ -6,10 +6,10 @@ class Episode < ActiveRecord::Base
   attr_accessor :source
   
   
-  def numericise
-  	int_year = year.to_i
-  	int_season = season.to_i
-  	int_episode = spisode.to_i
+  def self.numericise(ep)
+  	ep.int_year = ep.year.to_i
+  	ep.int_season = ep.season.to_i
+  	ep.int_episode = ep.episode.to_i
   end
       
 end
