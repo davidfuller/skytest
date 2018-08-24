@@ -20,6 +20,10 @@ class Title < ActiveRecord::Base
 	def season_list
 		episodes.pluck(:season).uniq.insert(0,"All")
 	end
+	
+	def episodes_for_season(season_number)
+		episodes.where('season = ?', season_number)
+	end
 
 
 	
