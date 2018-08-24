@@ -27,15 +27,15 @@
 				<td><%= episode.season %></td>
 				<td><%= episode.episode %></td>
 				<td><%= episode.year %></td>
-				<td><%= link_to 'Edit', edit_episode_path(episode, :source => :title_show) %></td>
-				<td><%= link_to 'Destroy', episode_path(episode, :source => :title_show), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= link_to 'Edit', edit_episode_path(episode, source: :title_show) %></td>
+				<td><%= link_to 'Destroy', episode, method: :delete, source: :title_show, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
 		<% end %>
 	</tbody>
 </table>
 
 <p>
-		<%= link_to 'Add an Episode', :action => :add_episode, :id => @title, :source => :title_show %>
+		<%= link_to 'Add an Episode', action: :add_episode, id: @title, source: :title_show %>
 </p>
 
 <%= link_to 'Edit Title', edit_title_path(@title) %> |
