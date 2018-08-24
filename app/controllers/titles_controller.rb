@@ -11,7 +11,7 @@ class TitlesController < ApplicationController
   # GET /titles/1.json
   def show
   	@season_list = @title.season_list
-  	@episode_list = @ title.episodes_for_season(params[season_choice]||"All")
+  	@episode_list = @title.episodes_for_season(params[:season_choice]||"All")
   	logger.debug @episode_list
   end
 

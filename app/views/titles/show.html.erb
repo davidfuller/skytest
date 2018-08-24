@@ -11,7 +11,7 @@
 	<label>Seasons</label> <%= select_tag :season_choice, options_for_select(@season_list, params[:season_choice]), onchange: 'this.form.submit()'%><br/>
 <% end %>
 
-<label><%= pluralize(@title.episodes.count, 'Episode')%></label>
+<label><%= pluralize(@episode_list.count, 'Episode')%></label>
 <table>
 	<thead>
 		<tr>
