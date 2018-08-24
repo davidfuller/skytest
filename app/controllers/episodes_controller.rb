@@ -47,7 +47,7 @@ class EpisodesController < ApplicationController
     respond_to do |format|
       if @episode.update(episode_params)
        	logger.debug "Post update Episode data: #{@episode.attributes.inspect}"
-      	@episode.source = params[:source]
+      	@episode.source = episode_params.source
 				logger.debug "Post source Episode data: #{@episode.attributes.inspect}"
         format.html { 
         							if @episode.source == :title_show
