@@ -50,7 +50,7 @@ class EpisodesController < ApplicationController
       	@episode.source = episode_params[:source]
 				logger.debug "Post source Episode data: #{@episode.source}"
         format.html { 
-        							if @episode.source == :title_show
+        							if @episode.source == 'title_show'
         								redirect_to @episode, notice: 'Episode was successfully updated. :title_show'
         							else
 	        							redirect_to @episode, notice: 'Episode was successfully updated.'
