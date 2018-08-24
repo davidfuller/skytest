@@ -46,14 +46,13 @@ class EpisodesController < ApplicationController
       	Episode.numericise @episode
       	@episode.save
        	@episode.source = episode_params[:source]
-        format.html 
-        	{ 
-						if @episode.source == 'title_show'
-							redirect_to title_path(@episode.title), notice: 'Episode: ' + @episode.episode_title + ' was successfully updated.' 
-						else
-							redirect_to @episode, notice: 'Episode was successfully updated.'
-						end
-					}
+        format.html { 
+        							if @episode.source == 'title_show'
+        								redirect_to title_path(@episode.title), notice: 'Episode: ' + @episode.episode_title + ' was successfully updated.' 
+        							else
+	        							redirect_to @episode, notice: 'Episode was successfully updated.'
+	        						end
+	        					}
         format.json { render :show, status: :ok, location: @episode }
       else
         format.html { render :edit }
