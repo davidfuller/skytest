@@ -19,6 +19,7 @@ class EpisodesController < ApplicationController
 
   # GET /episodes/1/edit
   def edit
+  	@episode.source = params[:source]
   end
 
   # POST /episodes
@@ -69,6 +70,6 @@ class EpisodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def episode_params
-      params.require(:episode).permit(:year, :season, :episode, :title_id, :episode_title)
+      params.require(:episode).permit(:year, :season, :episode, :title_id, :episode_title, :source)
     end
 end
