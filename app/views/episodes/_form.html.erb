@@ -31,10 +31,14 @@
     <%= f.text_field :year %>
   </div>
   
-  <div class="field">
-    <%= f.label :title_id %><br>
-    <%= f.text_field :title_id %>
-  </div>
+  <% if @episode.source == 'title_show'%>
+  	<%= f.hidden_field :title_id %>
+  <% else %>
+		<div class="field">
+			<%= f.label :title_id %><br>
+			<%= f.text_field :title_id %>
+		</div>
+	<% end %>
   
   <div class="actions">
     <%= f.submit %>
