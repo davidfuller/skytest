@@ -7,7 +7,7 @@ class Title < ActiveRecord::Base
 	validates_uniqueness_of :title, :messsage => " is already in system"
 	validates_presence_of :title
 	
-	self.per_page = 5
+	self.per_page = 15
 	
 	def self.search(search, page)
 		if search
