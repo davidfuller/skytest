@@ -69,9 +69,9 @@ class TitlesController < ApplicationController
   # add_episode 
   def add_episode
   	@title = Title.find(params[:id])
-  	@episode = @title.episodes.create(episode_title: "Please enter episode details")
+  	@episode = @title.episodes.create(episode_title: "")
   	respond_to do |format|
-	  	format.html {redirect_to @title, notice: 'Episode added'}
+	  	format.html {redirect_to edit_episode_path(@episode), notice: 'Add Episode details'}
 	  	format.json {render :show, status: :created, location: @title}
   	end
   end
