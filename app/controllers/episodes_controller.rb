@@ -67,14 +67,13 @@ class EpisodesController < ApplicationController
   	title = @episode.title
     @episode.destroy
     respond_to do |format|
-      format.html 
-      	{ 
-      		if title || params[:source] == 'title_show'
-      			redirect_to title_path(@episode.title), notice: 'Episode: ' + @episode.episode_title + ' was successfully deleted.'  
-      		else
-      			redirect_to episodes_url, notice: 'Episode was successfully destroyed.'
-      		end
-      	}
+      format.html { 
+										if title || params[:source] == 'title_show'
+											redirect_to title_path(@episode.title), notice: 'Episode: ' + @episode.episode_title + ' was successfully deleted.'  
+										else
+											redirect_to episodes_url, notice: 'Episode was successfully destroyed.'
+										end
+									}
       format.json { head :no_content }
     end
   end
