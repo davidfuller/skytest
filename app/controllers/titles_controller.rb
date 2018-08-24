@@ -10,6 +10,8 @@ class TitlesController < ApplicationController
   # GET /titles/1
   # GET /titles/1.json
   def show
+  	@season_list = @title.season_list
+  	logger_debug @season_list
   end
 
   # GET /titles/new
