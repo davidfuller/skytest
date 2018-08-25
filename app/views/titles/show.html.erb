@@ -8,7 +8,7 @@
 </p>
 
 <%= form_tag @title, method: 'get' do %>
-	<label>Seasons</label> <%= select_tag :season_choice, options_for_select(@season_list, params[:season_choice]), onchange: 'this.form.submit()'%><br/>
+	<label>Seasons</label> <%= select_tag :season_choice, options_for_select(@season_list, params[:season_choice], :class => 'form-select-tag'), onchange: 'this.form.submit()'%><br/>
 <% end %>
 
 <label><%= pluralize(@episode_list.count, 'Episode')%></label>
