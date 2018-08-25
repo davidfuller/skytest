@@ -7,7 +7,7 @@
 <%= @title.title %><br/>
 
 <p>
-<% if @season_list.count > 2 %>
+<% if @season_list.count > 1 %>
 	<%= form_tag @title, method: 'get' do %>
 		<label>Seasons</label> <%= select_tag :season_choice, options_for_select(@season_list, params[:season_choice]), :class => 'form-select-tag', onchange: 'this.form.submit()'%><br/>
 	<% end %>
