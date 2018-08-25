@@ -12,7 +12,7 @@ class TitlesController < ApplicationController
   def show
   	@season_list = @title.season_list
   	@episode_list = @title.episodes_for_season(params[:season_choice]||"All")
-  	if @episode_list.nil?
+  	if @episode_list.count == 0
   		params[:season_choice] = "All"
 			@episode_list = @title.episodes_for_season(params[:season_choice]||"All")
 		end
