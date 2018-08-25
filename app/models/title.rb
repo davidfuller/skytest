@@ -28,6 +28,7 @@ class Title < ActiveRecord::Base
 			episodes
 		elsif season_number = "No Season"
 			episodes.where('season = ?', "")
+			logger.debug "====>HEre"
 		else
 			episodes.where('season = ?', season_number)
 		end
