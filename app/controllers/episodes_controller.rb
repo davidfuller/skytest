@@ -20,6 +20,7 @@ class EpisodesController < ApplicationController
   # GET /episodes/1/edit
   def edit
   	@episode.source = params[:source]
+  	@episode.season_choice = params[:season_choice]
   end
 
   # POST /episodes
