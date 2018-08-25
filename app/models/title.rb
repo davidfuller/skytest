@@ -26,6 +26,8 @@ class Title < ActiveRecord::Base
 	
 		if season_number == "All" || season_number.nil?
 			episodes
+		elsif season_number = "No Season"
+			episodes.where('season = ?', "")
 		else
 			episodes.where('season = ?', season_number)
 		end
