@@ -18,7 +18,8 @@ class Title < ActiveRecord::Base
 	end
 	
 	def season_list
-		episodes.pluck(:season).uniq.insert(0,"All")
+		sl = episodes.pluck(:season).uniq.insert(0,"All")
+		sl.map { |x| x == "" ? 'No Season' : x }
 	end
 	
 	def episodes_for_season(season_number)
