@@ -48,7 +48,8 @@ class EpisodesController < ApplicationController
        	@episode.source = episode_params[:source]
         format.html { 
         							if @episode.source == 'title_show'
-        								redirect_to title_path(@episode.title), notice: 'Episode: ' + @episode.episode_title + ' was successfully updated.' 
+        								logger.debug params[:season_choice]
+        								redirect_to title_path(@episode.title, params[:season_choice]), notice: 'Episode: ' + @episode.episode_title + ' was successfully updated.' 
         							else
 	        							redirect_to @episode, notice: 'Episode was successfully updated.'
 	        						end
@@ -69,7 +70,8 @@ class EpisodesController < ApplicationController
     respond_to do |format|
       format.html { 
 										if title && params[:source] == 'title_show'
-											redirect_to title_path(@episode.title), notice: 'Episode: ' + @episode.episode_title + ' was successfully deleted.'  
+											logger.debug params[:season_choice]
+											redirect_to title_path(@episode.title, params[:season_choice]), notice: 'Episode: ' + @episode.episode_title + ' was successfully deleted.'  
 										else
 											redirect_to episodes_url, notice: 'Episode was successfully destroyed.'
 										end
