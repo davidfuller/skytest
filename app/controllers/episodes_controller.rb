@@ -48,8 +48,8 @@ class EpisodesController < ApplicationController
        	@episode.source = episode_params[:source]
         format.html { 
         							if @episode.source == 'title_show'
-        								logger.debug params[:season_choice]
-        								redirect_to title_path(@episode.title, params[:season_choice]), notice: 'Episode: ' + @episode.episode_title + ' was successfully updated.' 
+        								logger.debug episode_params[:season_choice]
+        								redirect_to title_path(@episode.title, episode_params[:season_choice]), notice: 'Episode: ' + @episode.episode_title + ' was successfully updated.' 
         							else
 	        							redirect_to @episode, notice: 'Episode was successfully updated.'
 	        						end
@@ -88,6 +88,6 @@ class EpisodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def episode_params
-      params.require(:episode).permit(:year, :season, :episode, :title_id, :episode_title, :source)
+      params.require(:episode).permit(:year, :season, :episode, :title_id, :episode_title, :source, :season_choice)
     end
 end
