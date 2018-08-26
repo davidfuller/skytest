@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Will paginate added 21/08/2018
 gem 'will_paginate', '~> 3.0'
 
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'autoprefixer-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
