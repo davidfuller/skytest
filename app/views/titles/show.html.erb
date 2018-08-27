@@ -2,47 +2,49 @@
 	  Title: <%= @title.title %> Sky Clarity Media Management
 <% end %>
 
+<div class="col-sm-6">
+	<p><b>Title</b>
+	<%= @title.title %></p>
 
-<label>Title</label><br/>
-<%= @title.title %><br/>
-
-<p>
-<% if @season_list.count > 2 %>
-	<%= form_tag @title, method: 'get' do %>
-		<label>Seasons</label> <%= select_tag :season_choice, options_for_select(@season_list, params[:season_choice]), :class => 'form-select-tag', onchange: 'this.form.submit()'%><br/>
-	<% end %>
-<% end %>
-</p>
-
-<label><%= pluralize(@episode_list.count, 'Episode')%></label>
-<table>
-	<thead>
-		<tr>
-			<th>Episode title</th>
-			<th>Season</th>
-			<th>Episode</th>
-			<th>Year</th>
-			<th colspan="3"></th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<% @episode_list.each do |episode| %>
-			<tr>
-				<td><%= episode.episode_title %></td>
-				<td><%= episode.season %></td>
-				<td><%= episode.episode %></td>
-				<td><%= episode.year %></td>
-				<td><%= link_to 'Edit', edit_episode_path(episode, source: :title_show, season_choice: params[:season_choice]) %></td>
-				<td><%= link_to 'Destroy', episode_path(episode, source: :title_show, season_choice: params[:season_choice]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			</tr>
+	<p>
+	<% if @season_list.count > 2 %>
+		<%= form_tag @title, method: 'get' do %>
+			<label>Seasons</label> <%= select_tag :season_choice, options_for_select(@season_list, params[:season_choice]), :class => 'form-select-tag', onchange: 'this.form.submit()'%><br/>
 		<% end %>
-	</tbody>
-</table>
+	<% end %>
+	</p>
 
-<p>
-		<%= link_to 'Add an Episode', action: :add_episode, id: @title, source: :title_show %>
-</p>
+	<label><%= pluralize(@episode_list.count, 'Episode')%></label>
 
-<%= link_to 'Edit Title', edit_title_path(@title) %> |
-<%= link_to 'Back', titles_path %>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Episode title</th>
+				<th>Season</th>
+				<th>Episode</th>
+				<th>Year</th>
+				<th colspan="3"></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @episode_list.each do |episode| %>
+				<tr>
+					<td><%= episode.episode_title %></td>
+					<td><%= episode.season %></td>
+					<td><%= episode.episode %></td>
+					<td><%= episode.year %></td>
+					<td><%= link_to 'Edit', edit_episode_path(episode, source: :title_show, season_choice: params[:season_choice]) %></td>
+					<td><%= link_to 'Destroy', episode_path(episode, source: :title_show, season_choice: params[:season_choice]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+	<p>
+			<%= link_to 'Add an Episode', action: :add_episode, id: @title, source: :title_show %>
+	</p>
+
+	<%= link_to 'Edit Title', edit_title_path(@title) %> |
+	<%= link_to 'Back', titles_path %>
+</div>
