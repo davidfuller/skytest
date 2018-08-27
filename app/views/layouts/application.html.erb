@@ -6,7 +6,6 @@
     <%= (yield :refresh) %>
 		<title><%= (yield :title) || 'MuVi2 Sky Clarity Media Management' %></title>
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-		<%= stylesheet_link_tag "", :media => "all" %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 	</head>
