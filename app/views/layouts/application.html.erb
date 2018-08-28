@@ -13,16 +13,17 @@
 	<body>
 		<div class="container-fluid">
 			<%= render 'layouts/navigation' %>
-			<div id="main">
-				<p style="color: green">
-				<% if flash[:notice] != nil %>
+            <p style="color: green">
+            <% if flash[:notice] != nil %>
+				<div class="alert alert-success alert-dismissible">
+					<a href="#" class="close" data-dismuss="alert" aria-label="close">&times;</a>
 					<% flash[:notice].split(". ").each do |fl| %>
 						<%= fl %> <br />
 					<% end %>
-				<% end %>
-				</p>
-				<%= yield :layout %>
-			</div>
-		</div>
+				</div>
+            <% end %>
+            </p>
+            <%= yield :layout %>
+   		</div>
 	</body>
 </html>

@@ -1,4 +1,4 @@
-<%= form_for(@title) do |f| %>
+<%= form_for(@title, :html => { class: 'form-group'}) do |f| %>
   <% if @title.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@title.errors.count, "error") %> prohibited this title from being saved:</h2>
@@ -12,10 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title, {:size =>45, :autofocus => true} %>
+    <%= f.label :title, class: 'title-episode-bold'%><br>
+    <%= f.text_field :title, :autofocus => true, :class => "form-control field-full" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => "btn btn-default"%>
   </div>
 <% end %>

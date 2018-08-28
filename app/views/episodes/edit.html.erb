@@ -1,11 +1,19 @@
 
-<% if @episode.title.title %>
-	<h1><%='Editing Episode of ' + @episode.title.title %></h1>
-<% else %>
-	<h1>Editing Episode</h1>
-<% end %>
 
-<%= render 'form' %>
+<div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-sm-8 title-episode-info">
+        <div class="title-episode-bold">
+            <% if @episode.title.title %>
+                <h3><%='Editing Episode of ' + @episode.title.title %></h3>
+            <% else %>
+                <h3>Editing Episode</h3>
+            <% end %>
+        </div>
 
-<%= link_to 'Show', @episode %> |
-<%= link_to 'Back', episodes_path %>
+        <%= render 'form' %>
+
+        <%= link_to 'Show', @episode %> |
+        <%= link_to 'Back', episodes_path %>
+    </div>
+</div>

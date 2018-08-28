@@ -28,6 +28,7 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'autoprefixer-rails'
+gem 'bootstrap-will_paginate'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

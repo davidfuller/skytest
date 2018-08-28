@@ -2,57 +2,55 @@
 	  Title: <%= @title.title %> Sky Clarity Media Management
 <% end %>
 
-<div>
-	<p><b>Title</b>
-	<%= @title.title %></p>
+<div class="row">
+    <div class="col-xs-1"></div>
+    <div class="container-fluid">
+        <div class="col-sm-8 title-episode-info">
+            <p><div class='title-episode-bold'><b>Title</b></div>
+            <div class='title-normal'><%= @title.title %></div></p>
 
-	<p>
-		<% if @season_list.count > 2 %>
-			<%= form_tag @title, method: 'get' do %>
-				<label>Seasons</label> <%= select_tag :season_choice, options_for_select(@season_list, params[:season_choice]), :class => 'form-select-tag', onchange: 'this.form.submit()'%><br/>
-			<% end %>
-		<% end %>
-	</p>
+            <p>
+                <% if @season_list.count > 2 %>
+                    <%= form_tag @title, method: 'get' do %>
+                        <%= label_tag(:season_choice, "Season", :class => 'title-episode-bold')%>
+                        <%= select_tag :season_choice, options_for_select(@season_list, params[:season_choice]), :class => 'form-control title-episode-bold', onchange: 'this.form.submit()'%><br/>
+                    <% end %>
+                <% end %>
+            </p>
 
-	<label><%= pluralize(@episode_list.count, 'Episode')%></label>
+            <p class='title-episode-bold'><b><%= pluralize(@episode_list.count, 'Episode')%></b></p>
+            <table class="table">
+                <thead class='title-episode-bold'>
+                    <tr>
+                        <th>Episode title</th>
+                        <th>Season</th>
+                        <th>Episode</th>
+                        <th>Year</th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
 
-	<div class="row>"
-			<div class="col-sm-8">
-				<table class="table">
-					<thead>
-						<tr>
-							<th class="col-sm-2">Episode title</th>
-							<th class="col-sm-1">Season</th>
-							<th class="col-sm-1">Episode</th>
-							<th class="col-sm-1">Year</th>
-							<th class="col-sm-1"></th>
-							<th class="col-sm-1"></th>
-							<th class="col-sm-1"></th>
-						</tr>
-					</thead>
+                <tbody>
+                    <% @episode_list.each do |episode| %>
+                        <tr>
+                            <td><b><%= link_to episode.episode_title, edit_episode_path(episode, source: :title_show, season_choice: params[:season_choice]) %></b></td>
+                            <td><%= episode.season %></td>
+                            <td><%= episode.episode %></td>
+                            <td><%= episode.year %></td>
+                            <td><%= link_to 'Edit', edit_episode_path(episode, source: :title_show, season_choice: params[:season_choice]) %></td>
+                            <td><%= link_to 'Destroy', episode_path(episode, source: :title_show, season_choice: params[:season_choice]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        
+            <p>
+                    <%= link_to 'Add an Episode', action: :add_episode, id: @title, source: :title_show %>
+            </p>
 
-					<tbody>
-						<% @episode_list.each do |episode| %>
-							<tr>
-								<td><%= episode.episode_title %></td>
-								<td><%= episode.season %></td>
-								<td><%= episode.episode %></td>
-								<td><%= episode.year %></td>
-								<td><%= link_to 'Edit', edit_episode_path(episode, source: :title_show, season_choice: params[:season_choice]) %></td>
-								<td><%= link_to 'Destroy', episode_path(episode, source: :title_show, season_choice: params[:season_choice]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-							</tr>
-						<% end %>
-					</tbody>
-				</table>
-			<div>
-		<div class="col-sm-4">
-		</div>
-	</div>
-
-	<p>
-			<%= link_to 'Add an Episode', action: :add_episode, id: @title, source: :title_show %>
-	</p>
-
-	<%= link_to 'Edit Title', edit_title_path(@title) %> |
-	<%= link_to 'Back', titles_path %>
+            <%= link_to 'Edit Title', edit_title_path(@title) %> |
+            <%= link_to 'Back', titles_path %>
+        </div>
+    </div>
+    <div class="col-sm-3"></div>
 </div>

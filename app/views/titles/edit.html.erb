@@ -1,6 +1,13 @@
-<h1>Editing Title</h1>
+<div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-sm-8 title-episode-info">
+        <div>
+            <h3 class="title-episode-bold">Editing Title</h3>
+            <%= render 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @title %> |
-<%= link_to 'Back', titles_path %>
+            <%= link_to 'Show', @title %> |
+            <%= link_to 'Back', titles_path %>
+        </div>
+    </div>
+    <div class="col-xs-1"></div>
+</div>

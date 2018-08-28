@@ -1,0 +1,59 @@
+$blue: #00367C;
+$light-blue: #D7E4EC;
+$light-grey: #a9a9a9;
+$bootstrap-blue: #337ab7;
+$bootstrap-dark-blue: #224f77;
+
+.navbar {
+    background-color: $light-blue;
+}
+
+.navbar-brand {
+    padding: 0px;
+}
+.navbar-brand img {
+    height: 100%;
+    padding: 0px;
+    width: auto;
+}
+
+body 
+{ 
+    padding-top: 70px;
+    background-color: $light-grey;
+}
+
+.title-episode-info {
+    background-color: white;
+    padding: 10px;
+    border-radius: 3px;
+    border-width: 1px;
+    border-color: $bootstrap-blue;
+    border-style: solid;
+}
+.title-episode-bold{
+    color: $bootstrap-dark-blue;
+    padding-left: 7px;
+    padding-top: 10px;
+}
+.title-normal{
+    padding-left: 7px;
+    font-size: 20px;
+}
+
+.actions{
+    padding-left: 7px;
+    padding-top: 20px;
+}
+
+input.field-full{
+   margin-left: 7px;
+   margin-right: 7px;
+   width: 90%;
+}
+
+.field-normal{
+    margin-left: 7px;
+    margin-right: 7px;
+    width: 20%;
+}
