@@ -7,7 +7,7 @@ class Title < ActiveRecord::Base
 	validates_uniqueness_of :title, :messsage => " is already in system"
 	validates_presence_of :title
 	
-	self.per_page = 10
+	self.per_page = 12
 	
 	def self.search(search, page)
 		if search
@@ -32,7 +32,4 @@ class Title < ActiveRecord::Base
 			episodes.where('season = ?', season_number)
 		end
 	end
-
-
-	
 end
