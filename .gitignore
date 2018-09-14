@@ -15,4 +15,5 @@
 # More David ones
 ._*
 config/database_old.yml
-
+app/.DS_Store
+app/models/.DS_Store
