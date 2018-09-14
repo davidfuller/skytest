@@ -1,0 +1,25 @@
+<%= form_for(@bss_title_id) do |f| %>
+  <% if @bss_title_id.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bss_title_id.errors.count, "error") %> prohibited this bss_title_id from being saved:</h2>
+
+      <ul>
+      <% @bss_title_id.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bss_title_id %><br>
+    <%= f.text_field :bss_title_id %>
+  </div>
+  <div class="field">
+    <%= f.label :episode_id %><br>
+    <%= f.number_field :episode_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

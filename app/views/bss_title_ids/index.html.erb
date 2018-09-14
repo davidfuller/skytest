@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Bss Title Ids</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bss title</th>
+      <th>Episode</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bss_title_ids.each do |bss_title_id| %>
+      <tr>
+        <td><%= bss_title_id.bss_title_id %></td>
+        <td><%= bss_title_id.episode_id %></td>
+        <td><%= link_to 'Show', bss_title_id %></td>
+        <td><%= link_to 'Edit', edit_bss_title_id_path(bss_title_id) %></td>
+        <td><%= link_to 'Destroy', bss_title_id, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bss title', new_bss_title_id_path %>
