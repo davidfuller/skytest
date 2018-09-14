@@ -11,14 +11,22 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :source %>
+
   <div class="field">
-    <%= f.label :bss_title_id %><br>
-    <%= f.text_field :bss_title_id %>
+    <%= f.label :bss_title_id, "BSS Title ID" class: 'title-episode-bold' %><br>
+    <%= f.text_field :bss_title_id, :autofocus => true, :class => "form-control field-full" %>
   </div>
-  <div class="field">
-    <%= f.label :episode_id %><br>
-    <%= f.number_field :episode_id %>
-  </div>
+
+  <% if @bss_title_id.source == 'episode_show'%>
+  	<%= f.hidden_field :episode_id %>
+  <% else %>
+    <div class="field">
+      <%= f.label :episode_id %><br>
+      <%= f.number_field :episode_id %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
