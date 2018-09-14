@@ -19,6 +19,7 @@ class BssTitleIdsController < ApplicationController
 
   # GET /bss_title_ids/1/edit
   def edit
+    @bss_title_id.source = params[:source]
   end
 
   # POST /bss_title_ids
