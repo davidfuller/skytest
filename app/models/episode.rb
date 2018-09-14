@@ -1,5 +1,7 @@
 class Episode < ActiveRecord::Base
   belongs_to :title
+
+  has_many :bss_title_ids, dependent: :destroy
   
   default_scope { order(:int_season).order(:int_episode).order(:int_year) }
   
