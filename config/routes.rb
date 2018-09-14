@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bss_title_ids
+  resources :bss_tilte_ids
   get 'home' => 'home#index'
 
   resources :homes

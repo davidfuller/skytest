@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180824155656) do
+ActiveRecord::Schema.define(version: 20180914160028) do
+
+  create_table "bss_tilte_ids", force: :cascade do |t|
+    t.string   "bss_title_id", limit: 255
+    t.integer  "episode_id",   limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "bss_title_ids", force: :cascade do |t|
+    t.string   "bss_title_id", limit: 255
+    t.integer  "episode_id",   limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "episodes", force: :cascade do |t|
     t.string   "year",          limit: 255
