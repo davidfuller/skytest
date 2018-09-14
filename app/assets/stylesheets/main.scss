@@ -3,6 +3,7 @@ $light-blue: #D7E4EC;
 $light-grey: #a9a9a9;
 $bootstrap-blue: #337ab7;
 $bootstrap-dark-blue: #224f77;
+$light-red: #ffacac;
 
 .navbar {
     background-color: $light-blue;
@@ -34,7 +35,9 @@ body
 .title-episode-bold{
     color: $bootstrap-dark-blue;
     padding-left: 7px;
-    padding-top: 10px;
+    padding-right: 7px;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 .title-normal{
     padding-left: 7px;
@@ -62,3 +65,49 @@ input.field-full{
     margin-right: 0px;
     width: 70% !important;
 }
+.field_with_errors {
+    padding: 5px;
+    background-color: $light-red;
+    
+    label {
+        width: 20%;
+        padding: 7px;
+        background-color: $light-red
+    }
+    input{
+        width: 90% !important;
+     }
+
+  }
+  
+  #error_explanation {
+    width: 100%;
+    border: 2px solid $bootstrap-dark-blue;
+    padding: 7px;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    color: #fff;
+  
+    h2 {
+      text-align: left;
+      font-weight: bold;
+      padding: 5px 5px 5px 15px;
+      font-size: 14px;
+      margin: -7px;
+      margin-bottom: 0px;
+      background-color: $bootstrap-dark-blue;
+      color: #fff;
+    }
+  
+    ul li {
+      font-size: 14px;
+      font-weight: bold;
+      list-style: none;
+      color: $bootstrap-dark-blue;
+      padding-top: 5px;
+    }
+
+       
+  }
+  

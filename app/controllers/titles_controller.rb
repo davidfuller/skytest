@@ -5,6 +5,7 @@ class TitlesController < ApplicationController
   # GET /titles.json
   def index
     @titles = Title.search(params[:search], params[:page])
+    #ßrender :xml => @titles
   end
 
   # GET /titles/1
@@ -32,7 +33,7 @@ class TitlesController < ApplicationController
   # POST /titles.json
   def create
     @title = Title.new(title_params)
-
+    
     respond_to do |format|
       if @title.save
         format.html { redirect_to titles_url, notice: 'Title was successfully created.' }

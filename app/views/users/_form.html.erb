@@ -1,8 +1,7 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, :html => { class: 'form-group'}) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,14 +10,18 @@
     </div>
   <% end %>
 
+  <p>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name, class: 'title-episode-bold'%>
+    <%= f.text_field :name, :autofocus => true, :class => "form-control field-full" %>
   </div>
+  </p>
+  <p>
   <div class="field">
-    <%= f.label :role %><br>
-    <%= f.text_field :role %>
+    <%= f.label :role, class: 'title-episode-bold' %>
+    <%= f.text_field :role, :class => "form-control field-full" %>
   </div>
+  </p>
   <div class="actions">
     <%= f.submit %>
   </div>
