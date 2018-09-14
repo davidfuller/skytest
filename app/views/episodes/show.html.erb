@@ -7,28 +7,49 @@
   <%= @episode.title.title unless @episode.title.nil? %>
 </p>
 
-<p>
-  <label>Episode Title</label>
-  <%= @episode.episode_title %>
-</p>
+<table class="table">
+  <thead class='title-episode-bold'>
+    <tr>
+        <th>Episode title</th>
+        <th>Season</th>
+        <th>Episode</th>
+        <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @episode.episode_title %></td>
+      <td><%= @episode.season %></td>
+      <td><%= @episode.episode %></td>
+      <td><%= @episode.year %></td>
+    </tr>
+  </tbody>
+
+
+<p class='title-episode-bold'><b><%= pluralize(@episode.bss_title_ids.count, 'BSS Title ID')%></b></p>
+<table class="table">
+    <thead class='title-episode-bold'>
+        <tr>
+            <th>BSS Title ID</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @episode.bss_title_ids.each do |bss| %>
+            <tr>
+                <td><b><%= link_to bss.bss_title_id, edit_bss_title_id_path(bss, source: :episode_show) %></b></td>
+                <td><%= link_to 'Show', bss %></td>
+                <td><%= link_to 'Edit', edit_bss_title_id_path(bss, source: :episode_show) %></td>
+                <td><%= link_to 'Destroy', bss_title_id_path(bss, source: :episode_show), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
 
 <p>
-  <label>Season</label>
-  <%= @episode.season %>
+        <%= link_to 'Add a BSS Title ID', action: :add_bss_title_id, id: @episode, source: :episode_show %>
 </p>
-
-<p>
-  <label>Episode</label>
-  <%= @episode.episode %>
-</p>
-
-<p>
-  <label>Year</label>
-  <%= @episode.year %>
-</p>
-
-
-
 
 <%= link_to 'Edit', edit_episode_path(@episode) %> |
 <%= link_to 'Back', episodes_path %>
