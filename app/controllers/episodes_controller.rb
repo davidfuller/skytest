@@ -81,6 +81,21 @@ class EpisodesController < ApplicationController
     end
   end
 
+  #=================================
+  # Muvi2 Additions
+  #=================================
+  
+  # add_bss_title_id 
+  def add_bss_title_id
+  	@episode = Episode.find(params[:id])
+  	@bss_title_id = @episode.bss_title_ids.create(bss_title_id: "")
+  	@bss_title_id.source = params[:source]
+  	respond_to do |format|
+	  	format.html {redirect_to edit_bss_title_id_path(@bss_title_id, :source => params[:source]), notice: 'Add BSS Title ID details'}
+	  	format.json {render :show, status: :created, location: @episode}
+  	end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_episode

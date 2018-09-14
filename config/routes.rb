@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   		get 'add_episode'
   	end
   end
+
+  resources :episodes do
+  	member do
+  		get 'add_bss_title_id'
+  	end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
