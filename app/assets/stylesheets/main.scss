@@ -3,6 +3,7 @@ $light-blue: #D7E4EC;
 $light-grey: #e6e6e6;
 $bootstrap-blue: #337ab7;
 $bootstrap-dark-blue: #224f77;
+$bootstrap-light-blue: #d7e6f4;
 $light-red: #ffacac;
 
 .navbar {
@@ -29,7 +30,7 @@ body
     padding: 10px;
     border-radius: 3px;
     border-width: 1px;
-    border-color: $bootstrap-blue;
+    border-color: $bootstrap-light-blue;
     border-style: solid;
 }
 .title-episode-bold{
