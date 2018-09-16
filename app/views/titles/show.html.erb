@@ -30,7 +30,7 @@
     <tbody>
         <% @episode_list.each do |episode| %>
             <tr>
-                <td><b><%= link_to episode.episode_title, edit_episode_path(episode, source: :title_show, season_choice: params[:season_choice]) %></b></td>
+                <td><b><%= link_to episode.episode_title, episode %></b></td>
                 <td><%= episode.season %></td>
                 <td><%= episode.episode %></td>
                 <td><%= episode.year %></td>
@@ -48,7 +48,7 @@
 </p>
 
 <%= link_to 'Edit Title', edit_title_path(@title) %> |
-<%= link_to 'Back', titles_path %>
+<%= link_to 'Back', :back %>
 
     
     
