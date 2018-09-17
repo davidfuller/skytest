@@ -29,8 +29,6 @@ body
     padding-top: 70px;
     background-color: $light-grey;
 }
-.table-no-border {
-}
 
 .title-episode-info {
   background-color: white;
@@ -80,7 +78,8 @@ input.field-full{
   width: 25%;
 }
 .drop-down-normal{
-  width: 25px;
+  width: 25%;
+  min-width: 100px;
 }
 
 .field-title-search{
