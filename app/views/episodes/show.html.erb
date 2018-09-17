@@ -11,17 +11,17 @@
   <label class='title-episode-bold-condensed'>Episode Title</label>
   <%= @episode.episode_title %>
 
-  <% if @episode.season %>
+  <% if @episode.season.present? %>
     <label class='title-episode-bold-condensed'>Season</label>
     <%= @episode.season %>
   <% end %>
 
-  <% if @episode.episode %>  
+  <% if @episode.episode.present? %>  
     <label class='title-episode-bold-condensed'>Episode</label>
     <%= @episode.episode %>
   <% end %>
 
-  <% if @episode.year %>
+  <% if @episode.year.present? %>
     <label class='title-episode-bold-condensed'>Year</label>
     <%= @episode.year %>
   <% end %>

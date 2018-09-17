@@ -22,7 +22,7 @@ class Episode < ActiveRecord::Base
     description = episode_title
     
     if int_year > 0
-      description = description + ' (' + format('04d', int_year)
+      description = description + ' (' + format('%04d', int_year) + ')'
     end
     if int_season > 0 && int_episode > 0
       description = description + ' ' + season_episode
