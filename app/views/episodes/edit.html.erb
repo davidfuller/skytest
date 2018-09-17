@@ -1,7 +1,16 @@
 <% if @episode.title.title %>
-    <h3><%='Editing Episode of ' + @episode.title.title %></h3>
+  <% content_for(:title) do%>
+    <%= 'Editing Episode : ' + @episode.title.title + ': Sky Clarity Media Management'
+  <% end %>
+  <p>
+    <div class='title-episode-bold'><b>Editing Episode</b></div>
+    <div class='title-normal'><%= @episode.title.title %></div>
+  </p>
 <% else %>
-    <h3>Editing Episode</h3>
+  <% content_for(:title) do%>
+    Editing Episode: Sky Clarity Media Management
+  <% end %>
+  <div class='title-episode-bold'><b>Editing Episode</b></div>
 <% end %>
 
 

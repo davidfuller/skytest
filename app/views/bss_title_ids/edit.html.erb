@@ -1,4 +1,7 @@
 <% if @bss_title_id.episode.title.title && @bss_title_id.episode.episode_title %>
+  <% content_for(:title) do%>
+    <%= 'Editing BSS Title ID: ' + @bss_title_id.episode.title.title + ': Sky Clarity Media Management'
+  <% end %>
   <p>
     <div class='title-episode-bold'><b>Editing BSS Title ID</b></div>
     <div class='title-normal'><%= @bss_title_id.episode.title.title %></div>
@@ -9,6 +12,9 @@
     <%= @bss_title_id.episode.episode_description %>
   </p>
 <% else %>
+  <% content_for(:title) do%>
+    Editing BSS Title ID: Sky Clarity Media Management
+  <% end %>
   <div class='title-episode-bold'><b>Editing BSS Title ID</b></div>
 <% end %>
 

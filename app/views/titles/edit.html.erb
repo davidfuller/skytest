@@ -1,4 +1,8 @@
-<h3 class="title-episode-bold">Editing Title</h3>
+<% content_for(:title) do%>
+	<%= 'Editing Title : ' + @title.title + ': Sky Clarity Media Management'
+<% end %>
+
+<div class='title-episode-bold'><b>Editing Title</b></div>
 <%= render 'form' %>
 
 <%= link_to 'Show', @title %> |
