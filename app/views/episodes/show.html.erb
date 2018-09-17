@@ -42,8 +42,7 @@
             <% @episode.bss_title_ids.each do |bss| %>
                 <tr>
                     <td><b><%= link_to bss.bss_title_id, edit_bss_title_id_path(bss, source: :episode_show) %></b></td>
-                    <td><%= link_to 'Edit', edit_bss_title_id_path(bss, source: :episode_show) %></td>
-                    <td><%= link_to 'Destroy', bss_title_id_path(bss, source: :episode_show), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td class='table-links'><%= link_to 'Edit', edit_bss_title_id_path(bss, source: :episode_show) %> <%= link_to 'Destroy', bss_title_id_path(bss, source: :episode_show), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
             <% end %>
         </tbody>
