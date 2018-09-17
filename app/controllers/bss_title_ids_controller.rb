@@ -69,7 +69,7 @@ class BssTitleIdsController < ApplicationController
     respond_to do |format|
       format.html { 
                     if episode && params[:source] == 'episode_show'
-                      redirect_to title_path(@bss_title_id.episode.title), notice: 'BSS Title ID: ' + @bss_title_id.bss_title_id + ' was successfully updated.' 
+                      redirect_to title_path(@bss_title_id.episode.title), notice: 'BSS Title ID: ' + @bss_title_id.bss_title_id + ' was successfully deleted.' 
                     else
                       redirect_to bss_title_ids_url, notice: 'BSS Title ID was successfully destroyed.' 
                     end
