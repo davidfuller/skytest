@@ -1,7 +1,15 @@
 <% if @bss_title_id.episode.title.title && @bss_title_id.episode.episode_title %>
-    <h3><%='Editing BSS Title ID of ' + @bss_title_id.episode.title.title + ' Episode: ' + @bss_title_id.episode.season_episode + ' ' + @bss_title_id.episode.episode_title %></h3>
+  <p>
+    <div class='title-episode-bold'><b>Editing BSS Title ID</b></div>
+    <div class='title-normal'><%= @bss_title_id.episode.title.title %></div>
+  </p>
+
+  <p>
+    <label class='title-episode-bold-condensed'>Episode</label>
+    <%= @bss_title_id.episode.season_episode + ' ' + @bss_title_id.episode.episode_title %> %>
+  </p>
 <% else %>
-    <h3>Editing BSS Title ID</h3>
+  <div class='title-episode-bold'><b>Editing BSS Title ID</b></div>
 <% end %>
 
 <%= render 'form' %>
