@@ -20,16 +20,14 @@
     <thead>
         <tr>
             <th class="title-episode-bold">Title</th>
-            <th colspan="3"></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <% @titles.each do |title| %>
             <tr>
                 <td><b><%= link_to title.title, title %></b></td>
-                <td><%= link_to 'Show', title %></td>
-                <td><%= link_to 'Edit', edit_title_path(title) %></td>
-                <td><%= link_to 'Destroy', title, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td class='table-links'><%= link_to 'Show', title %> <td><%= link_to 'Edit', edit_title_path(title) %> <%= link_to 'Destroy', title, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
     </tbody>
