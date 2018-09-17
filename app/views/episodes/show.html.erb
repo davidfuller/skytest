@@ -7,16 +7,17 @@
   <%= @episode.title.title unless @episode.title.nil? %>
 </p>
 
+<div class='title-episode-bold'>
+  <b>Episode Title</b>
+  <%= @episode.episode_title %>
+  <b>Season</b>
+  <%= @episode.season %>
+  <b>Episode</b>
+  <%= @episode.episode %>
+  <b>Year</b>
+  <%= @episode.year %>
+</div>      
 
-<div class='title-episode-bold'>Episode Title</td>
-<%= @episode.episode_title %>
-<div class='title-episode-bold'>Season</div>
-<%= @episode.season %>
-<div class='title-episode-bold'>Episode</div>
-<%= @episode.episode %>
-<div class='title-episode-bold'>Year</div>
-<%= @episode.year %>
-      
 <div class="table-responsive" >
   <table class="table">
       <thead class='title-episode-bold'>
