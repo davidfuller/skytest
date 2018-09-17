@@ -48,6 +48,9 @@ body
   th {
     min-width: 100px;
   }
+  thead {
+    max-width: 500px;
+  }
 }
 .title-episode-bold-condensed {
   color: $bootstrap-dark-blue;
