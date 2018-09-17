@@ -38,9 +38,13 @@
                     <td><b><%= link_to episode.episode_title, episode %></b></td>
                     <td><%= episode.season_episode_year %></td>
                     <td>
-                      <% episode.bss_title_ids.each do |bss| %>
-                        <tr><td><%= bss.bss_title_id %></td></tr>
-                      <% end %>
+                      <table>
+                        <tbody>
+                          <% episode.bss_title_ids.each do |bss| %>
+                            <tr><td><%= bss.bss_title_id %></td></tr>
+                          <% end %>
+                        </tbody>
+                      </table>
                     </td>
 
                     <td class='table-links'><%= link_to 'Show', episode %> <%= link_to 'Edit', edit_episode_path(episode, source: :title_show, season_choice: params[:season_choice]) %> 
