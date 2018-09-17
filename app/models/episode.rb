@@ -28,4 +28,5 @@ class Episode < ActiveRecord::Base
       description = description + ' ' + season_episode
     end
     description
+  end
 end
