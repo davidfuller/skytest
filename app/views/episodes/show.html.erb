@@ -27,7 +27,7 @@
     <table class="table">
         <thead class='title-episode-bold'>
             <tr>
-                <th class='col-xs-1'>BSS Title ID</th>
+                <th>BSS Title ID</th>
                 <th colspan = '2'></th>
             </tr>
         </thead>
@@ -38,7 +38,6 @@
                     <td><b><%= link_to bss.bss_title_id, edit_bss_title_id_path(bss, source: :episode_show) %></b></td>
                     <td><%= link_to 'Edit', edit_bss_title_id_path(bss, source: :episode_show) %></td>
                     <td><%= link_to 'Destroy', bss_title_id_path(bss, source: :episode_show), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                    <td></td>
                 </tr>
             <% end %>
         </tbody>
