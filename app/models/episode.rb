@@ -19,7 +19,7 @@ class Episode < ActiveRecord::Base
   end
 
   def episode_description
-    description = episode_title + season_episode_year
+    description = episode_title + ' ' + season_episode_year
     description.squish
   end
 
