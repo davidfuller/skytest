@@ -7,28 +7,28 @@
   <%= @episode.title.title unless @episode.title.nil? %>
 </p>
 
-<table class="table">
-  <tbody>
-    <tr>
-      <td class='title-episode-bold'>Episode Title</td>
-      <td><%= @episode.episode_title %></td>
-    </tr>
-    <tr>
-      <td class='title-episode-bold'>Season</td>
-      <td><%= @episode.season %></td>
-    </tr>
-    <tr>
-      <td class='title-episode-bold'>Episode</td>
-      <td><%= @episode.episode %></td>
-    </tr>
-    <tr>
-      <td class='title-episode-bold'>Year</td>
-      <td><%= @episode.year %></td>
-    </tr>
-  </tbody>
-</table>
+<div class="col-xs-4 table-responsive" >
+  <table class="table">
+    <tbody class='table-no-border'>
+      <tr>
+        <td class='title-episode-bold'>Episode Title</td>
+        <td><%= @episode.episode_title %></td>
+      </tr>
+      <tr>
+        <td class='title-episode-bold'>Season</td>
+        <td><%= @episode.season %></td>
+      </tr>
+      <tr>
+        <td class='title-episode-bold'>Episode</td>
+        <td><%= @episode.episode %></td>
+      </tr>
+      <tr>
+        <td class='title-episode-bold'>Year</td>
+        <td><%= @episode.year %></td>
+      </tr>
+    </tbody>
+  </table>
 
-<div class="col-xs-4"></div>
   <p class='title-episode-bold'><b><%= pluralize(@episode.bss_title_ids.count, 'BSS Title ID')%></b></p>
   <table class="table">
       <thead class='title-episode-bold'>

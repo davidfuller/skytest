@@ -29,14 +29,17 @@ body
     padding-top: 70px;
     background-color: $light-grey;
 }
+.table-no-border tr{
+  border: 0!important;
+}
 
 .title-episode-info {
-    background-color: white;
-    padding: 10px;
-    border-radius: 3px;
-    border-width: 1px;
-    border-color: $bootstrap-light-blue;
-    border-style: solid;
+  background-color: white;
+  padding: 10px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: $bootstrap-light-blue;
+  border-style: solid;
 }
 .title-episode-bold{
     color: $bootstrap-dark-blue;
