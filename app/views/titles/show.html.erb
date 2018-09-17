@@ -37,7 +37,12 @@
                 <tr>
                     <td><b><%= link_to episode.episode_title, episode %></b></td>
                     <td><%= episode.season_episode_year %></td>
-                    <td><%= episode.bss_title_ids.count %></td>
+                    <td>
+                      <% episode.bss_title_ids.each do |bss| %>
+                        <td><%= bss.bss_title_id %></td>
+                      <% end %>
+                    </td>
+
                     <td class='table-links'><%= link_to 'Show', episode %> <%= link_to 'Edit', edit_episode_path(episode, source: :title_show, season_choice: params[:season_choice]) %> 
                     <%= link_to 'Destroy', episode_path(episode, source: :title_show, season_choice: params[:season_choice]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
