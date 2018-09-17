@@ -23,11 +23,9 @@
                 <th class='col-xs-4'>Episode title</th>
                  <span class='col-xs-2'>
                   <span>
-                    <th class='table-links'>Season</th>
-                    <th>Episode</th>
-                    <th>Year</th>
-                    <th class='table-links'>BSS Title IDs</th>
-                    <th>Links</th>
+                    <th>Details</th>
+                    <th>BSS Title IDs</th>
+                    <th></th>
                   </span>
                 </span>
             </tr>
@@ -38,9 +36,7 @@
             <% @episode_list.each do |episode| %>
                 <tr>
                     <td><b><%= link_to episode.episode_title, episode %></b></td>
-                    <td><%= episode.season %></td>
-                    <td><%= episode.episode %></td>
-                    <td><%= episode.year %></td>
+                    <td><%= episode.episode_description %></td>
                     <td><%= episode.bss_title_ids.count %></td>
                     <td><%= link_to 'Show', episode %> <%= link_to 'Edit', edit_episode_path(episode, source: :title_show, season_choice: params[:season_choice]) %> 
                     <%= link_to 'Destroy', episode_path(episode, source: :title_show, season_choice: params[:season_choice]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
