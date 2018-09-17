@@ -9,8 +9,12 @@
 
 <div class="table-responsive" >
   <table class="table">
+    <thead>
+      <th class='col-xs-1'></th>
+      <th class='col-xs-1'></th>
+    </thead>
     <tbody>
-      <tr class='table-no-border'>
+      <tr>
         <td class='title-episode-bold'>Episode Title</td>
         <td><%= @episode.episode_title %></td>
       </tr>
@@ -29,12 +33,13 @@
     </tbody>
   </table>
 
-  <p class='title-episode-bold'><b><%= pluralize(@episode.bss_title_ids.count, 'BSS Title ID')%></b></p>
+  <p class='title-episode-bold'><%= pluralize(@episode.bss_title_ids.count, 'BSS Title ID')%></p>
   <table class="table">
       <thead class='title-episode-bold'>
           <tr>
               <th class='col-xs-1'>BSS Title ID</th>
-              <th colspan="2" class='col-xs-1'></th>
+              <th class='col-xs-1'></th>
+              <th class='col-xs-1'></th>
           </tr>
       </thead>
 
