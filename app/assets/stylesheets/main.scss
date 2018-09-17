@@ -44,6 +44,10 @@ body
   padding-right: 7px;
   padding-top: 7px;
   padding-bottom: 7px;
+
+  th {
+    min-width: 200px;
+  }
 }
 .title-episode-bold-condensed {
   color: $bootstrap-dark-blue;
