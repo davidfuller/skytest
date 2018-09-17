@@ -47,7 +47,7 @@ class BssTitleIdsController < ApplicationController
         @bss_title_id.source = bss_title_id[:source]
         format.html { 
         							if @bss_title_id.source == 'episode_show'
-        								redirect_to episode_path(@bss_title_id.episde, notice: 'BSS Title ID: ' + @bss_title_id.bss_title_id + ' was successfully updated.' 
+        								redirect_to episode_path(@bss_title_id.episde), notice: 'BSS Title ID: ' + @bss_title_id.bss_title_id + ' was successfully updated.' 
         							else
 	        							redirect_to @bss_title_id, notice: 'BSS Title ID was successfully updated.'
 	        						end
