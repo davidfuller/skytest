@@ -7,39 +7,24 @@
   <%= @episode.title.title unless @episode.title.nil? %>
 </p>
 
-<div class="table-responsive" >
-  <table class="table">
-    <thead>
-      <th class='col-xs-1'></th>
-      <th class='col-xs-1'></th>
-    </thead>
-    <tbody>
-      <tr>
-        <td class='title-episode-bold'>Episode Title</td>
-        <td><%= @episode.episode_title %></td>
-      </tr>
-      <tr class='table-no-border'>
-        <td class='title-episode-bold'>Season</td>
-        <td><%= @episode.season %></td>
-      </tr>
-      <tr class='table-no-border'>
-        <td class='title-episode-bold'>Episode</td>
-        <td><%= @episode.episode %></td>
-      </tr>
-      <tr class='table-no-border'>
-        <td class='title-episode-bold'>Year</td>
-        <td><%= @episode.year %></td>
-      </tr>
-    </tbody>
-  </table>
 
-  <p class='title-episode-bold'><%= pluralize(@episode.bss_title_ids.count, 'BSS Title ID')%></p>
+<div class='title-episode-bold'>Episode Title</td>
+<%= @episode.episode_title %>
+<div class='title-episode-bold'>Season</div>
+<%= @episode.season %>
+<div class='title-episode-bold'>Episode</div>
+<%= @episode.episode %>
+<div class='title-episode-bold'>Year</div>
+<%= @episode.year %>
+      
+<div class="table-responsive" >
   <table class="table">
       <thead class='title-episode-bold'>
           <tr>
               <th class='col-xs-1'>BSS Title ID</th>
               <th class='col-xs-1'></th>
               <th class='col-xs-1'></th>
+              <th class='col-xs-9'></th>
           </tr>
       </thead>
 
@@ -49,15 +34,16 @@
                   <td><b><%= link_to bss.bss_title_id, edit_bss_title_id_path(bss, source: :episode_show) %></b></td>
                   <td><%= link_to 'Edit', edit_bss_title_id_path(bss, source: :episode_show) %></td>
                   <td><%= link_to 'Destroy', bss_title_id_path(bss, source: :episode_show), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td></td>
               </tr>
           <% end %>
       </tbody>
   </table>
-
-  <p>
-          <%= link_to 'Add a BSS Title ID', action: :add_bss_title_id, id: @episode, source: :episode_show %>
-  </p>
 </div>
+<p>
+  <%= link_to 'Add a BSS Title ID', action: :add_bss_title_id, id: @episode, source: :episode_show %>
+</p>
+
 
 <%= link_to 'Edit', edit_episode_path(@episode) %> |
 <%= link_to 'Back', episodes_path %>
