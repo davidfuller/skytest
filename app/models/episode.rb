@@ -17,5 +17,15 @@ class Episode < ActiveRecord::Base
   def season_episode
     'S' + format('%02d', int_season) + 'E' + format('%02d', int_episode)
   end
-      
+
+  def episode_description
+    description = episode_title
+    
+    if int_year > 0
+      description = description + ' (' + format('04d', int_year)
+    end
+    if int_season > 0 && int_episode > 0
+      description = description + ' ' + season_episode
+    end
+    description
 end

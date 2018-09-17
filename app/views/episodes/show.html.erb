@@ -11,14 +11,20 @@
   <label class='title-episode-bold-condensed'>Episode Title</label>
   <%= @episode.episode_title %>
 
-  <label class='title-episode-bold-condensed'>Season</label>
-  <%= @episode.season %>
+  <% if @episode.season %>
+    <label class='title-episode-bold-condensed'>Season</label>
+    <%= @episode.season %>
+  <% end %>
 
-  <label class='title-episode-bold-condensed'>Episode</label>
-  <%= @episode.episode %>
+  <% if @episode.episode %>  
+    <label class='title-episode-bold-condensed'>Episode</label>
+    <%= @episode.episode %>
+  <% end %>
 
-  <label class='title-episode-bold-condensed'>Year</label>
-  <%= @episode.year %>
+  <% if @episode.year %>
+    <label class='title-episode-bold-condensed'>Year</label>
+    <%= @episode.year %>
+  <% end %>
 </p>
 
 
