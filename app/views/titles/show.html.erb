@@ -15,8 +15,7 @@
 </p>
 
 <p class='title-episode-bold'><b><%= pluralize(@episode_list.count, 'Episode')%></b></p>
-<div class='row'>
-  <div class='col-xs-12'>
+
     <table class="table">
         <thead>
             <tr class='title-episode-bold'>
@@ -46,8 +45,6 @@
             <% end %>
         </tbody>
     </table>
-  </div>
-</div>
 
 <p>
    <%= link_to 'Add an Episode', action: :add_episode, id: @title, source: :title_show %>
