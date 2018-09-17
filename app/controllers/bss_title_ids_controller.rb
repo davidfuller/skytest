@@ -43,7 +43,15 @@ class BssTitleIdsController < ApplicationController
   def update
     respond_to do |format|
       if @bss_title_id.update(bss_title_id_params)
-        format.html { redirect_to @bss_title_id, notice: 'Bss title was successfully updated.' }
+
+        @bss_title_id.source = bss_title_id[:source]
+        format.html { 
+        							if @bss_title_id.source == 'episode_show'
+        								redirect_to episode_path(@bss_title_id.episde, notice: 'BSS Title ID: ' + @bss_title_id.bss_title_id + ' was successfully updated.' 
+        							else
+	        							redirect_to @bss_title_id, notice: 'BSS Title ID was successfully updated.'
+	        						end
+	        					}
         format.json { render :show, status: :ok, location: @bss_title_id }
       else
         format.html { render :edit }
