@@ -64,9 +64,16 @@ class BssTitleIdsController < ApplicationController
   # DELETE /bss_title_ids/1
   # DELETE /bss_title_ids/1.json
   def destroy
+    episode = @bss_title_id.episode
     @bss_title_id.destroy
     respond_to do |format|
-      format.html { redirect_to bss_title_ids_url, notice: 'Bss title was successfully destroyed.' }
+      format.html { 
+                    if episode && params[:source] == 'episode_show'
+                      redirect_to title_path(@bss_title_id.episode.title), notice: 'BSS Title ID: ' + @bss_title_id.bss_title_id + ' was successfully updated.' 
+                    else
+                      redirect_to bss_title_ids_url, notice: 'BSS Title ID was successfully destroyed.' 
+                    end
+                  }
       format.json { head :no_content }
     end
   end
