@@ -28,8 +28,6 @@
                     <th>Year</th>
                     <th class='table-links'>BSS Title IDs</th>
                     <th>Links</th>
-                    <th>Links</th>
-                    <th>Links</th>
                   </span>
                 </span>
             </tr>
@@ -44,9 +42,8 @@
                     <td><%= episode.episode %></td>
                     <td><%= episode.year %></td>
                     <td><%= episode.bss_title_ids.count %></td>
-                    <td><%= link_to 'Show', episode %></td>
-                    <td><%= link_to 'Edit', edit_episode_path(episode, source: :title_show, season_choice: params[:season_choice]) %></td>
-                    <td><%= link_to 'Destroy', episode_path(episode, source: :title_show, season_choice: params[:season_choice]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td><%= link_to 'Show', episode %><%= link_to 'Edit', edit_episode_path(episode, source: :title_show, season_choice: params[:season_choice]) %>
+                    <%= link_to 'Destroy', episode_path(episode, source: :title_show, season_choice: params[:season_choice]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
             <% end %>
           </div>
