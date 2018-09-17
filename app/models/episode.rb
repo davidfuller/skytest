@@ -15,7 +15,7 @@ class Episode < ActiveRecord::Base
   end
 
   def season_episode
-    'S' + format('%2d', int_year) + 'E' + format('%2d', int_episode)
+    'S' + format('%02d', int_season) + 'E' + format('%02d', int_episode)
   end
       
 end
