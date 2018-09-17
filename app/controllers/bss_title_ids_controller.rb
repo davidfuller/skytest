@@ -78,6 +78,6 @@ class BssTitleIdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bss_title_id_params
-      params.require(:bss_title_id).permit(:bss_title_id, :episode_id)
+      params.require(:bss_title_id).permit(:bss_title_id, :episode_id, :source)
     end
 end
