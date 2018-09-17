@@ -3,17 +3,19 @@
 <% end %>
 
 <p>
-  <label class='title-episode-bold-condensed'>Title</label>
-  <%= @episode.title.title unless @episode.title.nil? %><br/>
+  <div class='title-episode-bold'><b>Title</b></div>
+  <div class='title-normal'><%= @episode.title.title unless @episode.title.nil? %></div>
+</p>
 
+<p>
   <label class='title-episode-bold-condensed'>Episode Title</label>
-  <%= @episode.episode_title %><br/>
+  <%= @episode.episode_title %>
 
   <label class='title-episode-bold-condensed'>Season</label>
-  <%= @episode.season %><br/>
+  <%= @episode.season %>
 
   <label class='title-episode-bold-condensed'>Episode</label>
-  <%= @episode.episode %><br/>
+  <%= @episode.episode %>
 
   <label class='title-episode-bold-condensed'>Year</label>
   <%= @episode.year %>
@@ -26,7 +28,7 @@
       <thead class='title-episode-bold'>
           <tr>
               <th class='col-xs-1'>BSS Title ID</th>
-              <th></th>
+              <th colspan = '2'></th>
           </tr>
       </thead>
 
@@ -42,7 +44,7 @@
       </tbody>
   </table>
 </div>
-<div class='col-xs-10'></div>
+<div class='col-xs-10'>Mum</div>
 
 <br/>
 <p>
