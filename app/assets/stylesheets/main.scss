@@ -45,6 +45,10 @@ body
   padding-top: 7px;
   padding-bottom: 7px;
 
+  th {
+    min-width: 100px;
+  }
+  
 }
 .title-episode-bold-condensed {
   color: $bootstrap-dark-blue;
@@ -135,6 +139,6 @@ input.field-full{
   }
 
 .table-links {
-  width: 5em;
+  min-width: 50em;
   color: red;
 }
