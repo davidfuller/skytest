@@ -27,7 +27,7 @@
         <% @titles.each do |title| %>
             <tr>
                 <td><b><%= link_to title.title, title %></b></td>
-                <td class='table-links'><%= link_to 'Show', title %> <td><%= link_to 'Edit', edit_title_path(title) %> <%= link_to 'Destroy', title, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td class='table-links'><%= link_to 'Show', title %> <%= link_to 'Edit', edit_title_path(title) %> <%= link_to 'Destroy', title, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
     </tbody>
