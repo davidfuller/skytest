@@ -8,49 +8,52 @@
 </p>
 
 <table class="table">
-  <thead class='title-episode-bold'>
-    <tr>
-        <th>Episode title</th>
-        <th>Season</th>
-        <th>Episode</th>
-        <th>Year</th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
+      <td class='title-episode-bold'>Episode Title</td>
       <td><%= @episode.episode_title %></td>
+    </tr>
+    <tr>
+      <td class='title-episode-bold'>Season</td>
       <td><%= @episode.season %></td>
+    </tr>
+    <tr>
+      <td class='title-episode-bold'>Episode</td>
       <td><%= @episode.episode %></td>
+    </tr>
+    <tr>
+      <td class='title-episode-bold'>Year</td>
       <td><%= @episode.year %></td>
     </tr>
   </tbody>
 </table>
 
+<div class="col-xs-4"></div>
+  <p class='title-episode-bold'><b><%= pluralize(@episode.bss_title_ids.count, 'BSS Title ID')%></b></p>
+  <table class="table">
+      <thead class='title-episode-bold'>
+          <tr>
+              <th>BSS Title ID</th>
+              <th colspan="3"></th>
+          </tr>
+      </thead>
 
-<p class='title-episode-bold'><b><%= pluralize(@episode.bss_title_ids.count, 'BSS Title ID')%></b></p>
-<table class="table">
-    <thead class='title-episode-bold'>
-        <tr>
-            <th>BSS Title ID</th>
-            <th colspan="3"></th>
-        </tr>
-    </thead>
+      <tbody>
+          <% @episode.bss_title_ids.each do |bss| %>
+              <tr>
+                  <td><b><%= link_to bss.bss_title_id, edit_bss_title_id_path(bss, source: :episode_show) %></b></td>
+                  <td><%= link_to 'Show', bss %></td>
+                  <td><%= link_to 'Edit', edit_bss_title_id_path(bss, source: :episode_show) %></td>
+                  <td><%= link_to 'Destroy', bss_title_id_path(bss, source: :episode_show), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+          <% end %>
+      </tbody>
+  </table>
 
-    <tbody>
-        <% @episode.bss_title_ids.each do |bss| %>
-            <tr>
-                <td><b><%= link_to bss.bss_title_id, edit_bss_title_id_path(bss, source: :episode_show) %></b></td>
-                <td><%= link_to 'Show', bss %></td>
-                <td><%= link_to 'Edit', edit_bss_title_id_path(bss, source: :episode_show) %></td>
-                <td><%= link_to 'Destroy', bss_title_id_path(bss, source: :episode_show), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
-
-<p>
-        <%= link_to 'Add a BSS Title ID', action: :add_bss_title_id, id: @episode, source: :episode_show %>
-</p>
+  <p>
+          <%= link_to 'Add a BSS Title ID', action: :add_bss_title_id, id: @episode, source: :episode_show %>
+  </p>
+</div>
 
 <%= link_to 'Edit', edit_episode_path(@episode) %> |
 <%= link_to 'Back', episodes_path %>
