@@ -52,7 +52,7 @@ class Episode < ActiveRecord::Base
       episode_search.each do |ep|
         episode_ids << ep.id
       end
-      where(id: episode_ids).joins(:title).order('title').paginate(page: page)
+      where(id: episode_ids).joins(:title).order('titles.title').paginate(page: page)
     else
       paginate(page: page)
     end
