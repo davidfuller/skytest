@@ -1,7 +1,7 @@
 class Title < ActiveRecord::Base
 
   has_many :episodes, dependent: :destroy
-  has_many :bss_title_ids, through :episodes
+  has_many :bss_title_ids, through: :episodes
 	
 	default_scope { order(:title) }
 	
