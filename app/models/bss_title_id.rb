@@ -26,7 +26,7 @@ class BssTitleId < ActiveRecord::Base
           bss_ids << bss.id
         end
       end
-      find(bss_ids).paginate(page: page)
+      where(id: bss_ids).paginate(page: page)
     else
       paginate(page: page)
     end
