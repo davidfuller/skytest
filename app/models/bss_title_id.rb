@@ -1,7 +1,7 @@
 class BssTitleId < ActiveRecord::Base
 
   belongs_to :episode
-
+ 
   validates_presence_of :bss_title_id
   default_scope { order(:bss_title_id) }
   
