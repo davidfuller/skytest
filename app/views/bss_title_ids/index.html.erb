@@ -1,13 +1,29 @@
-<p id="notice"><%= notice %></p>
+<% content_for(:title) do%>
+	BSS Title IDs: Sky Clarity Media Management
+<% end %>
 
-<h1>Listing Bss Title Ids</h1>
 
-<table>
+<h3 class="title-episode-bold">BSS Title IDs</h3>
+
+<%= form_tag bss_title_ids_path, :method => 'get', :class => 'form-inline' do %>
+    <span class="input-group-btn">
+        <%= text_field_tag :search, params[:search], {:class => 'form-control field-title-search', :placeholder => "Search", :autofocus => true} %>
+        <%= button_tag type: 'submit', :class => 'btn btn-default' do %>
+            <i class='glyphicon glyphicon-search'></i>
+        <% end %>
+        <%= button_tag "Clear", type: :reset, :class => 'btn btn-default' %>
+    </span>
+<% end %>
+
+<%= my_paginate @bss_title_ids %>
+
+<table class='table table-condensed'>
   <thead>
-    <tr>
-      <th>Bss title</th>
+    <tr class='title-episode-bold'>
+      <th>BSS Title ID</th>
+      <th>Title</th>
       <th>Episode</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -15,15 +31,15 @@
     <% @bss_title_ids.each do |bss_title_id| %>
       <tr>
         <td><%= bss_title_id.bss_title_id %></td>
-        <td><%= bss_title_id.episode_id %></td>
-        <td><%= link_to 'Show', bss_title_id %></td>
-        <td><%= link_to 'Edit', edit_bss_title_id_path(bss_title_id) %></td>
-        <td><%= link_to 'Destroy', bss_title_id, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= bss_title_id.episode.title.title unless bss_title_id.episode.nil?||bss_title_id.episode.title.nil? %></td>
+        <td><%= bss_title_id.episode.episode_description unless bss_title_id.episode.nil? %></td>
+        <td class='table-links'><%= link_to 'Show', bss_title_id %> <%= link_to 'Edit', edit_bss_title_id_path(bss_title_id) %> <%= link_to 'Destroy', bss_title_id, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Bss title', new_bss_title_id_path %>
+<%= my_paginate @titles %>
+<p>
+  <%= link_to 'New BSS Title ID', new_bss_title_id_path %>
+</p>
