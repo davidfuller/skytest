@@ -5,7 +5,10 @@ class EpisodesController < ApplicationController
   # GET /episodes.json
   def index
     #@episodes = Episode.all
-    @episodes = Episode.search_title_and_episode(params[:search], params[:page])
+    respond_to do |format|
+      format.html { @episodes = Episode.search_title_and_episode(params[:search], params[:page])}
+      format.json { @episodes = Episode.search_title_and_episode(params[:search], params[:page])}
+    end
   end
 
   # GET /episodes/1
