@@ -7,7 +7,7 @@ class EpisodesController < ApplicationController
     #@episodes = Episode.all
     respond_to do |format|
       format.html { @episodes = Episode.search_title_and_episode(params[:search], params[:page])}
-      format.json { @episodes = Episode.search_title_and_episode(params[:search], params[:page])}
+      format.json { @episodes = Episode.search_title_season_episode_year(params[:title], params[:season], params[:episode], params[:year])}
     end
   end
 
