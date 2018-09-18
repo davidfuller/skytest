@@ -52,9 +52,9 @@ class Episode < ActiveRecord::Base
       episode_search.each do |ep|
         episode_ids << ep.id
       end
-      where(id: episode_ids).joins(:title).reorder('titles.title', :int_season).paginate(page: page)
+      where(id: episode_ids).joins(:title).reorder('titles.title', :int_season, :int_episode, :int_year).paginate(page: page)
     else
-      all.joins(:title).reorder('titles.title', :int_season).paginate(page: page)
+      all.joins(:title).reorder('titles.title', :int_season, :int_episode, :int_year).paginate(page: page)
     end
   end
 end
