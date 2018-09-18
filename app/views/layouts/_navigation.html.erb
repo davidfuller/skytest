@@ -16,9 +16,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Users', users_path%></li>
-        <li><%= link_to 'Titles', titles_path%></li>
-        <li><%= link_to 'BSS Title IDs', bss_title_ids_path%></li>
+        <li><%= link_to 'Titles', titles_path %></li>
+        <li class='dropdown'>
+          <a class='dropdown-toggle' data-toggle='dropdown' href='#'>Other<span class='caret'></span></a>
+          <ul class='dropdown-menu'>
+            <li><%= link_to 'Users', users_path %></li>
+            <li><%= link_to 'Episodes', episodes_path%></li>
+            <li><%= link_to 'BSS Title IDs', bss_title_ids_path%></li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><p class="navbar-text"><%= @page_title || "MuVi2 Sky Clarity Media Management" %></p></li>
