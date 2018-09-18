@@ -7,7 +7,9 @@ class Episode < ActiveRecord::Base
   
   attr_accessor :source
   attr_accessor :season_choice
-    
+  
+  self.per_page = 12
+  
   def self.numericise(ep)
   	ep.int_year = ep.year.to_i
   	ep.int_season = ep.season.to_i

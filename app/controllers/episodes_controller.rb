@@ -4,7 +4,8 @@ class EpisodesController < ApplicationController
   # GET /episodes
   # GET /episodes.json
   def index
-    @episodes = Episode.all
+    #@episodes = Episode.all
+    @episodes = Episode.search_title_and_episode(params[:search], params[:page])
   end
 
   # GET /episodes/1
