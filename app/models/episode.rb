@@ -52,9 +52,9 @@ class Episode < ActiveRecord::Base
       episode_search.each do |ep|
         episode_ids << ep.id
       end
-      where(id: episode_ids).includes(:title).reorder(titles: title:).paginate(page: page)
+      where(id: episode_ids).includes(:title).reorder(titles: {title:}).paginate(page: page)
     else
-      all.includes(:title).reorder(titles: title:).paginate(page: page)
+      all.includes(:title).reorder(titles: {title:}).paginate(page: page)
     end
   end
 end
