@@ -44,13 +44,13 @@ class Episode < ActiveRecord::Base
       episode_ids = []
       titles = Title.where('title LIKE ?', "%#{search}%")
       titles.each do |title|
-        title.episode_ids.each do |episode|
-          episode_ids << episode.id
+        title.episode_ids.each do |ep|
+          episode_ids << ep.id
         end
       end
       episode_search = where('episode_title LIKE ?', "%#{search}%")
-      episode_search.each do |episode|
-        episode_ids << episode.id
+      episode_search.each do |ep|
+        episode_ids << ep.id
       end
       where(id: episode_ids).joins(:title).order('title.title').paginate(page: page)
     else
