@@ -36,4 +36,9 @@ class BssTitleId < ActiveRecord::Base
       paginate(page: page)
     end
   end
+
+  def self.search_bss_title_id(search)
+    where('bss_title_id = ?', search)
+  end
+  
 end
