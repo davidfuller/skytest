@@ -32,14 +32,7 @@
     <%= f.text_field :year, :class => "form-control field-normal" %>
   </div>
   
-  <% if @episode.source == 'title_show'%>
-  	<%= f.hidden_field :title_id %>
-  <% else %>
-		<div class="field">
-			<%= f.label :title_id %><br>
-			<%= f.text_field :title_id %>
-		</div>
-	<% end %>
+  <%= f.hidden_field :title_id %>
   
   <div class="actions">
     <%= f.submit nil, :class => "btn btn-default"%>
