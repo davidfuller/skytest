@@ -36,4 +36,23 @@ class Episode < ActiveRecord::Base
     end
     description.squish
   end
+
+  def self.search_title_and_episode(search, page)
+    if search
+      episode_ids = []
+      titles = Title.where('title LIKE ?', "%#{search}%")
+      titles.each do |title|
+        title.episode_ids.each do |episode|
+          episode_ids << episode.id
+        end
+      end
+      episode_search = where('episode_title LIKE ?', "%#{search}%")
+      episode_search.each do |episode|
+        episode_ids << episode.id
+      end
+      where(id: episode_ids).paginate(page: page)
+    else
+      paginate(page: page)
+    end
+  end
 end

@@ -9,15 +9,15 @@ class BssTitleId < ActiveRecord::Base
 
 	self.per_page = 12
 	
-	def self.search(search, page)
+	def self.search(search)
 		if search
-			where('bss_title_id LIKE ?', "%#{search}%").paginate(page: page)
+			where('bss_title_id LIKE ?', "%#{search}%")
 		else
-			paginate	:page => page
+			all
 		end
   end
   
-  def self.search_title(search,page)
+  def self.search_title_and_bss_id(search, page)
     if search
       bss_ids = []
       titles = Title.where('title LIKE ?', "%#{search}%")
