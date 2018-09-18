@@ -18,15 +18,8 @@
     <%= f.text_field :bss_title_id, :autofocus => true, :class => "form-control field-small" %>
   </div>
 
-  <% if @bss_title_id.source == 'episode_show'%>
-  	<%= f.hidden_field :episode_id %>
-  <% else %>
-    <div class="field">
-      <%= f.label :episode_id %><br>
-      <%= f.number_field :episode_id %>
-    </div>
-  <% end %>
-
+  <%= f.hidden_field :episode_id %>
+  
   <div class="actions">
     <%= f.submit "Update BSS Title ID", :class => "btn btn-default"%>
   </div>

@@ -33,7 +33,7 @@
         <td><%= bss_title_id.bss_title_id %></td>
         <td><%= bss_title_id.episode.title.title unless bss_title_id.episode.nil?||bss_title_id.episode.title.nil? %></td>
         <td><%= bss_title_id.episode.episode_description unless bss_title_id.episode.nil? %></td>
-        <td class='table-links'><%= link_to 'Show', bss_title_id %> <%= link_to 'Edit', edit_bss_title_id_path(bss_title_id) %> <%= link_to 'Destroy', bss_title_id, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='table-links'><%= link_to 'Show', bss_title_id %> <%= link_to 'Edit', edit_bss_title_id_path(bss_title_id, source: :bss_index) %> <%= link_to 'Destroy', bss_title_id, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

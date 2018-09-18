@@ -5,7 +5,6 @@ class TitlesController < ApplicationController
   # GET /titles.json
   def index
     @titles = Title.search(params[:search], params[:page])
-    #ßrender :xml => @titles
   end
 
   # GET /titles/1
