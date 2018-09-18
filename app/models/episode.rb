@@ -61,4 +61,16 @@ class Episode < ActiveRecord::Base
       all.joins(:title).reorder('titles.title', :int_season, :int_episode, :int_year).paginate(page: page)
     end
   end
+
+  def self.search_title_season_episode_year(title, season, episode, year)
+    if season != '0' && episode != '0'
+      all.joins(:title).where('titles.title = ?', title).where(season: season, episode: episode)
+    elsif year != '0'
+      all.joins(:title).where('titles.title = ?', title).where(year: year)
+    else
+      nil
+    end
+
+  end
+
 end
