@@ -4,7 +4,8 @@ class BssTitleIdsController < ApplicationController
   # GET /bss_title_ids
   # GET /bss_title_ids.json
   def index
-    @bss_title_ids = BssTitleId.search(params[:search], params[:page])
+    #@bss_title_ids = BssTitleId.search(params[:search], params[:page])
+    @bss_title_ids = BssTitleId.search_title(params[:search], params[:page])
   end
 
   # GET /bss_title_ids/1
