@@ -26,6 +26,11 @@ class BssTitleId < ActiveRecord::Base
           bss_ids << bss.id
         end
       end
+      bss_search = where('bss_title_id LIKE ?', "%#{search}%")
+      bss_search.each do |bss|
+        bss_ids << bss.id
+      end
+
       where(id: bss_ids).paginate(page: page)
     else
       paginate(page: page)
