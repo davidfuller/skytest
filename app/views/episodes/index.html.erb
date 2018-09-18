@@ -36,7 +36,7 @@
         <td><%= episode.season %></td>
         <td><%= episode.episode %></td>
 				<td><%= episode.year %></td>
-        <td class='table-links'><%= link_to 'Show', episode %> <td><%= link_to 'Edit', edit_episode_path(episode) %> <td><%= link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='table-links'><%= link_to 'Show', episode %> <%= link_to 'Edit', edit_episode_path(episode) %> <td><%= link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

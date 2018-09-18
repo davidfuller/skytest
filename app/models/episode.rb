@@ -9,7 +9,7 @@ class Episode < ActiveRecord::Base
   attr_accessor :season_choice
   
   self.per_page = 12
-  
+
   def self.numericise(ep)
   	ep.int_year = ep.year.to_i
   	ep.int_season = ep.season.to_i
@@ -52,7 +52,7 @@ class Episode < ActiveRecord::Base
       episode_search.each do |episode|
         episode_ids << episode.id
       end
-      where(id: episode_ids).paginate(page: page)
+      where(id: episode_ids).joins(:title).order('title.title').paginate(page: page)
     else
       paginate(page: page)
     end
