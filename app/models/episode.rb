@@ -45,7 +45,7 @@ class Episode < ActiveRecord::Base
       titles = Title.where('title LIKE ?', "%#{search}%")
       titles.each do |title|
         title.episode_ids.each do |ep|
-          episode_ids << ep.id
+          episode_ids << ep
         end
       end
       episode_search = where('episode_title LIKE ?', "%#{search}%")
