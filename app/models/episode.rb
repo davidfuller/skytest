@@ -36,7 +36,11 @@ class Episode < ActiveRecord::Base
           description = '(' + format('%04d', int_year) + ')'
         end
     end
-    description.squish
+    if description
+      description.squish
+    else
+      ''
+    end
   end
 
   def self.search_title_and_episode(search, page)
