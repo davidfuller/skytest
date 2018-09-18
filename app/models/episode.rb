@@ -54,7 +54,7 @@ class Episode < ActiveRecord::Base
       end
       where(id: episode_ids).includes(:title).reorder('titles.title').paginate(page: page)
     else
-      paginate(page: page)
+      all.includes(:title).reorder('titles.title').paginate(page: page)
     end
   end
 end
