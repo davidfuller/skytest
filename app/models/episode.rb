@@ -64,13 +64,16 @@ class Episode < ActiveRecord::Base
 
   def self.search_title_season_episode_year(title, season, episode, year)
     if season != '0' && episode != '0'
-      all.joins(:title).where('titles.title = ?', title).where(season: season, episode: episode)
+      ep = all.joins(:title).where('titles.title = ?', title).where(season: season, episode: episode)
+      if ep.nil?
+        ep = all.joins(:title).where('titles.title = ?', title).where(year: year)
+      end
     elsif year != '0'
-      all.joins(:title).where('titles.title = ?', title).where(year: year)
+      ep = all.joins(:title).where('titles.title = ?', title).where(year: year)
     else
-      nil
+      ep = nil
     end
-
+    ep
   end
 
 end
