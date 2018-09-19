@@ -2,6 +2,8 @@ class ChannelType < ActiveRecord::Base
 
   has_many :channels
 
+  default_scope {order(:name)}
+
   def tx_display
     if tx
       'TX'

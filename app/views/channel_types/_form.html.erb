@@ -12,18 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name, class: 'title-episode-bold'%><br>
+    <%= f.text_field :name, :autofocus => true, :class => "form-control field-normal" %>
   </div>
-  <div class="field">
-    <%= f.label :tx %><br>
-    <%= f.check_box :tx %>
-  </div>
-  <div class="field">
-    <%= f.label :has_promotion %><br>
-    <%= f.check_box :has_promotion %>
+  <div class="form-check">
+    <div class="field">
+      <%= f.label :tx, 'TX' %><br>
+      <%= f.check_box :tx %>
+    </div>
+    <div class="field">
+      <%= f.label :has_promotion, 'Has Promotion' %><br>
+      <%= f.check_box :has_promotion %>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => "btn btn-default" %>
   </div>
+
 <% end %>
