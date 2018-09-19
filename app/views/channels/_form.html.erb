@@ -20,8 +20,8 @@
     <%= f.text_field :code %>
   </div>
   <div class="field">
-    <%= f.label :channel_type_id %><br>
-    <%= f.number_field :channel_type_id %>
+    <%= f.label :channel_type_id, "Channel Type" %><br>
+    <%= f.collection_select :channel_type_id, ChannelType.all, :id, :name %>
   </div>
   <div class="actions">
     <%= f.submit %>
