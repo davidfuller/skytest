@@ -32,5 +32,14 @@ class Title < ActiveRecord::Base
 		else
 			episodes.where('season = ?', season_number)
 		end
-	end
+  end
+  
+  def num_episodes
+    if episodes
+      pluralize(episodes.count, 'Episode')
+    else
+      ''
+    end
+  end
+
 end
