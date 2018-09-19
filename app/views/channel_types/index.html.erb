@@ -1,31 +1,34 @@
-<p id="notice"><%= notice %></p>
+<% content_for(:title) do%>
+	Channel Types: Sky Clarity Media Management
+<% end %>
 
-<h1>Listing Channel Types</h1>
 
-<table>
+<h3 class="title-episode-bold">Channel Types</h3>
+
+<table class="table table-condensed">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Tx</th>
-      <th>Has promotion</th>
-      <th colspan="3"></th>
+      <th class="title-episode-bold">Name</th>
+      <th class="title-episode-bold">TX</th>
+      <th class="title-episode-bold">Has Promotion</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @channel_types.each do |channel_type| %>
       <tr>
-        <td><%= channel_type.name %></td>
-        <td><%= channel_type.tx %></td>
-        <td><%= channel_type.has_promotion %></td>
-        <td><%= link_to 'Show', channel_type %></td>
-        <td><%= link_to 'Edit', edit_channel_type_path(channel_type) %></td>
-        <td><%= link_to 'Destroy', channel_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><b><%= link_to channel_type.name, edit_channel_type_path(channel_type) %></td>
+        <td><%= channel_type.tx_display %></td>
+        <td><%= channel_type.has_promotion_dispay %></td>
+        <td><%= channel_type.num_channels%>
+        <td class='table-links'><%= link_to 'Show', channel_type %> <%= link_to 'Edit', edit_channel_type_path(channel_type) %> <%= link_to 'Destroy', channel_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Channel type', new_channel_type_path %>
+<p>
+  <%= link_to 'New Channel Type', new_channel_type_path %>
+</p>

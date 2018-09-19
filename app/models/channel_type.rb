@@ -17,4 +17,11 @@ class ChannelType < ActiveRecord::Base
     end
   end
 
+  def num_episodes
+    if channels.present?
+      ActionController::Base.helpers.pluralize(channels.count, 'Channel')
+    else
+      ''
+    end
+  end
 end
