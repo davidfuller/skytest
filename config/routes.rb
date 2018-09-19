@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :channels
+  resources :channel_types
   resources :bss_title_ids
   get 'home' => 'home#index'
 

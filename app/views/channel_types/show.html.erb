@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @channel_type.name %>
+</p>
+
+<p>
+  <strong>Tx:</strong>
+  <%= @channel_type.tx %>
+</p>
+
+<p>
+  <strong>Has promotion:</strong>
+  <%= @channel_type.has_promotion %>
+</p>
+
+<%= link_to 'Edit', edit_channel_type_path(@channel_type) %> |
+<%= link_to 'Back', channel_types_path %>

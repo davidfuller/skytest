@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Channel Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tx</th>
+      <th>Has promotion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @channel_types.each do |channel_type| %>
+      <tr>
+        <td><%= channel_type.name %></td>
+        <td><%= channel_type.tx %></td>
+        <td><%= channel_type.has_promotion %></td>
+        <td><%= link_to 'Show', channel_type %></td>
+        <td><%= link_to 'Edit', edit_channel_type_path(channel_type) %></td>
+        <td><%= link_to 'Destroy', channel_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Channel type', new_channel_type_path %>
