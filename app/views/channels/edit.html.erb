@@ -1,6 +1,13 @@
-<h1>Editing Channel</h1>
+<% content_for(:title) do%>
+	<%= 'Editing Channel: ' + @channel.name + ': Sky Clarity Media Management' %>
+<% end %>
+
+<div class='title-episode-bold'><b>Editing Channel</b></div>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @channel %> |
-<%= link_to 'Back', channels_path %>
+<br>
+<p>
+  <%= link_to 'Show', @channel %> |
+  <%= link_to 'Back', :back %>
+</p>

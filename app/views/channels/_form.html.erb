@@ -12,18 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name, class: 'title-episode-bold'%><br>
+    <%= f.text_field :name, :autofocus => true, :class => "form-control field-normal" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :code, class: 'title-episode-bold'%><br>
+    <%= f.text_field :code, :class => 'form-control field-normal' %>
   </div>
   <div class="field">
-    <%= f.label :code %><br>
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :channel_type_id, "Channel Type" %><br>
-    <%= f.collection_select :channel_type_id, ChannelType.all, :id, :name %>
+    <%= f.label :channel_type_id, "Channel Type", class: 'title-episode-bold'%><br>
+    <%= f.collection_select :channel_type_id, ChannelType.all, :id, :name, :class => 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit, :class => "btn btn-default"  %>
   </div>
 <% end %>
