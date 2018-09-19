@@ -28,7 +28,7 @@ class ChannelTypesController < ApplicationController
 
     respond_to do |format|
       if @channel_type.save
-        format.html { redirect_to @channel_types_path, notice: 'Channel type was successfully created.' }
+        format.html { redirect_to channel_types_path, notice: 'Channel type was successfully created.' }
         format.json { render :show, status: :created, location: @channel_type }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ChannelTypesController < ApplicationController
   def update
     respond_to do |format|
       if @channel_type.update(channel_type_params)
-        format.html { redirect_to @channel_types_path, notice: 'Channel type was successfully updated.' }
+        format.html { redirect_to channel_types_path, notice: 'Channel type was successfully updated.' }
         format.json { render :show, status: :ok, location: @channel_type }
       else
         format.html { render :edit }
