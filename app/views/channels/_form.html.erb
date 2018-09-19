@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label :channel_type_id, "Channel Type", class: 'title-episode-bold'%><br>
-    <%= f.collection_select :channel_type_id, ChannelType.all, :id, :name, :class => 'form-control' %>
+    <%= f.collection_select :channel_type_id, ChannelType.all, :id, :name, :class => 'form-control form-select' %>
   </div>
   <div class="actions">
     <%= f.submit nil, :class => "btn btn-default"  %>
