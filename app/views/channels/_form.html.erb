@@ -13,16 +13,16 @@
 
   <div class="field">
     <%= f.label :name, class: 'title-episode-bold'%><br>
-    <%= f.text_field :name, :autofocus => true, :class => "form-control field-normal" %>
+    <%= f.text_field :name, :autofocus => true, :class => "form-control field-small" %>
   </div>
   
   <div class="field">
     <%= f.label :code, class: 'title-episode-bold'%><br>
-    <%= f.text_field :code, :class => 'form-control field-normal' %>
+    <%= f.text_field :code, :class => 'form-control field-small' %>
   </div>
   <div class="field">
     <%= f.label :channel_type_id, "Channel Type", class: 'title-episode-bold'%><br>
-    <%= f.collection_select :channel_type_id, ChannelType.all, :id, :name, {}, {:class => 'form-control form-select'} %>
+    <%= f.collection_select :channel_type_id, ChannelType.all, :id, :name, {prompt: true}, {:class => 'form-control form-select'} %>
   </div>
   <div class="actions">
     <%= f.submit nil, :class => "btn btn-default"  %>
