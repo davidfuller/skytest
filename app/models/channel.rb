@@ -2,7 +2,18 @@ class Channel < ActiveRecord::Base
 
   belongs_to :channel_type
 
-  default_scope { order(:name) }
+  validates_uniqueness_of :name, :messsage => " is already in system"
+	validates_presence_of :name, :code
 
-  
+  default_scope { order(:name) }
+  self.per_page = 12
+	
+	def self.search(search, page)
+		if search
+			where('name LIKE ?', "%#{search}%").paginate(page: page)
+		else
+			paginate	:page => page
+		end
+	end
+
 end
