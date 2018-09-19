@@ -31,7 +31,7 @@ class EpisodesController < ApplicationController
   # POST /episodes.json
   def create
     @episode = Episode.new(episode_params)
-
+    Episode.numericise @episode
     respond_to do |format|
       if @episode.save
         format.html { redirect_to @episode, notice: 'Episode was successfully created.' }
