@@ -17,7 +17,7 @@
   <tbody>
     <% @channels.each do |channel| %>
       <tr>
-        <td><%= channel.name %></td>
+        <td><%= link_to channel.name, edit_channel_path(channel) %></td>
         <td><%= channel.code %></td>
         <td><%= channel.channel_type.name unless channel.channel_type.nil? %></td>
         <td class='table-links'><%= link_to 'Show', channel %> <%= link_to 'Edit', edit_channel_path(channel) %> <%= link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
