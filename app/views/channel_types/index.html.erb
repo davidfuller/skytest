@@ -21,7 +21,7 @@
       <tr>
         <td><b><%= link_to channel_type.name, edit_channel_type_path(channel_type) %></td>
         <td><%= channel_type.tx_display %></td>
-        <td><%= channel_type.has_promotion_dispay %></td>
+        <td><%= channel_type.has_promotion_display %></td>
         <td><%= channel_type.num_channels%>
         <td class='table-links'><%= link_to 'Show', channel_type %> <%= link_to 'Edit', edit_channel_type_path(channel_type) %> <%= link_to 'Destroy', channel_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
