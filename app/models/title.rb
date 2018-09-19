@@ -36,7 +36,7 @@ class Title < ActiveRecord::Base
   
   def num_episodes
     if episodes
-      pluralize(episodes.count, 'Episode')
+      ActionController::Base.helpers.pluralize(episodes.count, 'Episode')
     else
       ''
     end
