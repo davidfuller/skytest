@@ -82,6 +82,21 @@ class BssTitleIdsController < ApplicationController
     end
   end
 
+  #=================================
+  # Muvi2 Additions
+  #=================================
+  
+  # add_episode 
+  def remove_channel
+    channel = Channel.find(params[:channel_id])
+    @bss_title_id = BssTitleId.find(params[:id])
+  	@bss_title_id.channels.delete(channel)
+  	respond_to do |format|
+	  	format.html {redirect_to @bss_title_id, notice: 'Channel removed'}
+	  	format.json {render :show, status: :removed, location: @bss_title_id}
+  	end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bss_title_id
@@ -90,6 +105,6 @@ class BssTitleIdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bss_title_id_params
-      params.require(:bss_title_id).permit(:bss_title_id, :episode_id, :source)
+      params.require(:bss_title_id).permit(:bss_title_id, :episode_id, :source, :channel_id)
     end
 end
