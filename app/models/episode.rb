@@ -26,15 +26,19 @@ class Episode < ActiveRecord::Base
   end
 
   def season_episode_year
-    if int_season > 0 && int_episode > 0
-      description = season_episode
+    if int_season && int_episode
+      if int_season > 0 && int_episode > 0
+        description = season_episode
+      end
     end
-    if int_year > 0
-        if description
-          description = description + ' (' + format('%04d', int_year) + ')'
-        else
-          description = '(' + format('%04d', int_year) + ')'
-        end
+    if int_year
+      if int_year > 0
+          if description
+            description = description + ' (' + format('%04d', int_year) + ')'
+          else
+            description = '(' + format('%04d', int_year) + ')'
+          end
+      end
     end
     if description
       description.squish
