@@ -38,10 +38,10 @@
                     <td><b><%= link_to episode.episode_title, episode %></b></td>
                     <td><%= episode.season_episode_year %></td>
                     <td>
-                      <table class='table'>
+                      <table>
                         <tbody>
                           <% episode.bss_title_ids.each do |bss| %>
-                            <tr>
+                            <tr class='table-links'>
                               <td><%= bss.bss_title_id %></td>
                               <td><%= bss.channels.count %></td>
                             </tr>
