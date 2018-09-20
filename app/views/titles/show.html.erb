@@ -41,7 +41,10 @@
                       <table>
                         <tbody>
                           <% episode.bss_title_ids.each do |bss| %>
-                            <tr><td><%= bss.bss_title_id %></td></tr>
+                            <tr>
+                              <td><%= bss.bss_title_id %></td>
+                              <td><%= bss.bss_title_id.channels.count %></td>
+                            </tr>
                           <% end %>
                         </tbody>
                       </table>
