@@ -34,6 +34,7 @@
         <thead class='title-episode-bold'>
             <tr>
                 <th>BSS Title ID</th>
+                <th>Channel(s)</th>
                 <th></th>
             </tr>
         </thead>
@@ -42,7 +43,16 @@
             <% @episode.bss_title_ids.each do |bss| %>
                 <tr>
                     <td><b><%= link_to bss.bss_title_id, edit_bss_title_id_path(bss, source: :episode_show) %></b></td>
-                    <td class='table-links'><%= link_to 'Edit', edit_bss_title_id_path(bss, source: :episode_show) %> <%= link_to 'Destroy', bss_title_id_path(bss, source: :episode_show), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td>
+                      <table>
+                        <tbody>
+                          <% bss.channels.each do |channel| %>
+                            <tr><td><%= channel.name %></td></tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td class='table-links'><%= link_to 'Show', bss %> <%= link_to 'Edit', edit_bss_title_id_path(bss, source: :episode_show) %> <%= link_to 'Destroy', bss_title_id_path(bss, source: :episode_show), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
             <% end %>
         </tbody>
