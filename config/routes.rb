@@ -25,8 +25,13 @@ Rails.application.routes.draw do
   resource :bss_title_ids do
     member do
       get 'remove_channel'
+      get 'add_episode'
+    end
+    collection do
+      get 'mum'
     end
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
