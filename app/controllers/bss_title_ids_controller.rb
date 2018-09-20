@@ -13,6 +13,7 @@ class BssTitleIdsController < ApplicationController
   # GET /bss_title_ids/1
   # GET /bss_title_ids/1.json
   def show
+    @channels = Channel.all
   end
 
   # GET /bss_title_ids/new

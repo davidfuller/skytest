@@ -54,3 +54,30 @@
 
 <%= link_to 'Edit', edit_bss_title_id_path(@bss_title_id) %> |
 <%= link_to 'Back', :back %>
+
+<div class = 'Channel Display'>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th class='title-episode-bold'>Name</th>
+      <th class='title-episode-bold'>Code</th>
+      <th class='title-episode-bold'>Channel Type</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @channels.each do |channel| %>
+      <tr>
+        <td><%= channel.name %></td>
+        <td><%= channel.code %></td>
+        <td><%= channel.channel_type.name unless channel.channel_type.nil? %></td>
+        <td class='table-links'><%= link_to 'Add to the BSS Title ID', "#" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+
