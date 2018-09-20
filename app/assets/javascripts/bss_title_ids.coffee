@@ -4,4 +4,5 @@
 
 $ ->
   $('#myButton').click ->
-   alert("Hello There")
+    $('.channel-display').toggle()
+   
