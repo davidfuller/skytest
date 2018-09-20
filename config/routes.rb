@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :episodes
   resources :titles
   resources :users
-  root 'users#index'
+  root 'titles#index'
   
   resources :titles do
   	member do
