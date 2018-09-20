@@ -94,8 +94,7 @@ class EpisodesController < ApplicationController
   	@episode = Episode.find(params[:id])
   	@bss_title_id = @episode.bss_title_ids.create(bss_title_id: "")
     @bss_title_id.source = params[:source]
-    @bss_title_id.save
-  	respond_to do |format|
+    respond_to do |format|
 	  	format.html {redirect_to edit_bss_title_id_path(@bss_title_id, :source => params[:source]), notice: 'Add BSS Title ID details'}
 	  	format.json {render :show, status: :created, location: @episode}
   	end
