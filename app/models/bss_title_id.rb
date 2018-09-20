@@ -5,7 +5,7 @@ class BssTitleId < ActiveRecord::Base
   has_many :bss_channel_joins
   has_many :channels, through: :bss_channel_joins
  
-  validates_presence_of :bss_title_id
+  validates_presence_of :bss_title_id, on: :update
   default_scope { order(:bss_title_id) }
   
   attr_accessor :source
