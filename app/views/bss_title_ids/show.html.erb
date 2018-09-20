@@ -1,14 +1,56 @@
-<p id="notice"><%= notice %></p>
+<% content_for(:title) do%>
+	  BSS Title ID: <%= @bss_title_id.episode.title.title || @bss_title_id.episode.episode_title || @bss_title_id.bss_title_id %> Sky Clarity Media Management
+<% end %>
 
 <p>
-  <strong>Bss title:</strong>
+  <div class='title-episode-bold'><b>Title</b></div>
+  <div class='title-normal'><%= @bss_title_id.episode.title.title unless @bss_title_id.episode.title.nil? %></div>
+</p>
+
+<p>
+  <label class='title-episode-bold-condensed'>Episode Title</label>
+  <%= @bss_title_id.episode.episode_title %>
+
+  <% if @bss_title_id.episode.season.present? %>
+    <label class='title-episode-bold-condensed'>Season</label>
+    <%= @bss_title_id.episode.season %>
+  <% end %>
+
+  <% if @bss_title_id.episode.episode.present? %>  
+    <label class='title-episode-bold-condensed'>Episode</label>
+    <%= @bss_title_id.episode.episode %>
+  <% end %>
+
+  <% if @bss_title_id.episode.year.present? %>
+    <label class='title-episode-bold-condensed'>Year</label>
+    <%= @bss_title_id.episode.year %>
+  <% end %>
+
+<p>
+  <label class='title-episode-bold-condensed'>BSS Title ID</label>
   <%= @bss_title_id.bss_title_id %>
 </p>
 
-<p>
-  <strong>Episode:</strong>
-  <%= @bss_title_id.episode_id %>
-</p>
+<div class='row'>
+  <div class='col-xs-6'>
+    <table class="table">
+      <thead class='title-episode-bold'>
+          <tr>
+              <th>Channel(s)</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+        <% bss.channels.each do |channel| %>
+          <tr>
+            <td><%= channel.name %></td>
+            <td class='table-links'><%= link_to 'Remove', '#' %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_bss_title_id_path(@bss_title_id) %> |
-<%= link_to 'Back', bss_title_ids_path %>
+<%= link_to 'Back', :back %>
