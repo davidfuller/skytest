@@ -3,4 +3,5 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  alert("Hello There")
+  $('#myButton').click ->
+    alert("Hello There")
