@@ -27,4 +27,14 @@ class Channel < ActiveRecord::Base
     end
   end
 
+  def self.channel_and_code_search(search, search_code)
+    if search_code.present?
+      where('code = ?', search_code)
+    elsif search.present?
+      where('name = ?', search)
+    else
+      nil
+    end
+  end      
+
 end

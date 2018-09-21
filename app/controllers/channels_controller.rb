@@ -5,6 +5,10 @@ class ChannelsController < ApplicationController
   # GET /channels.json
   def index
     @channels = Channel.search(params[:search], params[:page])
+    respond_to do |format|
+      format.html { @channels = Channel.search(params[:search], params[:page])}
+      format.json { @channels = Channel.channel_and_code_search(params[:search], params[:code])}
+    end
   end
 
   # GET /channels/1
