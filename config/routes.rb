@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resource :bss_title_id do
     member do
       get 'remove_channel'
+      get 'add_channel'
     end
   end
 

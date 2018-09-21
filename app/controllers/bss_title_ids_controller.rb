@@ -13,7 +13,7 @@ class BssTitleIdsController < ApplicationController
   # GET /bss_title_ids/1
   # GET /bss_title_ids/1.json
   def show
-    @channels = Channel.all
+    @channels = Channel.bss_title_id_search(params[:search])
   end
 
   # GET /bss_title_ids/new
@@ -87,7 +87,7 @@ class BssTitleIdsController < ApplicationController
   # Muvi2 Additions
   #=================================
   
-  # add_episode 
+  # remove channel
   def remove_channel
     channel = Channel.find(params[:channel_id])
     @bss_title_id = BssTitleId.find(params[:id])
@@ -96,6 +96,16 @@ class BssTitleIdsController < ApplicationController
 	  	format.html {redirect_to @bss_title_id, notice: 'Channel removed'}
 	  	format.json {render :show, status: :removed, location: @bss_title_id}
   	end
+  end
+
+  def add_channel
+    channel = Channel.find(params[:channel_id])
+    @bss_title_id = BssTitleId.find(params[:id])
+    @bss_title_id.bss_channel_joins.create(channel: channel)
+    respond_to do |format|
+      format.html {redirect_to @bss_title_id, notice: 'Channel added'}
+      format.json {render :show, status: :created, location: @bss_title_id}
+    end
   end
 
   private

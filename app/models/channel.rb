@@ -17,6 +17,14 @@ class Channel < ActiveRecord::Base
 		else
 			paginate	:page => page
 		end
-	end
+  end
+  
+  def self.bss_title_id_search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
 
 end

@@ -56,15 +56,21 @@
 <%= link_to 'Back', :back %>
 <br>
 
-<button id='myButton' :class='btn btn-default'>Show Channels</button>
-<%= link_to 'Show Channels', '#', :id => 'myLink' %>
 
-<div class = 'channel-display'>
+<%= link_to 'Show Channels', '#', :id => 'myLink' %>
+<br>
+
+<% if params[:search].present? %>
+  <div class = 'channel-display' id='channel-search'>
+<% else %>
+  <div class = 'channel-display'>
+<% end %>
+  <br>
 
   <%= form_tag @bss_title_id, :method => 'get', :class => 'form-inline' do %>
     <span class="input-group-btn">
         <%= text_field_tag :search, params[:search], {:class => 'form-control field-title-search', :placeholder => "Search", :autofocus => true} %>
-        <%= button_tag type: 'submit', :class => 'btn btn-default' do %>
+        <%= button_tag type: 'submit', :class => 'btn btn-default', :name => nil do %>
             <i class='glyphicon glyphicon-search'></i>
         <% end %>
         <%= button_tag "Clear", type: :button, :class => 'btn btn-default', :onclick =>'document.getElementById("search").value=""' %>
@@ -84,10 +90,10 @@
     <tbody>
       <% @channels.each do |channel| %>
         <tr>
-          <td><%= channel.name %></td>
+          <td><%= link_to channel.name, add_channel_bss_title_id_path(id: @bss_title_id, channel_id: channel) %></td>
           <td><%= channel.code %></td>
           <td><%= channel.channel_type.name unless channel.channel_type.nil? %></td>
-          <td class='table-links'><%= link_to 'Add to the BSS Title ID', "#" %></td>
+          <td><%= link_to 'Add to the BSS Title ID',  add_channel_bss_title_id_path(id: @bss_title_id, channel_id: channel) %></td>
         </tr>
       <% end %>
     </tbody>
