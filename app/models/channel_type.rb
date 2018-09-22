@@ -26,4 +26,12 @@ class ChannelType < ActiveRecord::Base
       ''
     end
   end
+
+  def search(search)
+    if search
+      where('name = ?', search)
+    else
+      all
+    end
+  end
 end
