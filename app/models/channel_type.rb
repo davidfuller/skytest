@@ -27,7 +27,7 @@ class ChannelType < ActiveRecord::Base
     end
   end
 
-  def search(search)
+  def self.search(search)
     if search
       where('name = ?', search)
     else
