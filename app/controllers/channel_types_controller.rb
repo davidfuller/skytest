@@ -4,7 +4,7 @@ class ChannelTypesController < ApplicationController
   # GET /channel_types
   # GET /channel_types.json
   def index
-    @channel_types = ChannelType.all
+    @channel_types = ChannelType.search(params[:search])
   end
 
   # GET /channel_types/1
