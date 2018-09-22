@@ -77,27 +77,7 @@
     </span>
   <% end %>
 
-  <table class="table table-condensed">
-    <thead>
-      <tr>
-        <th class='title-episode-bold'>Name</th>
-        <th class='title-episode-bold'>Code</th>
-        <th class='title-episode-bold'>Channel Type</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @channels.each do |channel| %>
-        <tr>
-          <td><%= link_to channel.name, add_channel_bss_title_id_path(id: @bss_title_id, channel_id: channel) %></td>
-          <td><%= channel.code %></td>
-          <td><%= channel.channel_type.name unless channel.channel_type.nil? %></td>
-          <td><%= link_to 'Add to the BSS Title ID',  add_channel_bss_title_id_path(id: @bss_title_id, channel_id: channel) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <%= render 'channels' %>
 
 </div>
 
