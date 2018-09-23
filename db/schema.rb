@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180920080158) do
+ActiveRecord::Schema.define(version: 20180923152051) do
 
   create_table "bss_channel_joins", force: :cascade do |t|
     t.integer  "channel_id",      limit: 4
@@ -41,6 +41,12 @@ ActiveRecord::Schema.define(version: 20180920080158) do
     t.integer  "channel_type_id", limit: 4
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "device_types", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "episodes", force: :cascade do |t|

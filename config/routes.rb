@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :device_types
   resources :channels
   resources :channel_types
   resources :bss_title_ids
