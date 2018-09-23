@@ -1,12 +1,14 @@
-<p id="notice"><%= notice %></p>
+<% content_for(:title) do%>
+	Device Types: Sky Clarity Media Management
+<% end %>
 
-<h1>Listing Device Types</h1>
 
-<table>
+<h3 class="title-episode-bold">Device Types</h3>
+
+<table class="table table-condensed">
   <thead>
     <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th class="title-episode-bold">Name</th>
     </tr>
   </thead>
 
@@ -14,9 +16,7 @@
     <% @device_types.each do |device_type| %>
       <tr>
         <td><%= device_type.name %></td>
-        <td><%= link_to 'Show', device_type %></td>
-        <td><%= link_to 'Edit', edit_device_type_path(device_type) %></td>
-        <td><%= link_to 'Destroy', device_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='table-links'><%= link_to 'Show', device_type %> <%= link_to 'Edit', edit_device_type_path(device_type) %> <%= link_to 'Destroy', device_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

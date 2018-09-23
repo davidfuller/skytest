@@ -1,6 +1,14 @@
-<h1>Editing Device Type</h1>
+<% content_for(:title) do%>
+	<%= 'Editing Device Type: ' + @device_type.name + ': Sky Clarity Media Management' %>
+<% end %>
+
+<div class='title-episode-bold'><b>Editing Device Type</b></div>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @device_type %> |
-<%= link_to 'Back', device_types_path %>
+<br>
+<p>
+  <%= link_to 'Show', @device_type %> |
+  <%= link_to 'Back', :back %>
+</p>
+

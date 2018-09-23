@@ -1,5 +1,13 @@
-<h1>New Device Type</h1>
+<% content_for(:title) do%>
+	<%= 'New Device Type: Sky Clarity Media Management' %>
+<% end %>
+
+<div class='title-episode-bold'><b>New Device Type</b></div>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', device_types_path %>
+<br>
+<p>
+  <%= link_to 'Back', :back %>
+</p>
+

@@ -1,9 +1,13 @@
-<p id="notice"><%= notice %></p>
+<% content_for(:title) do%>
+	  Device Type: Sky Clarity Media Management
+<% end %>
+
+<div class='title-episode-bold'><b>Device Type</b></div>
 
 <p>
-  <strong>Name:</strong>
+  <div class='title-episode-bold'><b>Title</b></div>
   <%= @device_type.name %>
 </p>
 
 <%= link_to 'Edit', edit_device_type_path(@device_type) %> |
-<%= link_to 'Back', device_types_path %>
+<%= link_to 'Back', :back %>
