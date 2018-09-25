@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<% content_for(:title) do%>
+	  Clip Type: Sky Clarity Media Management
+<% end %>
+
+<div class='title-episode-bold'><b>Clip Type</b></div>
 
 <p>
-  <strong>Name:</strong>
-  <%= @clip_type.name %>
+  <div class='title-episode-bold'><b>Name</b></div>
+  <div class='title-normal-condensed'><%= @clip_type.name %></div>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @clip_type.description %>
+  <div class='title-episode-bold'><b>Description</b></div>
+  <div class='title-normal-condensed'><%= @clip_type.description %></div>
 </p>
 
 <p>
-  <strong>Default duration:</strong>
-  <%= @clip_type.default_duration %>
+  <div class='title-episode-bold'><b>Default Duration (seconds)</b></div>
+  <div class='title-normal-condensed'><%= @clip_type.default_duration %></div>
 </p>
 
 <p>
-  <strong>Default has audio:</strong>
-  <%= @clip_type.default_has_audio %>
+  <div class='title-episode-bold'><b>Default Has Audio</b></div>
+  <div class='title-normal-condensed'><%= @clip_type.default_has_audio %></div>
 </p>
 
-<%= link_to 'Edit', edit_clip_type_path(@clip_type) %> |
-<%= link_to 'Back', clip_types_path %>
+<%= link_to 'Edit', edit_device_type_path(@clip_type) %> |
+<%= link_to 'Back', :back %>

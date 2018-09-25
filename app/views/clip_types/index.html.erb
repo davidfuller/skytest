@@ -1,33 +1,36 @@
-<p id="notice"><%= notice %></p>
+<% content_for(:title) do%>
+	Clip Types: Sky Clarity Media Management
+<% end %>
 
-<h1>Listing Clip Types</h1>
 
-<table>
+<h3 class="title-episode-bold">Clip Types</h3>
+
+<table class="table table-condensed">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Default duration</th>
-      <th>Default has audio</th>
-      <th colspan="3"></th>
+      <div class='title-episode-bold'>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Default Duration</th>
+        <th>Default Has Audio</th>
+        <th></th>
+      </div>
     </tr>
   </thead>
 
   <tbody>
+  
     <% @clip_types.each do |clip_type| %>
       <tr>
         <td><%= clip_type.name %></td>
         <td><%= clip_type.description %></td>
         <td><%= clip_type.default_duration %></td>
         <td><%= clip_type.default_has_audio %></td>
-        <td><%= link_to 'Show', clip_type %></td>
-        <td><%= link_to 'Edit', edit_clip_type_path(clip_type) %></td>
-        <td><%= link_to 'Destroy', clip_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='table links'><%= link_to 'Show', clip_type %> <%= link_to 'Edit', edit_clip_type_path(clip_type) %> <%= link_to 'Destroy', clip_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Clip type', new_clip_type_path %>
+<%= link_to 'New Clip Type', new_clip_type_path %>

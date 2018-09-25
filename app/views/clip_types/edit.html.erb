@@ -1,6 +1,13 @@
-<h1>Editing Clip Type</h1>
+<% content_for(:title) do%>
+	<%= 'Editing Clip Type: ' + @clip_type.name + ': Sky Clarity Media Management' %>
+<% end %>
+
+<div class='title-episode-bold'><b>Editing Clip Type</b></div>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @clip_type %> |
-<%= link_to 'Back', clip_types_path %>
+<br>
+<p>
+  <%= link_to 'Show', @clip_type %> |
+  <%= link_to 'Back', :back %>
+</p>
