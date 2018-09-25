@@ -10,6 +10,7 @@ class DeviceTypesController < ApplicationController
   # GET /device_types/1
   # GET /device_types/1.json
   def show
+      @device_types = DeviceType.all
   end
 
   # GET /device_types/new
