@@ -70,7 +70,7 @@ class ClipTypesController < ApplicationController
   def remove_device_type
     device = DeviceType.find(params[:device_id])
     @clip_type = ClipType.find(params[:id])
-  	@clip_type.device_type.delete(device)
+  	@clip_type.device_types.delete(device)
   	respond_to do |format|
 	  	format.html {redirect_to @clip_type, notice: 'Device Type removed'}
 	  	format.json {render :show, status: :removed, location: @clip_type}
