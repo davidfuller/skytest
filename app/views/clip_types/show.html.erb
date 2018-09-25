@@ -84,7 +84,7 @@
       <tbody>
         <% @channels.each do |channel| %>
           <tr>
-            <td><%= channel.name) %></td>
+            <td><%= channel.name %></td>
             <td><%= link_to 'Add as TX Channel',  add_tx_channel_clip_type_path(id: @clip_type, channel_id: channel) %></td>
             <td><%= link_to 'Add as Promotion Channel', add_promo_channel_clip_type_path(id: @clip_type, channel_id: channel)%>
           </tr>
