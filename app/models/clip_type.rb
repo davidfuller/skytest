@@ -9,7 +9,7 @@ class ClipType < ActiveRecord::Base
     if default_has_audio
       'Has Audio'
     else
-      ''
+      'No Audio'
     end
   end
 	
