@@ -34,6 +34,13 @@ class ClipType < ActiveRecord::Base
     clip_type_channel_joins.where('tx = ?', false)
   end
 
-	
-
+  def delete_channel(channel, tx)
+    num = 0
+    channel_join = clip_type_channel_joins.where('channel = ? AND tx = ?', channel, tx)
+    channel_joins.each do |join|
+      join.delete
+      num += 1
+    end
+    num
+  end
 end

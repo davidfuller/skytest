@@ -98,9 +98,14 @@ class ClipTypesController < ApplicationController
   def remove_tx_channel
     channel = Channel.find(params[:channel_id])
     @clip_type = ClipType.find(params[:id])
-  	@clip_type.device_types.delete(channel: channel, tx: true)
+    num = @clip_type.delete_channel(channel, true)
+    if num > 0 then
+      notice = 'TX Channel Removed'
+    else
+      notice = 'TX Channel not found'
+    end
   	respond_to do |format|
-	  	format.html {redirect_to @clip_type, notice: 'TX channel removed'}
+	  	format.html {redirect_to @clip_type, notice: notice}
 	  	format.json {render :show, status: :removed, location: @clip_type}
   	end
   end
