@@ -96,14 +96,14 @@ class ClipTypesController < ApplicationController
   end
   
   def remove_tx_channel
-    channel = Channel.find(params[:channel_id])
-    @clip_type = ClipType.find(params[:id])
-    num = @clip_type.delete_channel(channel, true)
-    if num > 0 then
-      notice = 'TX Channel Removed'
-    else
-      notice = 'TX Channel not found'
-    end
+    remove_channel(true)
+  	respond_to do |format|
+	  	format.html {redirect_to @clip_type, notice: notice}
+	  	format.json {render :show, status: :removed, location: @clip_type}
+  	end
+  end
+  def remove_promo_channel
+    remove_channel(false)
   	respond_to do |format|
 	  	format.html {redirect_to @clip_type, notice: notice}
 	  	format.json {render :show, status: :removed, location: @clip_type}
@@ -140,5 +140,24 @@ class ClipTypesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def clip_type_params
       params.require(:clip_type).permit(:name, :description, :default_duration, :default_has_audio)
+    end
+
+    def remove_channel(tx)
+      channel = Channel.find(params[:channel_id])
+      @clip_type = ClipType.find(params[:id])
+      num = @clip_type.delete_channel(channel, tx)
+      if num > 0 then
+        if tx
+          notice = 'TX Channel Removed'
+        else
+          notice = 'Promo Channel Removed'
+        end
+      else
+        if tx
+          notice = 'TX Channel not found'
+        else
+          notice = 'Promo Channel not found'
+        end
+      end
     end
 end
