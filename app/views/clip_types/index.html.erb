@@ -8,7 +8,6 @@
   <thead class='title-episode-bold'>
     <tr>
       <th>Name</th>
-      <th>Description</th>
       <th>Default Duration</th>
       <th>Default Has Audio</th>
       <th></th>
@@ -20,9 +19,8 @@
     <% @clip_types.each do |clip_type| %>
       <tr>
         <td><%= clip_type.name %></td>
-        <td><%= clip_type.description %></td>
         <td><%= clip_type.default_duration %></td>
-        <td><%= clip_type.default_has_audio %></td>
+        <td><%= clip_type.default_has_audio_display %></td>
         <td class='table-links'><%= link_to 'Show', clip_type %> <%= link_to 'Edit', edit_clip_type_path(clip_type) %> <%= link_to 'Destroy', clip_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
