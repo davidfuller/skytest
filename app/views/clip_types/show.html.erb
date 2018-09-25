@@ -24,5 +24,27 @@
   <div class='title-normal-condensed'><%= @clip_type.default_has_audio_display %></div>
 </p>
 
+<div class='row'>
+  <div class='col-xs-6'>
+    <table class="table">
+      <thead class='title-episode-bold'>
+          <tr>
+              <th>Device Type(s)</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+        <% clip_type.device_types.each do |device| %>
+          <tr>
+            <td><%= device.name %></td>
+            <td class='table-links'><%= link_to 'Remove', remove_device_type_clip_type_path(id: @clip_type, device_id: device) %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
 <%= link_to 'Edit', edit_device_type_path(@clip_type) %> |
 <%= link_to 'Back', :back %>

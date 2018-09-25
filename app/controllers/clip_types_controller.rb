@@ -61,6 +61,31 @@ class ClipTypesController < ApplicationController
     end
   end
 
+  #=================================
+  # Muvi2 Additions
+  #=================================
+  
+  # remove device_type
+  def remove_device_type
+    device = DeviceType.find(params[:device_id])
+    @clip_type = ClipType.find(params[:id])
+  	@clip_type.device_type.delete(device)
+  	respond_to do |format|
+	  	format.html {redirect_to @clip_type, notice: 'Device Type removed'}
+	  	format.json {render :show, status: :removed, location: @clip_type}
+  	end
+  end
+
+  def add_device_type
+    device = DeviceType.find(params[:device_id])
+    @clip_type = ClipType.find(params[:id])
+    @clip_type.clip_type_device_joins.create(device_type: device)
+    respond_to do |format|
+      format.html {redirect_to @clip_type, notice: 'Device Type added'}
+      format.json {render :show, status: :created, location: @clip_type}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_clip_type

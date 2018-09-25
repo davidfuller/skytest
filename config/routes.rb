@@ -18,6 +18,12 @@ Rails.application.routes.draw do
   	end
   end
 
+  resources :clip_types do
+    member do
+      get 'remove_device_type'
+    end
+  end
+
   resources :episodes do
   	member do
   		get 'add_bss_title_id'
