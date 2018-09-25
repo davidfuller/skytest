@@ -96,7 +96,7 @@ class ClipTypesController < ApplicationController
   end
   
   def remove_tx_channel
-    channel = Channel.find(params[:channel])
+    channel = Channel.find(params[:channel_id])
     @clip_type = ClipType.find(params[:id])
   	@clip_type.device_types.delete(channel: channel, tx: true)
   	respond_to do |format|
