@@ -11,6 +11,7 @@ class ClipTypesController < ApplicationController
   # GET /clip_types/1.json
   def show
     @device_types = DeviceType.all
+    @channels = Channel.all
   end
 
   # GET /clip_types/new
