@@ -55,7 +55,7 @@
         <% @clip_type.tx_channel.each do |tx| %>
           <tr>
             <td><%= tx.channel.name %></td>
-            <td class='table-links'><%= link_to 'Remove', remove_tx_channel_clip_type_path(id: @clip_type, channel_id: tx) %> </td>
+            <td class='table-links'><%= link_to 'Remove', remove_tx_channel_clip_type_path(id: @clip_type, channel_id: tx.channel) %> </td>
           </tr>
         <% end %>
       </tbody>
