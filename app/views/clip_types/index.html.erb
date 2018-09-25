@@ -2,7 +2,6 @@
 	Clip Types: Sky Clarity Media Management
 <% end %>
 
-
 <h3 class="title-episode-bold">Clip Types</h3>
 
 <table class="table table-condensed">
@@ -28,6 +27,7 @@
         <td><%= clip_type.default_has_audio %></td>
         <td class='table links'><%= link_to 'Show', clip_type %> <%= link_to 'Edit', edit_clip_type_path(clip_type) %> <%= link_to 'Destroy', clip_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <% end %>
   </tbody>
 </table>
 
