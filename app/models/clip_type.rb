@@ -27,8 +27,8 @@ class ClipType < ActiveRecord::Base
     end
   end
 
-  def tx_channel
-    clip_type_channel_joins.where('tx = ?', true)
+  def tx_channels
+    clip_type_channel_joins.where('tx = ?', true).joins(:channel).order('channels.name')
   end
   def promo_channel
     clip_type_channel_joins.where('tx = ?', false)
