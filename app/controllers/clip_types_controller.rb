@@ -159,7 +159,7 @@ class ClipTypesController < ApplicationController
     end
 
     def channel_display(tx, name)
-      (tx ? "TX " : "Promo ") + "Channel: " + channel.name
+      (tx ? "TX " : "Promo ") + "Channel: " + name
     end
 
 end
