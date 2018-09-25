@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :clip_types do
     member do
       get 'remove_device_type'
+      get 'add_device_type'
     end
   end
 

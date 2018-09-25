@@ -48,3 +48,21 @@
 
 <%= link_to 'Edit', edit_device_type_path(@clip_type) %> |
 <%= link_to 'Back', :back %>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th class='title-episode-bold'>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @device_types.each do |device| %>
+      <tr>
+        <td><%= link_to device.name, add_device_type_clip_type_path(id: @clip_type, device_id: device) %></td>
+        <td><%= link_to 'Add to the Clip Type',  add_device_type_clip_type_path(id: @clip_type, device_id: device) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
