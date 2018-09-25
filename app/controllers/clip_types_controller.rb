@@ -150,13 +150,13 @@ class ClipTypesController < ApplicationController
         if tx
           notice = 'TX Channel: ' + channel.name + ' Removed'
         else
-          notice = 'Promo Channel Removed'
+          notice = 'Promo Channel: ' + channel.name + ' Removed'
         end
       else
         if tx
-          notice = 'TX Channel not found'
+          notice = 'TX Channel: ' + channel.name + ' not found'
         else
-          notice = 'Promo Channel not found'
+          notice = 'Promo Channel: ' + channel.name + ' not found'
         end
       end
     end
