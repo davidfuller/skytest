@@ -148,7 +148,7 @@ class ClipTypesController < ApplicationController
       num = @clip_type.delete_channel(channel, tx)
       if num > 0 then
         if tx
-          notice = 'TX Channel Removed'
+          notice = 'TX Channel: ' + channel.name + ' Removed'
         else
           notice = 'Promo Channel Removed'
         end

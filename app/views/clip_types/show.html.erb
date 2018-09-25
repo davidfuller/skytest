@@ -73,7 +73,7 @@
         <% @clip_type.promo_channels.each do |promo| %>
           <tr>
             <td><%= promo.channel.name %></td>
-            <td class='table-links'><%= link_to 'Remove', remove_promo_channel_clip_type_path(id: @clip_type, channel_id: promo) %> </td>
+            <td class='table-links'><%= link_to 'Remove', remove_promo_channel_clip_type_path(id: @clip_type, channel_id: promo.channel) %> </td>
           </tr>
         <% end %>
       </tbody>
