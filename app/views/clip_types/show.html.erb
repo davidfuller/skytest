@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @clip_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @clip_type.description %>
+</p>
+
+<p>
+  <strong>Default duration:</strong>
+  <%= @clip_type.default_duration %>
+</p>
+
+<p>
+  <strong>Default has audio:</strong>
+  <%= @clip_type.default_has_audio %>
+</p>
+
+<%= link_to 'Edit', edit_clip_type_path(@clip_type) %> |
+<%= link_to 'Back', clip_types_path %>

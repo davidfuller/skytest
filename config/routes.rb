@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :clip_types
   resources :device_types
   resources :channels
   resources :channel_types

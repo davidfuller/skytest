@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Clip Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Default duration</th>
+      <th>Default has audio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clip_types.each do |clip_type| %>
+      <tr>
+        <td><%= clip_type.name %></td>
+        <td><%= clip_type.description %></td>
+        <td><%= clip_type.default_duration %></td>
+        <td><%= clip_type.default_has_audio %></td>
+        <td><%= link_to 'Show', clip_type %></td>
+        <td><%= link_to 'Edit', edit_clip_type_path(clip_type) %></td>
+        <td><%= link_to 'Destroy', clip_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clip type', new_clip_type_path %>
