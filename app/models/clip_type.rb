@@ -27,6 +27,14 @@ class ClipType < ActiveRecord::Base
     end
   end
 
+  def channel_already_present(channel_id, tx)
+    if channel_id
+      clip_type_channel_joins.where('channels_id = ? AND tx = ?', channel_id, tx).present?
+    else
+      false
+    end
+  end
+
   def tx_channels
     clip_type_channel_joins.where('tx = ?', true).joins(:channel).order('channels.name')
   end

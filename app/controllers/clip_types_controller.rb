@@ -111,23 +111,11 @@ class ClipTypesController < ApplicationController
   end
 
   def add_tx_channel
-    @clip_type = ClipType.find(params[:id])
-    channel= Channel.find(params[:channel_id])
-    @clip_type.clip_type_channel_joins.create(channel: channel, tx: true)
-    respond_to do |format|
-	  	format.html {redirect_to @clip_type, notice: 'TX Channel Added'}
-	  	format.json {render :show, status: :removed, location: @clip_type}
-  	end
+    add_channel(true)
   end
 
   def add_promo_channel
-    @clip_type = ClipType.find(params[:id])
-    channel= Channel.find(params[:channel_id])
-    @clip_type.clip_type_channel_joins.create(channel: channel, tx: false)
-    respond_to do |format|
-	  	format.html {redirect_to @clip_type, notice: 'Promo Channel Added'}
-	  	format.json {render :show, status: :removed, location: @clip_type}
-  	end
+    add_channel(false)
   end
 
 
@@ -142,22 +130,36 @@ class ClipTypesController < ApplicationController
       params.require(:clip_type).permit(:name, :description, :default_duration, :default_has_audio)
     end
 
+    def add_channel(tx)
+      @clip_type = ClipType.find(params[:id])
+      channel= Channel.find(params[:channel_id])
+      if @clip_type.channel_already_present(params[:channel_id], tx)
+        notice = channel_display(tx, channel.name) + " already present"
+        json_notice = :present
+      else
+        @clip_type.clip_type_channel_joins.create(channel: channel, tx: tx)
+        notice = channel_display(tx, channel.name) + " added"
+        json_notice = :created
+      end
+      respond_to do |format|
+        format.html {redirect_to @clip_type, notice: notice}
+        format.json {render :show, status: json_notice, location: @clip_type}
+      end
+    end
+
     def remove_channel(tx)
       channel = Channel.find(params[:channel_id])
       @clip_type = ClipType.find(params[:id])
       num = @clip_type.delete_channel(channel, tx)
       if num > 0 then
-        if tx
-          notice = 'TX Channel: ' + channel.name + ' Removed'
-        else
-          notice = 'Promo Channel: ' + channel.name + ' Removed'
-        end
+        notice = channel_display(tx, channel.name) + ' removed'
       else
-        if tx
-          notice = 'TX Channel: ' + channel.name + ' not found'
-        else
-          notice = 'Promo Channel: ' + channel.name + ' not found'
-        end
+        notice = channel_display(tx, channel.name) + ' not found'
       end
     end
+
+    def channel_display(tx, name)
+      (tx ? "TX " : "Promo ") + "Channel: " + channel.name
+    end
+
 end
