@@ -10,6 +10,7 @@
       <th>Name</th>
       <th>Default Duration</th>
       <th>Default Has Audio</th>
+      <th>Device(s)<th>
       <th></th>
     </tr>
   </thead>
@@ -21,6 +22,17 @@
         <td><%= clip_type.name %></td>
         <td><%= clip_type.default_duration %></td>
         <td><%= clip_type.default_has_audio_display %></td>
+        <td>
+          <table>
+            <tbody>
+              <% clip_type.device_types.each do |device| %>
+                <tr>
+                  <td><%= device.name %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </td>
         <td class='table-links'><%= link_to 'Show', clip_type %> <%= link_to 'Edit', edit_clip_type_path(clip_type) %> <%= link_to 'Destroy', clip_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
