@@ -46,23 +46,50 @@
 </div>
 
 
+
 <%= link_to 'Edit', edit_device_type_path(@clip_type) %> |
 <%= link_to 'Back', :back %>
 
-<table class="table table-condensed">
-  <thead>
-    <tr>
-      <th class='title-episode-bold'>Name</th>
-      <th></th>
-    </tr>
-  </thead>
+<div class='row'>
+  <div class='col-sm-6'>
+    <h3 class="title-episode-bold">Device Types</h3>
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th class='title-episode-bold'>Name</th>
+          <th></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @device_types.each do |device| %>
-      <tr>
-        <td><%= link_to device.name, add_device_type_clip_type_path(id: @clip_type, device_id: device) %></td>
-        <td><%= link_to 'Add to the Clip Type',  add_device_type_clip_type_path(id: @clip_type, device_id: device) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @device_types.each do |device| %>
+          <tr>
+            <td><%= link_to device.name, add_device_type_clip_type_path(id: @clip_type, device_id: device) %></td>
+            <td><%= link_to 'Add to the Clip Type',  add_device_type_clip_type_path(id: @clip_type, device_id: device) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class='col-sm-6'>
+    <h3 class="title-episode-bold">Channels</h3>
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th class='title-episode-bold'>Name</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @channels.each do |channel| %>
+          <tr>
+            <td><%= channel.name) %></td>
+            <td><%= link_to 'Add as TX Channel',  add_tx_channel_clip_type_path(id: @clip_type, channel_id: channel) %></td>
+            <td><%= link_to 'Add as Promotion Channel', add_promo_channel_clip_type_path(id: @clip_type, channel_id: channel)%>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

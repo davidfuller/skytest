@@ -94,6 +94,23 @@ class ClipTypesController < ApplicationController
     end
   end
 
+  def add_tx_channel
+    @clip_type = ClipType.find(params[:id])
+    respond_to do |format|
+	  	format.html {redirect_to @clip_type, notice: 'Device Type removed'}
+	  	format.json {render :show, status: :removed, location: @clip_type}
+  	end
+  end
+
+  def add_promo_channel
+    @clip_type = ClipType.find(params[:id])
+    respond_to do |format|
+	  	format.html {redirect_to @clip_type, notice: 'Device Type removed'}
+	  	format.json {render :show, status: :removed, location: @clip_type}
+  	end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_clip_type
