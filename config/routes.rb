@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     member do
       get 'remove_device_type'
       get 'add_device_type'
+      get 'remove_tx_channel'
+      get 'remove_promo_channel'
       get 'add_tx_channel'
       get 'add_promo_channel'
     end

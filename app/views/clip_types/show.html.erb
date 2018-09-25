@@ -25,7 +25,7 @@
 </p>
 
 <div class='row'>
-  <div class='col-xs-6'>
+  <div class='col-sm-4'>
     <table class="table">
       <thead class='title-episode-bold'>
           <tr>
@@ -38,6 +38,24 @@
           <tr>
             <td><%= device.name %></td>
             <td class='table-links'><%= link_to 'Remove', remove_device_type_clip_type_path(id: @clip_type, device_id: device) %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class='col-sm-4'>
+    <table class="table">
+      <thead class='title-episode-bold'>
+          <tr>
+              <th>TX Channel(s)</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @clip_type.tx_channels.each do |tx| %>
+          <tr>
+            <td><%= tx.name %></td>
+            <td class='table-links'><%= link_to 'Remove', remove_tx_channel_clip_type_path(id: @clip_type, channel_id: tx) %> </td>
           </tr>
         <% end %>
       </tbody>

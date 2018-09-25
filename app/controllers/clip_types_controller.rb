@@ -94,19 +94,33 @@ class ClipTypesController < ApplicationController
       end
     end
   end
+  
+  def remove_tx_channel
+    channel = Channel.find(params[:channel])
+    @clip_type = ClipType.find(params[:id])
+  	@clip_type.device_types.delete(channel: channel, tx: true)
+  	respond_to do |format|
+	  	format.html {redirect_to @clip_type, notice: 'TX channel removed'}
+	  	format.json {render :show, status: :removed, location: @clip_type}
+  	end
+  end
 
   def add_tx_channel
     @clip_type = ClipType.find(params[:id])
+    channel= Channel.find(params[:channel_id])
+    @clip_type.clip_type_channel_joins.create(channel: channel, tx: true)
     respond_to do |format|
-	  	format.html {redirect_to @clip_type, notice: 'Device Type removed'}
+	  	format.html {redirect_to @clip_type, notice: 'TX Channel Added'}
 	  	format.json {render :show, status: :removed, location: @clip_type}
   	end
   end
 
   def add_promo_channel
     @clip_type = ClipType.find(params[:id])
+    channel= Channel.find(params[:channel_id])
+    @clip_type.clip_type_channel_joins.create(channel: channel, tx: false)
     respond_to do |format|
-	  	format.html {redirect_to @clip_type, notice: 'Device Type removed'}
+	  	format.html {redirect_to @clip_type, notice: 'Promo Channel Added'}
 	  	format.json {render :show, status: :removed, location: @clip_type}
   	end
   end
