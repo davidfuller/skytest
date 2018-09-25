@@ -28,7 +28,7 @@ class ClipTypesController < ApplicationController
 
     respond_to do |format|
       if @clip_type.save
-        format.html { redirect_to @clip_type, notice: 'Clip type was successfully created.' }
+        format.html { redirect_to clip_types_path, notice: 'Clip type was successfully created.' }
         format.json { render :show, status: :created, location: @clip_type }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ClipTypesController < ApplicationController
   def update
     respond_to do |format|
       if @clip_type.update(clip_type_params)
-        format.html { redirect_to @clip_type, notice: 'Clip type was successfully updated.' }
+        format.html { redirect_to clip_types_path, notice: 'Clip type was successfully updated.' }
         format.json { render :show, status: :ok, location: @clip_type }
       else
         format.html { render :edit }
