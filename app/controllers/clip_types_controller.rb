@@ -12,9 +12,9 @@ class ClipTypesController < ApplicationController
   def show
     @device_types = DeviceType.all
     @channels = Channel.all
-    @clip_type.device_data_show = params[:device_data_show]
-    @clip_type.tx_channel_data_show = params[:tx_data_show]
-    @clip_type.promo_channel_data_show = params[:promo_data_show]
+    @clip_type.device_data_show = params[:device_data_show] == 'true'
+    @clip_type.tx_channel_data_show = params[:tx_data_show] == 'true'
+    @clip_type.promo_channel_data_show = params[:promo_data_show] == 'true'
   end
 
   # GET /clip_types/new
@@ -118,7 +118,7 @@ class ClipTypesController < ApplicationController
   end
 
   def add_promo_channel
-    add_channel(nil)
+    add_channel(false)
   end
 
 
