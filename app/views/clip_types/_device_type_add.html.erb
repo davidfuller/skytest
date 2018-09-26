@@ -14,7 +14,7 @@
             <% @device_types.each do |device| %>
               <tr>
                 <td><%= link_to device.name, add_device_type_clip_type_path(id: @clip_type, device_id: device, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], channel_add_show: params[:channel_add_show]) %></td>
-                <td><%= link_to 'Add',  add_device_type_clip_type_path(id: @clip_type, device_id: device, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], channel_add_show: params[:channel_add_show])) %></td>
+                <td><%= link_to 'Add', add_device_type_clip_type_path(id: @clip_type, device_id: device, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], channel_add_show: params[:channel_add_show]) %></td>
               </tr>
             <% end %>
           </tbody>
