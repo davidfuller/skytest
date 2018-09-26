@@ -118,7 +118,7 @@ class ClipTypesController < ApplicationController
   end
 
   def add_promo_channel
-    add_channel(false)
+    add_channel(nil)
   end
 
 
