@@ -23,7 +23,7 @@
         <td><%= clip_type.default_duration %></td>
         <td><%= clip_type.default_has_audio_display %></td>
         <td>
-          <%= render 'device_type_index'%>
+          <%= render 'device_type_index', clip_type: clip_type %>
         </td>
         <td class='table-links'><%= link_to 'Show', clip_type %> <%= link_to 'Edit', edit_clip_type_path(clip_type) %> <%= link_to 'Destroy', clip_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
