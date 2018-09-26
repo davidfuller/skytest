@@ -14,7 +14,7 @@
             <% @clip_type.tx_channels.each do |tx| %>
               <tr>
                 <td><%= tx.channel.name %></td>
-                <td class='table-links'><%= link_to 'Remove', remove_tx_channel_clip_type_path(id: @clip_type, channel_id: tx.channel) %> </td>
+                <td class='table-links'><%= link_to 'Remove', remove_tx_channel_clip_type_path(id: @clip_type, channel_id: tx.channel, search: params[:search], promo_data_show: params[:promo_data_show], device_add_show: params[:device_add_show], device_data_show: params[:device_data_show]) %> </td>
               </tr>
             <% end %>
           </tbody>

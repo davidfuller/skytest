@@ -3,8 +3,8 @@
     <% @channels.each do |channel| %>
       <tr>
         <td><%= channel.name %></td>
-        <td><%= link_to 'Add TX',  add_tx_channel_clip_type_path(id: @clip_type, channel_id: channel, search: params[:search]) %></td>
-        <td><%= link_to 'Add Promo', add_promo_channel_clip_type_path(id: @clip_type, channel_id: channel, search: params[:search])%>
+        <td><%= link_to 'Add TX',  add_tx_channel_clip_type_path(id: @clip_type, channel_id: channel, search: params[:search], promo_data_show: params[:promo_data_show], device_add_show: params[:device_add_show], device_data_show: params[:device_data_show]) %></td>
+        <td><%= link_to 'Add Promo', add_promo_channel_clip_type_path(id: @clip_type, channel_id: channel, search: params[:search], tx_data_show: params[:tx_data_show], device_add_show: params[:device_add_show], device_data_show: params[:device_data_show]) %></td>
       </tr>
     <% end %>
   </tbody>
