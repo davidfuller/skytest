@@ -11,7 +11,7 @@ class ClipType < ActiveRecord::Base
 	validates_uniqueness_of :name, :messsage => " is already in system"
   validates_presence_of :name
   
-  attr_accessor :device_data_show, :tx_channel_data_show, :promo_channel_data_show, :device_add_show
+  attr_accessor :device_data_show, :tx_channel_data_show, :promo_channel_data_show, :device_add_show, :channel_add_show
 
   def default_has_audio_display
     if default_has_audio

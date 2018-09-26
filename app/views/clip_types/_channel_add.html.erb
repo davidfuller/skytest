@@ -1,0 +1,26 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title title-episode-bold">
+        <a data-toggle="collapse" href="#channels-add">Add Device Type</a>
+      </h3>
+      <% if @clip_type.channel_add_show %>
+        <div id="channels-add" class="panel-collapse collapse in">
+      <% else %>
+        <div id="channels-add" class="panel-collapse collapse">
+      <% end %>
+        <table class="table table-condensed">
+          <tbody>
+            <% @channels.each do |channel| %>
+              <tr>
+                <td><%= channel.name %></td>
+                <td><%= link_to 'Add TX',  add_tx_channel_clip_type_path(id: @clip_type, channel_id: channel) %></td>
+                <td><%= link_to 'Add Promo', add_promo_channel_clip_type_path(id: @clip_type, channel_id: channel)%>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

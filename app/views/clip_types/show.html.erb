@@ -46,24 +46,6 @@
     <%= render 'device_type_add'%>
   </div>
   <div class='col-sm-6'>
-    <h3 class="title-episode-bold">Channels</h3>
-    <table class="table table-condensed">
-      <thead>
-        <tr>
-          <th class='title-episode-bold'>Name</th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @channels.each do |channel| %>
-          <tr>
-            <td><%= channel.name %></td>
-            <td><%= link_to 'Add TX',  add_tx_channel_clip_type_path(id: @clip_type, channel_id: channel) %></td>
-            <td><%= link_to 'Add Promo', add_promo_channel_clip_type_path(id: @clip_type, channel_id: channel)%>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render 'channel_add'%>
   </div>
 </div>
