@@ -172,6 +172,7 @@ class ClipTypesController < ApplicationController
     end
 
     def show_details(tx, promo, device, the_params)
+      my_params = {}
       my_params[:search] = the_params[:search]
       if tx
         my_params[:tx_data_show] = true
