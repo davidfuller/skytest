@@ -11,6 +11,7 @@
       <th>Default Duration</th>
       <th>Default Has Audio</th>
       <th>TX Channel(s)</th>
+      <th>Promo Channel(s)</th>
       <th>Device(s)<th>
       <th></th>
     </tr>
@@ -25,6 +26,9 @@
         <td><%= clip_type.default_has_audio_display %></td>
         <td>
           <%= render 'tx_channel_index', clip_type: clip_type %>
+        </td>
+        <td>
+          <%= render 'promo_channel_index', clip_type: clip_type %>
         </td>
         <td>
           <%= render 'device_type_index', clip_type: clip_type %>
