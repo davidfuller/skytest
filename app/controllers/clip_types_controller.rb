@@ -99,7 +99,7 @@ class ClipTypesController < ApplicationController
   def remove_tx_channel
     notice = remove_channel(true)
   	respond_to do |format|
-	  	format.html {redirect_to @clip_type, notice: notice}
+	  	format.html {redirect_to clip_type_path(@clip_type, tx_data_show: true), notice: notice}
 	  	format.json {render :show, status: :removed, location: @clip_type}
   	end
   end
@@ -143,7 +143,7 @@ class ClipTypesController < ApplicationController
         json_notice = :created
       end
       respond_to do |format|
-        format.html {redirect_to @clip_type, notice: notice}
+        format.html {redirect_to clip_type_path(@clip_type, tx_data_show: true), notice: notice}
         format.json {render :show, status: json_notice, location: @clip_type}
       end
     end

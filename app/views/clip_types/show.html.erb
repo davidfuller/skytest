@@ -29,22 +29,7 @@
     <%= render 'device_type_data'%>
   </div>
   <div class='col-sm-4'>
-    <table class="table table-condensed">
-      <thead class='title-episode-bold'>
-          <tr>
-              <th>TX Channel(s)</th>
-              <th></th>
-          </tr>
-      </thead>
-      <tbody>
-        <% @clip_type.tx_channels.each do |tx| %>
-          <tr>
-            <td><%= tx.channel.name %></td>
-            <td class='table-links'><%= link_to 'Remove', remove_tx_channel_clip_type_path(id: @clip_type, channel_id: tx.channel) %> </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render 'tx_channel_data'%>
   </div>
   <div class='col-sm-4'>
     <table class="table table-condensed">
