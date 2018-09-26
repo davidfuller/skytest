@@ -14,6 +14,7 @@ class ClipTypesController < ApplicationController
     @channels = Channel.all
     @clip_type.device_data_show = params[:device_data_show]
     @clip_type.tx_channel_data_show = params[:tx_data_show]
+    @clip_type.promo_channel_data_show = params[:promo_data_show]
   end
 
   # GET /clip_types/new
@@ -107,7 +108,7 @@ class ClipTypesController < ApplicationController
   def remove_promo_channel
     notice = remove_channel(false)
   	respond_to do |format|
-	  	format.html {redirect_to @clip_type, notice: notice}
+	  	format.html {redirect_to clip_type_path(@clip_type, promo_data_show: true), notice: notice}
 	  	format.json {render :show, status: :removed, location: @clip_type}
   	end
   end
@@ -144,7 +145,7 @@ class ClipTypesController < ApplicationController
         json_notice = :created
       end
       respond_to do |format|
-        format.html {redirect_to clip_type_path(@clip_type, tx_data_show: true), notice: notice}
+        format.html {redirect_to clip_type_path(@clip_type, tx_data_show: tx, promo_data_show: !tx), notice: notice}
         format.json {render :show, status: json_notice, location: @clip_type}
       end
     end
