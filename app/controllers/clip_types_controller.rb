@@ -12,6 +12,7 @@ class ClipTypesController < ApplicationController
   def show
     @device_types = DeviceType.all
     @channels = Channel.all
+    @clip_type.device_data_show = params[:device_data_show]
   end
 
   # GET /clip_types/new
@@ -81,10 +82,9 @@ class ClipTypesController < ApplicationController
   def add_device_type
     device = DeviceType.find(params[:device_id])
     @clip_type = ClipType.find(params[:id])
-    @clip_type.device_data_show = true
     if @clip_type.device_already_present(params[:device_id])
       respond_to do |format|
-        format.html {redirect_to @clip_type, notice: 'Device Type already present'}
+        format.html {redirect_to @clip_type, notice: 'Device Type already present', device_data_show: true}
         format.json {render :show, status: :present, location: @clip_type}
       end
     else
