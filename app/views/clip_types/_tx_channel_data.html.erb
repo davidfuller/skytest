@@ -4,13 +4,10 @@
       <h3 class="panel-title title-episode-bold">
         <a data-toggle="collapse" href="#tx-channels"><%= pluralize(@clip_type.tx_channels.count, 'TX Channel') %></a>
       </h3>
-      <%= @clip_type.tx_channel_data_show %>
       <% if @clip_type.tx_channel_data_show %>
         <div id="tx-channels" class="panel-collapse collapse in">
-        Haha
       <% else %>
         <div id="tx-channels" class="panel-collapse collapse">
-        HoHo
       <% end %>
         <table class="table table-condensed">
           <tbody>
