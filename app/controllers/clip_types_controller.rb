@@ -181,13 +181,13 @@ class ClipTypesController < ApplicationController
         my_params[:device_data_show] = the_params[:device_data_show]
         my_params[:device_add_show] = the_params[:device_add_show]
       elsif promo
-        my_params[:tx_data_show] = the_params[:tx_channel_data_show]
+        my_params[:tx_data_show] = the_params[:tx_data_show]
         my_params[:promo_data_show] = true
         my_params[:channel_add_show] = true
         my_params[:device_data_show] = the_params[:device_data_show]
         my_params[:device_add_show] = the_params[:device_add_show]
       elsif device
-        my_params[:tx_data_show] = the_params[:tx_channel_data_show]
+        my_params[:tx_data_show] = the_params[:tx_data_show]
         my_params[:promo_data_show] = the_params[:promo_data_show]
         my_params[:channel_add_show] = the_params[:channel_add_show]
         my_params[:device_data_show] = true
