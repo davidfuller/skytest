@@ -1,0 +1,20 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title title-episode-bold">
+        <a data-toggle="collapse" href=<%= '#device-types-index-' + clip_type.id.to_s %> ><%= pluralize(clip_type.device_types.count, 'Device Type') %></a>
+      </h3>
+      <div id=<%= 'device-types-index-' + clip_type.id.to_s %> class="panel-collapse collapse">
+        <table class="table table-condensed">
+          <tbody>
+            <% clip_type.device_types.each do |device| %>
+              <tr>
+                <td><%= device.name %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
