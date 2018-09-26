@@ -13,6 +13,7 @@ class ClipTypesController < ApplicationController
     @device_types = DeviceType.all
     @channels = Channel.all
     @clip_type.device_data_show = params[:device_data_show]
+    @clip_type.tx_channel_data_show = params[:tx_data_show]
   end
 
   # GET /clip_types/new
