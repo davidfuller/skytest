@@ -3,6 +3,8 @@
 <% end %>
 
 <h3 class="title-episode-bold">Clip Type</h3>
+<%= link_to 'Edit this Clip Tyoe', edit_clip_type_path(@clip_type) %> |
+<%= link_to 'Clip Type List', clip_types_path %>
 
 <p>
   <div class='title-episode-bold'><b>Name</b></div>
@@ -35,11 +37,6 @@
     <%= render 'device_type_data'%>
   </div>
 </div>
-
-
-
-<%= link_to 'Edit', edit_device_type_path(@clip_type) %> |
-<%= link_to 'Back', :back %>
 
 <div class='row'>
   <div class='col-sm-6'>
