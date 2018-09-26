@@ -74,7 +74,7 @@ class ClipTypesController < ApplicationController
     @clip_type = ClipType.find(params[:id])
   	@clip_type.device_types.delete(device)
   	respond_to do |format|
-	  	format.html {redirect_to @clip_type, notice: 'Device Type removed'}
+	  	format.html {redirect_to clip_type_path(@clip_type, device_data_show: true), notice: device_display(device.name) + ' removed'}
 	  	format.json {render :show, status: :removed, location: @clip_type}
   	end
   end
@@ -83,16 +83,16 @@ class ClipTypesController < ApplicationController
     device = DeviceType.find(params[:device_id])
     @clip_type = ClipType.find(params[:id])
     if @clip_type.device_already_present(params[:device_id])
-      respond_to do |format|
-        format.html {redirect_to @clip_type, notice: 'Device Type already present'}
-        format.json {render :show, status: :present, location: @clip_type}
-      end
+      notice = device_display(device.name) + ' already present'
+      json_notice = :present
     else
       @clip_type.clip_type_device_joins.create(device_type: device)
-      respond_to do |format|
-        format.html {redirect_to clip_type_path(@clip_type, device_data_show: true), notice: 'Device Type added'}
-        format.json {render :show, status: :created, location: @clip_type}
-      end
+      notice = device_display(device.name) + ' added'
+      json_notice = :created
+    end
+    respond_to do |format|
+      format.html {redirect_to clip_type_path(@clip_type, device_data_show: true), notice: notice}
+      format.json {render :show, status: json_notice, location: @clip_type}
     end
   end
   
@@ -161,6 +161,10 @@ class ClipTypesController < ApplicationController
 
     def channel_display(tx, name)
       (tx ? "TX " : "Promo ") + "Channel: " + name
+    end
+
+    def device_display(name)
+      'Device Type: ' + name
     end
 
 end
