@@ -15,6 +15,7 @@ class ClipTypesController < ApplicationController
     @clip_type.device_data_show = params[:device_data_show] == 'true'
     @clip_type.tx_channel_data_show = params[:tx_data_show] == 'true'
     @clip_type.promo_channel_data_show = params[:promo_data_show] == 'true'
+    @clip_type.channel_add_show = params[:channel_add_show] == 'true'
   end
 
   # GET /clip_types/new
@@ -145,7 +146,7 @@ class ClipTypesController < ApplicationController
         json_notice = :created
       end
       respond_to do |format|
-        format.html {redirect_to clip_type_path(@clip_type, {tx_data_show: tx, promo_data_show: !tx}), notice: notice}
+        format.html {redirect_to clip_type_path(@clip_type, {tx_data_show: tx, promo_data_show: !tx, channel_add_show: true}), notice: notice}
         format.json {render :show, status: json_notice, location: @clip_type}
       end
     end
