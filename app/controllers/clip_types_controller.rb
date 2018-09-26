@@ -90,7 +90,7 @@ class ClipTypesController < ApplicationController
     else
       @clip_type.clip_type_device_joins.create(device_type: device)
       respond_to do |format|
-        format.html {redirect_to @clip_type(device_data_show: true), notice: 'Device Type added'}
+        format.html {redirect_to clip_type_path(@clip_type, device_data_show: true), notice: 'Device Type added'}
         format.json {render :show, status: :created, location: @clip_type}
       end
     end
