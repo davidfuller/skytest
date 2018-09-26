@@ -11,7 +11,7 @@ class ClipTypesController < ApplicationController
   # GET /clip_types/1.json
   def show
     @device_types = DeviceType.all
-    @channels = Channel.all
+    @channels = Channel.bss_title_id_search(params[:search])
     @clip_type.device_data_show = params[:device_data_show] == 'true'
     @clip_type.tx_channel_data_show = params[:tx_data_show] == 'true'
     @clip_type.promo_channel_data_show = params[:promo_data_show] == 'true'

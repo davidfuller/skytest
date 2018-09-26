@@ -19,18 +19,19 @@
               <%= button_tag "Clear", type: :button, :class => 'btn btn-default', :onclick =>'document.getElementById("search").value=""' %>
           </span>
         <% end %>
-
-        <table class="table table-condensed">
-          <tbody>
-            <% @channels.each do |channel| %>
-              <tr>
-                <td><%= channel.name %></td>
-                <td><%= link_to 'Add TX',  add_tx_channel_clip_type_path(id: @clip_type, channel_id: channel) %></td>
-                <td><%= link_to 'Add Promo', add_promo_channel_clip_type_path(id: @clip_type, channel_id: channel)%>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+        <div id = 'clip-type-channels'>
+          <table class="table table-condensed">
+            <tbody>
+              <% @channels.each do |channel| %>
+                <tr>
+                  <td><%= channel.name %></td>
+                  <td><%= link_to 'Add TX',  add_tx_channel_clip_type_path(id: @clip_type, channel_id: channel) %></td>
+                  <td><%= link_to 'Add Promo', add_promo_channel_clip_type_path(id: @clip_type, channel_id: channel)%>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
