@@ -84,13 +84,13 @@ class ClipTypesController < ApplicationController
     @clip_type = ClipType.find(params[:id])
     if @clip_type.device_already_present(params[:device_id])
       respond_to do |format|
-        format.html {redirect_to @clip_type, notice: 'Device Type already present', device_data_show: true}
+        format.html {redirect_to @clip_type, notice: 'Device Type already present'}
         format.json {render :show, status: :present, location: @clip_type}
       end
     else
       @clip_type.clip_type_device_joins.create(device_type: device)
       respond_to do |format|
-        format.html {redirect_to @clip_type, notice: 'Device Type added'}
+        format.html {redirect_to @clip_type(device_data_show: true), notice: 'Device Type added'}
         format.json {render :show, status: :created, location: @clip_type}
       end
     end
