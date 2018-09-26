@@ -81,6 +81,7 @@ class ClipTypesController < ApplicationController
   def add_device_type
     device = DeviceType.find(params[:device_id])
     @clip_type = ClipType.find(params[:id])
+    @clip_type.device_data_show = true
     if @clip_type.device_already_present(params[:device_id])
       respond_to do |format|
         format.html {redirect_to @clip_type, notice: 'Device Type already present'}
