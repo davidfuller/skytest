@@ -1,0 +1,20 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title title-episode-bold">
+        <a data-toggle="collapse" href=<%= '#tx-channel-index-' + clip_type.id.to_s %> ><%= pluralize(clip_type.tx_channels.count, 'TX Channel') %></a>
+      </h3>
+      <div id=<%= 'tx-channel-index-' + clip_type.id.to_s %> class="panel-collapse collapse">
+        <table class="table table-condensed">
+          <tbody>
+            <% clip_type.tx_channels.each do |tx| %>
+              <tr>
+                <td><%= tx.name %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
