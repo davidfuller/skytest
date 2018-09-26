@@ -32,7 +32,7 @@
           <h3 class="panel-title title-episode-bold">
             <a data-toggle="collapse" href="#device-types"><%= pluralize(@clip_type.device_types.count, 'Device Type') %></a>
           </h3>
-          <div id="device-types" class="panel-collapse collapse">
+          <div id="device-types" class="panel-collapse collapse in">
             <table class="table table-condensed">
               <tbody>
                 <% @clip_type.device_types.each do |device| %>
