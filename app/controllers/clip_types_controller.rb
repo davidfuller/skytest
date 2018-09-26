@@ -145,7 +145,7 @@ class ClipTypesController < ApplicationController
         json_notice = :created
       end
       respond_to do |format|
-        format.html {redirect_to clip_type_path(@clip_type, tx_data_show: tx, promo_data_show: !tx), notice: notice}
+        format.html {redirect_to clip_type_path(@clip_type, {tx_data_show: tx, promo_data_show: !tx}), notice: notice}
         format.json {render :show, status: json_notice, location: @clip_type}
       end
     end
