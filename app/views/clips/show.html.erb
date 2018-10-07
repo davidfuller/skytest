@@ -94,19 +94,19 @@
   <div class='col-sm-2'>
     <p>
       <div class='title-episode-bold'><b>First use</b></div>
-      <div class='title-normal-condensed'><%= @clip.first_use %></div>
+      <div class='title-normal-condensed'><%= @clip.first_use_date_string %></div>
     </p>
   </div>
   <div class='col-sm-2'>  
     <p>
       <div class='title-episode-bold'><b>Last use</b></div>
-      <div class='title-normal-condensed'><%= @clip.last_use %></div>
+      <div class='title-normal-condensed'><%= @clip.last_use_date_string %></div>
     </p>
   </div>
   <div class='col-sm-2'>
     <p>
       <div class='title-episode-bold'><b>Completion</b></div>
-      <div class='title-normal-condensed'><%= @clip.completion %></div>
+      <div class='title-normal-condensed'><%= @clip.completion_date_string %></div>
     </p>
   </div>
 </div>
@@ -120,7 +120,7 @@
   <div class='col-sm-2'>
     <p>
       <div class='title-episode-bold'><b>Status</b></div>
-      <div class='title-normal-condensed'><%= @clip.status_id %></div>
+      <div class='title-normal-condensed'><%= @clip.status.name unless @clip.status.nil? %></div>
     </p>
   </div>
 </div>
