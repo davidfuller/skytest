@@ -14,7 +14,7 @@
             <% @clip_type.device_types.each do |device| %>
               <tr>
                 <td><%= device.name %></td>
-                <td class='table-links'><%= link_to 'Remove', remove_device(@clip_type, device, params) %> </td>
+                <td class='table-links'><%= link_to 'Remove', remove_device(:clip_type, @clip_type, device, params) %> </td>
               </tr>
             <% end %>
           </tbody>
