@@ -7,6 +7,7 @@ class Clip < ActiveRecord::Base
   has_many :clip_device_joins
   has_many :device_types, through: :clip_device_joins
 
+  attr_accessor :device_data_show, :tx_channel_data_show, :promo_channel_data_show, :device_add_show, :channel_add_show
 
   def completion_date_string
     format_my_date completion
@@ -32,6 +33,13 @@ class Clip < ActiveRecord::Base
     self.last_use = parse_my_date(date_string)
   end
 
+  def device_already_present(device_id)
+    if device_id
+      device_types.where('device_types.id = ?', device_id).present?
+    else
+      false
+    end
+  end
 
   private
 

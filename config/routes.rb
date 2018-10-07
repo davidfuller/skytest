@@ -21,6 +21,13 @@ Rails.application.routes.draw do
   	end
   end
 
+  resources :clips do
+    member do 
+      get 'remove_device_type'
+      get 'add_device_type'
+    end
+  end
+
   resources :folders do
     member do
       get 'duplicate'

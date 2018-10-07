@@ -4,7 +4,15 @@
       <h3 class="panel-title title-episode-bold">
         <a data-toggle="collapse" href="#device-types-add">Add Device Type</a>
       </h3>
-      <% if @clip_type.device_add_show %>
+      <% if @clip_type %>
+        <% my_clip = @clip_type %>
+        <% my_source = :clip_type %>
+      <% elsif @clip %>
+        <% my_clip = @clip %>
+        <% my_source = :clip %>
+      <% end %>
+        
+      <% if my_clip.device_add_show %>
         <div id="device-types-add" class="panel-collapse collapse in">
       <% else %>
         <div id="device-types-add" class="panel-collapse collapse">
@@ -13,8 +21,8 @@
           <tbody>
             <% @device_types.each do |device| %>
               <tr>
-                <td><%= link_to device.name, add_device_type_clip_type_path(id: @clip_type, device_id: device, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], channel_add_show: params[:channel_add_show]) %></td>
-                <td><%= link_to 'Add', add_device_type_clip_type_path(id: @clip_type, device_id: device, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], channel_add_show: params[:channel_add_show]) %></td>
+                <td><%= link_to device.name, add_device(my_source, my_clip, device, params) %></td>
+                <td><%= link_to 'Add', add_device(my_source, my_clip, device, params) %></td>
               </tr>
             <% end %>
           </tbody>

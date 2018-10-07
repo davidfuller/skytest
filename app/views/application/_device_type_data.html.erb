@@ -1,20 +1,31 @@
 <div class="panel-group">
   <div class="panel panel-default">
     <div class="panel-heading">
+      
+      <% if @clip_type %>
+        <% my_clip = @clip_type %>
+        <% my_source = :clip_type %>
+      <% elsif @clip %>
+        <% my_clip = @clip %>
+        <% my_source = :clip %>
+      <% end %>
+      
       <h3 class="panel-title title-episode-bold">
-        <a data-toggle="collapse" href="#device-types"><%= pluralize(@clip_type.device_types.count, 'Device Type') %></a>
+        <a data-toggle="collapse" href="#device-types"><%= pluralize(my_clip.device_types.count, 'Device Type') %></a>
       </h3>
-      <% if @clip_type.device_data_show %>
+      
+    
+      <% if my_clip.device_data_show %>
         <div id="device-types" class="panel-collapse collapse in">
       <% else %>
         <div id="device-types" class="panel-collapse collapse">
       <% end %>
         <table class="table table-condensed">
           <tbody>
-            <% @clip_type.device_types.each do |device| %>
+            <% my_clip.device_types.each do |device| %>
               <tr>
                 <td><%= device.name %></td>
-                <td class='table-links'><%= link_to 'Remove', remove_device(:clip_type, @clip_type, device, params) %> </td>
+                <td class='table-links'><%= link_to 'Remove', remove_device(my_source, my_clip, device, params) %> </td>
               </tr>
             <% end %>
           </tbody>

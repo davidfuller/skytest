@@ -10,6 +10,7 @@ class ClipsController < ApplicationController
   # GET /clips/1
   # GET /clips/1.json
   def show
+    @device_types = DeviceType.all
   end
 
   # GET /clips/new
@@ -60,6 +61,42 @@ class ClipsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
+  #=================================
+  # Muvi2 Additions
+  #=================================
+  
+  # remove device_type
+  def remove_device_type
+    device = DeviceType.find(params[:device_id])
+    @clip = Clip.find(params[:id])
+  	@clip.device_types.delete(device)
+  	respond_to do |format|
+	  	format.html {redirect_to clip_path(@clip, show_details(false, false, true, params)), notice: device_display(device.name) + ' removed'}
+	  	format.json {render :show, status: :removed, location: @clip}
+  	end
+  end
+
+  def add_device_type
+    device = DeviceType.find(params[:device_id])
+    @clip = Clip.find(params[:id])
+    if @clip.device_already_present(params[:device_id])
+      notice = device_display(device.name) + ' already present'
+      json_notice = :present
+    else
+      @clip.clip_device_joins.create(device_type: device)
+      notice = device_display(device.name) + ' added'
+      json_notice = :created
+    end
+    respond_to do |format|
+      format.html {redirect_to clip_path(@clip, show_details(false, false, true, params)), notice: notice}
+      format.json {render :show, status: json_notice, location: @clip}
+    end
+  end
+  
+  
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -73,4 +110,38 @@ class ClipsController < ApplicationController
                                       :clip_type_id, :duration, :start_season, :start_episode, :end_season, :end_episode, 
                                       :season_generic, :totally_generic, :first_use, :last_use, :completion, :completion_date_string, :user_id, :status_id)
     end
+    
+    def channel_display(tx, name)
+      (tx ? "TX " : "Promo ") + "Channel: " + name
+    end
+
+    def device_display(name)
+      'Device Type: ' + name
+    end
+
+    def show_details(tx, promo, device, the_params)
+      my_params = {}
+      my_params[:search] = the_params[:search]
+      if tx
+        my_params[:tx_data_show] = true
+        my_params[:promo_data_show] = the_params[:promo_data_show]
+        my_params[:channel_add_show] = true
+        my_params[:device_data_show] = the_params[:device_data_show]
+        my_params[:device_add_show] = the_params[:device_add_show]
+      elsif promo
+        my_params[:tx_data_show] = the_params[:tx_data_show]
+        my_params[:promo_data_show] = true
+        my_params[:channel_add_show] = true
+        my_params[:device_data_show] = the_params[:device_data_show]
+        my_params[:device_add_show] = the_params[:device_add_show]
+      elsif device
+        my_params[:tx_data_show] = the_params[:tx_data_show]
+        my_params[:promo_data_show] = the_params[:promo_data_show]
+        my_params[:channel_add_show] = the_params[:channel_add_show]
+        my_params[:device_data_show] = true
+        my_params[:device_add_show] = true
+      end
+      my_params
+    end
+
 end
