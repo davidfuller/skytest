@@ -17,27 +17,32 @@
   <div class='title-episode-bold'><b>Note</b></div>
   <div class='title-normal-condensed'><%= @clip.note %></div>
 </p>
-
-<p>
-  <div class='title-episode-bold'><b>Filename</b></div>
-  <div class='title-normal-condensed'><%= @clip.filename %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>Folder</b></div>
-  <div class='title-normal-condensed'><%= @clip.folder.name unless @clip.folder.nil?%></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>Has audio</b></div>
-  <div class='title-normal-condensed'><%= @clip.has_audio %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>Audio filename</b></div>
-  <div class='title-normal-condensed'><%= @clip.audio_filename %></div>
-</p>
-
+<div class='row'>
+  <div class='col-sm-3'>
+    <p>
+      <div class='title-episode-bold'><b>Filename</b></div>
+      <div class='title-normal-condensed'><%= @clip.filename %></div>
+    </p>
+  </div>
+  <div class='col-sm-3'>
+    <p>
+      <div class='title-episode-bold'><b>Folder</b></div>
+      <div class='title-normal-condensed'><%= @clip.folder.name unless @clip.folder.nil?%></div>
+    </p>
+  </div>
+  <div class='col-sm-3'>
+    <p>
+      <div class='title-episode-bold'><b>Has audio</b></div>
+      <div class='title-normal-condensed'><%= @clip.has_audio %></div>
+    </p>
+  </div>
+  <div class='col-sm-3'>
+    <p>
+      <div class='title-episode-bold'><b>Audio filename</b></div>
+      <div class='title-normal-condensed'><%= @clip.audio_filename %></div>
+    </p>
+  </div>
+</div>
 <p>
   <div class='title-episode-bold'><b>Clip type</b></div>
   <div class='title-normal-condensed'><%= @clip.clip_type.name unless @clip.clip_type.nil? %></div>
@@ -47,62 +52,78 @@
   <div class='title-episode-bold'><b>Duration</b></div>
   <div class='title-normal-condensed'><%= @clip.duration %></div>
 </p>
-
-<p>
-  <div class='title-episode-bold'><b>Start season</b></div>
-  <div class='title-normal-condensed'><%= @clip.start_season %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>Start episode</b></div>
-  <div class='title-normal-condensed'><%= @clip.start_episode %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>End season</b></div>
-  <div class='title-normal-condensed'><%= @clip.end_season %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>End episode</b></div>
-  <div class='title-normal-condensed'><%= @clip.end_episode %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>Season generic</b></div>
-  <div class='title-normal-condensed'><%= @clip.season_generic %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>Totally generic</b></div>
-  <div class='title-normal-condensed'><%= @clip.totally_generic %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>First use</b></div>
-  <div class='title-normal-condensed'><%= @clip.first_use %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>Last use</b></div>
-  <div class='title-normal-condensed'><%= @clip.last_use %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>Completion</b></div>
-  <div class='title-normal-condensed'><%= @clip.completion %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>User</b></div>
-  <div class='title-normal-condensed'><%= @clip.user.name unless @clip.user.nil? %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>Status</b></div>
-  <div class='title-normal-condensed'><%= @clip.status_id %></div>
-</p>
-
+<div class='row'>
+  <div class='col-sm-2'>
+    <p>
+      <div class='title-episode-bold'><b>Start season</b></div>
+      <div class='title-normal-condensed'><%= @clip.start_season %></div>
+    </p>
+  </div>
+  <div class='col-sm-2'>
+    <p>
+      <div class='title-episode-bold'><b>Start episode</b></div>
+      <div class='title-normal-condensed'><%= @clip.start_episode %></div>
+    </p>
+  </div>
+  <div class='col-sm-2'>
+    <p>
+      <div class='title-episode-bold'><b>End season</b></div>
+      <div class='title-normal-condensed'><%= @clip.end_season %></div>
+    </p>
+  </div>
+  <div class='col-sm-2'>
+    <p>
+      <div class='title-episode-bold'><b>End episode</b></div>
+      <div class='title-normal-condensed'><%= @clip.end_episode %></div>
+    </p>
+  </div>
+  <div class='col-sm-2'>
+    <p>
+      <div class='title-episode-bold'><b>Season generic</b></div>
+      <div class='title-normal-condensed'><%= @clip.season_generic %></div>
+    </p>
+  </div>
+  <div class='col-sm-2'>
+    <p>
+      <div class='title-episode-bold'><b>Totally generic</b></div>
+      <div class='title-normal-condensed'><%= @clip.totally_generic %></div>
+    </p>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-sm-2'>
+    <p>
+      <div class='title-episode-bold'><b>First use</b></div>
+      <div class='title-normal-condensed'><%= @clip.first_use %></div>
+    </p>
+  </div>
+  <div class='col-sm-2'>  
+    <p>
+      <div class='title-episode-bold'><b>Last use</b></div>
+      <div class='title-normal-condensed'><%= @clip.last_use %></div>
+    </p>
+  </div>
+  <div class='col-sm-2'>
+    <p>
+      <div class='title-episode-bold'><b>Completion</b></div>
+      <div class='title-normal-condensed'><%= @clip.completion %></div>
+    </p>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-sm-2'>
+    <p>
+      <div class='title-episode-bold'><b>User</b></div>
+      <div class='title-normal-condensed'><%= @clip.user.name unless @clip.user.nil? %></div>
+    </p>
+  </div>
+  <div class='col-sm-2'>
+    <p>
+      <div class='title-episode-bold'><b>Status</b></div>
+      <div class='title-normal-condensed'><%= @clip.status_id %></div>
+    </p>
+  </div>
+</div>
 
 <br />
 <div class='row'>
