@@ -3,6 +3,10 @@ class Clip < ActiveRecord::Base
   belongs_to :clip_type
   belongs_to :user
   belongs_to :status
+  
+  has_many :clip_device_joins
+  has_many :device_types, through: :clip_device_joins
+
 
   def completion_date_string
     format_my_date completion
