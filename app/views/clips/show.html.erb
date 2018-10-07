@@ -102,3 +102,26 @@
   <div class='title-episode-bold'><b>Status</b></div>
   <div class='title-normal-condensed'><%= @clip.status_id %></div>
 </p>
+
+
+<br />
+<div class='row'>
+  <div class='col-sm-4'>
+    <%= render 'tx_channel_data'%>
+  </div>
+  <div class='col-sm-4'>
+    <%= render 'promo_channel_data'%>
+  </div>
+  <div class='col-sm-4'>
+    <%= render 'device_type_data'%>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-sm-6'>
+    <%= render 'channel_add'%>
+  </div>
+  <div class='col-sm-6'>
+    <%= render 'device_type_add'%>
+  </div>
+</div>
