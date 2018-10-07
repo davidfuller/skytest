@@ -4,4 +4,8 @@ module ApplicationHelper
 		will_paginate items
 	end
 
+
+  def remove_device(clip_type, device, params)
+    remove_device_type_clip_type_path(id: clip_type, device_id: device, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], channel_add_show: params[:channel_add_show])
+  end
 end
