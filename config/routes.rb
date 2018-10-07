@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :clips
+  resources :statuses
+  resources :folders
   resources :clip_types
   resources :device_types
   resources :channels
@@ -16,6 +19,12 @@ Rails.application.routes.draw do
   	member do
   		get 'add_episode'
   	end
+  end
+
+  resources :folders do
+    member do
+      get 'duplicate'
+    end
   end
 
   resources :clip_types do

@@ -1,0 +1,50 @@
+<% content_for(:title) do%>
+	  Folder: Sky Clarity Media Management
+<% end %>
+
+<h3 class="title-episode-bold">Folder</h3>
+<div class='title-normal-condensed'>
+  <%= link_to 'Edit this Folder', edit_folder_path(@folder) %> |
+  <%= link_to 'Folder List', folders_path %>
+</div>
+
+<p>
+  <div class='title-episode-bold'><b>Name</b></div>
+  <div class='title-normal-condensed'><%= @folder.name %></div>
+</p>
+
+
+<p>
+  <div class='title-episode-bold'><b>Name:</b></div>
+  <div class='title-normal-condensed'><%= @folder.name %></div>
+</p>
+
+<p>
+  <div class='title-episode-bold'><b>Note</b></div>
+  <div class='title-normal-condensed'><%= @folder.note %></div>
+</p>
+
+<p>
+  <div class='title-episode-bold'><b>Clipstore</b></div>
+  <div class='title-normal-condensed'><%= @folder.clipstore %></div>
+</p>
+
+<p>
+  <div class='title-episode-bold'><b>Proxy</b></div>
+  <div class='title-normal-condensed'><%= @folder.proxy %></div>
+</p>
+
+<p>
+  <div class='title-episode-bold'><b>Jpeg</b></div>
+  <div class='title-normal-condensed'><%= @folder.jpeg %></div>
+</p>
+
+<p>
+  <div class='title-episode-bold'><b>Clip limit</b></div>
+  <div class='title-normal-condensed'><%= @folder.clip_limit %></div>
+</p>
+
+<p>
+  <div class='title-episode-bold'><b>Overflow</b></div>
+  <div class='title-normal-condensed'><%= @folder.overflow_name %></div>
+</p>

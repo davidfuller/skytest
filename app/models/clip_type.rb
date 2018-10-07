@@ -8,6 +8,8 @@ class ClipType < ActiveRecord::Base
   has_many :clip_type_channel_joins
   has_many :channels, through: :clip_type_channel_joins
 
+  has_many :clips
+
 	validates_uniqueness_of :name, :messsage => " is already in system"
   validates_presence_of :name
   

@@ -1,0 +1,26 @@
+<%= form_for(@status) do |f| %>
+  <% if @status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
+
+      <ul>
+      <% @status.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, class: 'title-episode-bold' %><br>
+    <%= f.text_field :name, :autofocus => true, :class => "form-control field-normal" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :position, class: 'title-episode-bold' %><br>
+    <%= f.number_field :position, class: 'form-control spinner' %>
+  </div>
+  <div class="actions">
+    <%= f.submit nil, :class => "btn btn-default"%>
+  </div>
+<% end %>

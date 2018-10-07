@@ -1,0 +1,45 @@
+<%= form_for(@folder) do |f| %>
+  <% if @folder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@folder.errors.count, "error") %> prohibited this folder from being saved:</h2>
+
+      <ul>
+      <% @folder.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, class: 'title-episode-bold' %><br>
+    <%= f.text_field :name, :autofocus => true, :class => "form-control field-normal" %>
+  </div>
+  <div class="field">
+    <%= f.label :note, 'Notes', class: 'title-episode-bold' %><br>
+    <%= f.text_area :note, class: 'form-control field-normal' %>
+  </div>
+  <div class="field">
+    <%= f.label :clipstore, 'Clarity Clipstore Folder', class: 'title-episode-bold' %><br>
+    <%= f.text_field :clipstore, :class => "form-control field-normal" %>
+  </div>
+  <div class="field">
+    <%= f.label :proxy, 'Web App Proxy Folder', class: 'title-episode-bold' %><br>
+    <%= f.text_field :proxy, :class => "form-control field-normal" %>
+  </div>
+  <div class="field">
+    <%= f.label :jpeg, 'Web App Jpeg Folder', class: 'title-episode-bold' %><br>
+    <%= f.text_field :jpeg, :class => "form-control field-normal" %>
+  </div>
+  <div class="field">
+    <%= f.label :clip_limit, class: 'title-episode-bold' %><br>
+    <%= f.number_field :clip_limit, class: 'form-control spinner' %>
+  </div>
+  <div class="field">
+    <%= f.label :overflow_id, "Overflow Folder", class: 'title-episode-bold'%><br>
+    <%= f.collection_select :overflow_id, Folder.all, :id, :name, {prompt: true}, {:class => 'form-control form-select'} %>
+  </div>
+  <div class="actions">
+    <%= f.submit nil, :class => "btn btn-default"%>
+  </div>
+<% end %>

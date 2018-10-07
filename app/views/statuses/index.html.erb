@@ -1,0 +1,30 @@
+<% content_for(:title) do%>
+	Status Configuration: Sky Clarity Media Management
+<% end %>
+
+
+<h3 class="title-episode-bold">Status Configuration</h3>
+
+<table class="table table-condensed">
+  <thead>
+    <tr class='title-episode-bold'>
+      <th>Name</th>
+      <th>Position</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @statuses.each do |status| %>
+      <tr>
+        <td><%= link_to status.name, edit_status_path(status) %></td>
+        <td><%= status.position %></td>
+        <td class='table-links'><%= link_to 'Show', status %> <%= link_to 'Edit', edit_status_path(status) %> <%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Status', new_status_path %>

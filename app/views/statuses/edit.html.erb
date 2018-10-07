@@ -1,0 +1,10 @@
+<% content_for(:title) do%>
+	<%= 'Editing Status: ' + @status.name + ': Sky Clarity Media Management' %>
+<% end %>
+
+<h3 class="title-episode-bold">Editing Status</h3>
+<div class='title-normal-condensed'>
+  <%= link_to 'Show this Status', @status %> |
+  <%= link_to 'Status List', statuses_path %>
+
+<%= render 'form' %>

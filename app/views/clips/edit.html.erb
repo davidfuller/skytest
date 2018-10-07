@@ -1,0 +1,11 @@
+<% content_for(:title) do%>
+	<%= 'Editing Clip: ' + @clip.name + ': Sky Clarity Media Management' %>
+<% end %>
+
+<h3 class="title-episode-bold">Editing Clip</h3>
+<div class='title-normal-condensed'>
+  <%= link_to 'Show this Clip', @clip %> |
+  <%= link_to 'Clip List', clips_path %>
+</div>
+
+<%= render 'form' %>

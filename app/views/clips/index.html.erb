@@ -1,0 +1,64 @@
+<% content_for(:title) do%>
+	Clips: Sky Clarity Media Management
+<% end %>
+
+
+<h3 class="title-episode-bold">Clips</h3>
+
+<table class="table table-condensed">
+  <thead>
+    <tr class='title-episode-bold'>
+      <th>Name</th>
+      <th>Note</th>
+      <th>Filename</th>
+      <th>Folder</th>
+      <th>Has audio</th>
+      <th>Audio filename</th>
+      <th>Clip type</th>
+      <th>Duration</th>
+      <th>Start season</th>
+      <th>Start episode</th>
+      <th>End season</th>
+      <th>End episode</th>
+      <th>Season generic</th>
+      <th>Totally generic</th>
+      <th>First use</th>
+      <th>Last use</th>
+      <th>Completion</th>
+      <th>User</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clips.each do |clip| %>
+      <tr>
+        <td><%= clip.name %></td>
+        <td><%= clip.note %></td>
+        <td><%= clip.filename %></td>
+        <td><%= clip.folder.name unless clip.folder.nil? %></td>
+        <td><%= clip.has_audio %></td>
+        <td><%= clip.audio_filename %></td>
+        <td><%= clip.clip_type.name unless clip.clip_type.nil? %></td>
+        <td><%= clip.duration %></td>
+        <td><%= clip.start_season %></td>
+        <td><%= clip.start_episode %></td>
+        <td><%= clip.end_season %></td>
+        <td><%= clip.end_episode %></td>
+        <td><%= clip.season_generic %></td>
+        <td><%= clip.totally_generic %></td>
+        <td><%= clip.first_use_date_string %></td>
+        <td><%= clip.last_use_date_string %></td>
+        <td><%= clip.completion_date_string %></td>
+        <td><%= clip.user.name unless clip.user.nil? %></td>
+        <td><%= clip.status.name unless clip.status.nil? %></td>
+        <td class='table-links'><%= link_to 'Show', clip %> <%= link_to 'Edit', edit_clip_path(clip) %> <%= link_to 'Destroy', clip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clip', new_clip_path %>

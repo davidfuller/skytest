@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  note: MyText
+  clipstore: MyString
+  proxy: MyString
+  jpeg: MyString
+  clip_limit: 1
+  overflow_id: 1
+
+two:
+  name: MyString
+  note: MyText
+  clipstore: MyString
+  proxy: MyString
+  jpeg: MyString
+  clip_limit: 1
+  overflow_id: 1

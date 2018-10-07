@@ -1,0 +1,19 @@
+<% content_for(:title) do%>
+	  Status: Sky Clarity Media Management
+<% end %><p id="notice"><%= notice %></p>
+
+<h3 class="title-episode-bold">Folder</h3>
+<div class='title-normal-condensed'>
+  <%= link_to 'Edit this Status', edit_status_path(@status) %> |
+  <%= link_to 'Status List', statuses_path %>
+</div>
+
+<p>
+  <div class='title-episode-bold'><b>Name</b></div>
+  <div class='title-normal-condensed'><%= @status.name %></div>
+</p>
+
+<p>
+  <div class='title-episode-bold'><b>Position</b></div>
+  <div class='title-normal-condensed'><%= @status.position %></div>
+</p>

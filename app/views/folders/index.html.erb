@@ -1,0 +1,34 @@
+<% content_for(:title) do%>
+	Folders: Sky Clarity Media Management
+<% end %>
+
+
+<h3 class="title-episode-bold">Folders</h3>
+
+<table class="table table-condensed">
+  <thead>
+    <tr class='title-episode-bold'>
+      <th>Name</th>
+      <th>Clipstore</th>
+      <th>Clip limit</th>
+      <th>Overflow</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @folders.each do |folder| %>
+      <tr>
+        <td><%= link_to folder.name, edit_folder_path(folder) %></td>
+        <td><%= folder.clipstore %></td>
+        <td><%= folder.clip_limit %></td>
+        <td><%= folder.overflow_name %></td>
+        <td class='table-links'><%= link_to 'Show', folder %> <%= link_to 'Edit', edit_folder_path(folder) %> <%= link_to 'Destroy', folder, method: :delete, data: { confirm: 'Are you sure?' } %> <%= link_to 'Copy', duplicate_folder_path(folder) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Folder', new_folder_path %>

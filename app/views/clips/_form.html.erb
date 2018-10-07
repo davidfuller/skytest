@@ -1,0 +1,118 @@
+<%= form_for(@clip) do |f| %>
+  <% if @clip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@clip.errors.count, "error") %> prohibited this clip from being saved:</h2>
+
+      <ul>
+      <% @clip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='from-group'>
+    <div class="field">
+      <%= f.label :name, class: 'title-episode-bold' %><br>
+      <%= f.text_field :name, :autofocus => true, :class => "form-control field-normal" %>
+    </div>
+    <div class="field">
+      <%= f.label :note, 'Notes', class: 'title-episode-bold' %><br>
+      <%= f.text_area :note, class: 'form-control field-normal' %>
+    </div>
+    <div class="field">
+      <%= f.label :filename, 'Base filename', class: 'title-episode-bold' %><br>
+      <%= f.text_field :filename, :class => "form-control field-normal" %>
+    </div>
+    <div class="field">
+      <%= f.label :folder_id, class: 'title-episode-bold'%><br>
+      <%= f.collection_select :folder_id, Folder.all, :id, :name, {prompt: true}, {:class => 'form-control form-select'} %>
+    </div>
+    <div class="field">
+      <%= f.label :has_audio, 'Has Audio', class: 'title-episode-bold' %><br>
+      <%= f.check_box :has_audio, :class => 'field-check-box' %>
+    </div>
+    <div class="field">
+      <%= f.label :audio_filename, class: 'title-episode-bold' %><br>
+      <%= f.text_field :audio_filename, :class => "form-control field-normal" %>
+    </div>
+    <div class="field">
+      <%= f.label :clip_type_id, class: 'title-episode-bold' %><br>
+      <%= f.collection_select :clip_type_id, ClipType.all, :id, :name, {prompt: true}, {:class => 'form-control form-select'} %>
+    </div>
+    <div class="field">
+      <%= f.label :duration, 'Duration (seconds)', class: 'title-episode-bold' %><br>
+      <%= f.number_field :duration, class: 'form-control spinner' %>
+    </div>
+    <div class='row'>
+      <div class='col-sm-2'>
+        <div class="field">
+          <%= f.label :start_season, class: 'title-episode-bold' %><br>
+          <%= f.text_field :start_season, :class => "form-control field-normal" %>
+        </div>
+      </div>
+      <div class='col-sm-2'>
+        <div class="field">
+          <%= f.label :start_episode, class: 'title-episode-bold' %><br>
+          <%= f.text_field :start_episode, :class => "form-control field-normal" %>
+        </div>
+      </div>
+      <div class='col-sm-2'>
+        <div class="field">
+          <%= f.label :end_season, class: 'title-episode-bold' %><br>
+          <%= f.text_field :end_season, :class => "form-control field-normal" %>
+        </div>
+      </div>
+      <div class='col-sm-2'>
+        <div class="field">
+          <%= f.label :end_episode, class: 'title-episode-bold' %><br>
+          <%= f.text_field :end_episode, :class => "form-control field-normal" %>
+        </div>
+      </div>
+      <div class='col-sm-2'>
+        <div class="field">
+          <%= f.label :season_generic, class: 'title-episode-bold' %><br>
+          <%= f.check_box :season_generic, :class => 'field-check-box' %>
+        </div>
+      </div>
+      <div class='col-sm-2'>
+        <div class="field">
+          <%= f.label :totally_generic, class: 'title-episode-bold' %><br>
+          <%= f.check_box :totally_generic, :class => 'field-check-box' %>
+        </div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class="col-sm-2">
+        <div class="field">
+          <%= f.label :first_use, class: 'title-episode-bold' %><br>
+          <%= my_datepicker f, :first_use_date_string %>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="field">
+          <%= f.label :last_use, class: 'title-episode-bold' %><br>
+          <%= my_datepicker f, :last_use_date_string %>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="field">
+          <%= f.label :completion, class: 'title-episode-bold' %><br>
+          <%= my_datepicker f, :completion_date_string %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="field">
+      <%= f.label :user_id, class: 'title-episode-bold' %><br>
+      <%= f.collection_select :user_id, User.all, :id, :name, {prompt: true}, {:class => 'form-control form-select'} %>
+    </div>
+    <div class="field">
+      <%= f.label :status_id, class: 'title-episode-bold' %><br>
+      <%= f.collection_select :status_id, Status.all, :id, :name, {prompt: true}, {:class => 'form-control form-select'} %>
+    </div>
+    <div class="actions">
+      <%= f.submit nil, class: 'btn btn-default' %>
+    </div>
+  </div><!-- .form-group -->
+<% end %>

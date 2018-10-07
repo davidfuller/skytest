@@ -1,0 +1,12 @@
+<% content_for(:title) do%>
+	<%= 'Editing Folder: ' + @folder.name + ': Sky Clarity Media Management' %>
+<% end %>
+
+<h3 class="title-episode-bold">Editing Folder</h3>
+<div class='title-normal-condensed'>
+  <%= link_to 'Show this Folder', @folder %> |
+  <%= link_to 'Folder List', folders_path %>
+</div>
+
+
+<%= render 'form' %>

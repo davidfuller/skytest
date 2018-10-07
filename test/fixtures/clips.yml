@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  note: MyText
+  filename: MyString
+  folder_id: 1
+  has_audio: false
+  audio_filename: MyString
+  clip_type_id: 1
+  duration: 1
+  start_season: MyString
+  start_episode: MyString
+  end_season: MyString
+  end_episode: MyString
+  season_generic: false
+  totally_generic: false
+  first_use: 2018-10-04 17:26:38
+  last_use: 2018-10-04 17:26:38
+  completion: 2018-10-04 17:26:38
+  user_id: 1
+  status_id: 1
+
+two:
+  name: MyString
+  note: MyText
+  filename: MyString
+  folder_id: 1
+  has_audio: false
+  audio_filename: MyString
+  clip_type_id: 1
+  duration: 1
+  start_season: MyString
+  start_episode: MyString
+  end_season: MyString
+  end_episode: MyString
+  season_generic: false
+  totally_generic: false
+  first_use: 2018-10-04 17:26:38
+  last_use: 2018-10-04 17:26:38
+  completion: 2018-10-04 17:26:38
+  user_id: 1
+  status_id: 1

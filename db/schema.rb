@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180925151931) do
+ActiveRecord::Schema.define(version: 20181005093927) do
 
   create_table "bss_channel_joins", force: :cascade do |t|
     t.integer  "channel_id",      limit: 4
@@ -67,6 +67,30 @@ ActiveRecord::Schema.define(version: 20180925151931) do
     t.datetime "updated_at",                      null: false
   end
 
+  create_table "clips", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.text     "note",            limit: 65535
+    t.string   "filename",        limit: 255
+    t.integer  "folder_id",       limit: 4
+    t.boolean  "has_audio"
+    t.string   "audio_filename",  limit: 255
+    t.integer  "clip_type_id",    limit: 4
+    t.integer  "duration",        limit: 4
+    t.string   "start_season",    limit: 255
+    t.string   "start_episode",   limit: 255
+    t.string   "end_season",      limit: 255
+    t.string   "end_episode",     limit: 255
+    t.boolean  "season_generic"
+    t.boolean  "totally_generic"
+    t.datetime "first_use"
+    t.datetime "last_use"
+    t.datetime "completion"
+    t.integer  "user_id",         limit: 4
+    t.integer  "status_id",       limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
   create_table "device_types", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
@@ -87,6 +111,25 @@ ActiveRecord::Schema.define(version: 20180925151931) do
   end
 
   add_index "episodes", ["title_id"], name: "index_episodes_on_title_id", using: :btree
+
+  create_table "folders", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "note",        limit: 65535
+    t.string   "clipstore",   limit: 255
+    t.string   "proxy",       limit: 255
+    t.string   "jpeg",        limit: 255
+    t.integer  "clip_limit",  limit: 4
+    t.integer  "overflow_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "position",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "titles", force: :cascade do |t|
     t.string   "title",      limit: 255
