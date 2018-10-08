@@ -34,7 +34,7 @@ module ApplicationHelper
   end
 
   def add_channel(source, tx, clip_type, channel, params)
-    my_params = {id: my_clip, channel_id: channel, search: params[:search], promo_data_show: params[:promo_data_show], device_add_show: params[:device_add_show], device_data_show: params[:device_data_show]}
+    my_params = {id: clip_type, channel_id: channel, search: params[:search], promo_data_show: params[:promo_data_show], device_add_show: params[:device_add_show], device_data_show: params[:device_data_show]}
     if source == :clip_type
         if tx == :tx
           add_tx_channel_clip_type_path(my_params)
