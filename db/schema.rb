@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181008072051) do
+ActiveRecord::Schema.define(version: 20181008124624) do
 
   create_table "bss_channel_joins", force: :cascade do |t|
     t.integer  "channel_id",      limit: 4
     t.integer  "bss_title_id_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "bss_clip_joins", force: :cascade do |t|
+    t.integer  "bss_title_id_id", limit: 4
+    t.integer  "clip_id",         limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
