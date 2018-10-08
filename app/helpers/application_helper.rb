@@ -27,9 +27,17 @@ module ApplicationHelper
   def remove_channel(source, tx, clip_type, channel, params)
     my_params = {id: clip_type, channel_id: channel, search: params[:search], tx_data_show: params[:tx_data_show], device_add_show: params[:device_add_show], device_data_show: params[:device_data_show] }
     if source == :clip_type
-      remove_promo_channel_clip_type_path(my_params)
+      if tx == :tx
+        remove_tx_channel_clip_type_path(my_params)
+      else
+        remove_promo_channel_clip_type_path(my_params)
+      end
     elsif source == :clip
-      remove_promo_channel_clip_path(my_params)
+      if tx == :tx
+        remove_tx_channel_clip_path(my_params)
+      else
+        remove_promo_channel_clip_path(my_params)
+      end
     end
   end
 
