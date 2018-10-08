@@ -12,11 +12,7 @@ class ClipTypesController < ApplicationController
   def show
     @device_types = DeviceType.all
     @channels = Channel.bss_title_id_search(params[:search])
-    @clip_type.device_data_show = params[:device_data_show] == 'true'
-    @clip_type.device_add_show = params[:device_add_show] == 'true'
-    @clip_type.tx_channel_data_show = params[:tx_data_show] == 'true'
-    @clip_type.promo_channel_data_show = params[:promo_data_show] == 'true'
-    @clip_type.channel_add_show = params[:channel_add_show] == 'true'
+    @clip_type.view_options = params
   end
 
   # GET /clip_types/new
@@ -78,7 +74,7 @@ class ClipTypesController < ApplicationController
     @clip_type = ClipType.find(params[:id])
   	@clip_type.device_types.delete(device)
   	respond_to do |format|
-	  	format.html {redirect_to clip_type_path(@clip_type, show_details(false, false, true, params)), notice: device_display(device.name) + ' removed'}
+	  	format.html {redirect_to clip_type_path(@clip_type, show_details(:device, params)), notice: device_display(device.name) + ' removed'}
 	  	format.json {render :show, status: :removed, location: @clip_type}
   	end
   end
@@ -95,7 +91,7 @@ class ClipTypesController < ApplicationController
       json_notice = :created
     end
     respond_to do |format|
-      format.html {redirect_to clip_type_path(@clip_type, show_details(false, false, true, params)), notice: notice}
+      format.html {redirect_to clip_type_path(@clip_type, show_details(:device, params)), notice: notice}
       format.json {render :show, status: json_notice, location: @clip_type}
     end
   end
@@ -103,24 +99,24 @@ class ClipTypesController < ApplicationController
   def remove_tx_channel
     notice = remove_channel(true)
   	respond_to do |format|
-	  	format.html {redirect_to clip_type_path(@clip_type, show_details(true, false, false, params)), notice: notice}
+	  	format.html {redirect_to clip_type_path(@clip_type, show_details(:tx, params)), notice: notice}
 	  	format.json {render :show, status: :removed, location: @clip_type}
   	end
   end
   def remove_promo_channel
     notice = remove_channel(false)
   	respond_to do |format|
-	  	format.html {redirect_to clip_type_path(@clip_type, show_details(false, true, false, params)), notice: notice}
+	  	format.html {redirect_to clip_type_path(@clip_type, show_details(:promo, params)), notice: notice}
 	  	format.json {render :show, status: :removed, location: @clip_type}
   	end
   end
 
   def add_tx_channel
-    add_channel(true)
+    add_channel(:tx)
   end
 
   def add_promo_channel
-    add_channel(false)
+    add_channel(:promo)
   end
 
 
@@ -138,16 +134,16 @@ class ClipTypesController < ApplicationController
     def add_channel(tx)
       @clip_type = ClipType.find(params[:id])
       channel= Channel.find(params[:channel_id])
-      if @clip_type.channel_already_present(params[:channel_id], tx)
+      if @clip_type.channel_already_present(params[:channel_id], tx == :tx)
         notice = channel_display(tx, channel.name) + " already present"
         json_notice = :present
       else
-        @clip_type.clip_type_channel_joins.create(channel: channel, tx: tx)
+        @clip_type.clip_type_channel_joins.create(channel: channel, tx: tx == :tx)
         notice = channel_display(tx, channel.name) + " added"
         json_notice = :created
       end
       respond_to do |format|
-        format.html {redirect_to clip_type_path(@clip_type, show_details(tx, !tx, false, params)), notice: notice}
+        format.html {redirect_to clip_type_path(@clip_type, show_details(tx == :tx, params)), notice: notice}
         format.json {render :show, status: json_notice, location: @clip_type}
       end
     end
@@ -155,7 +151,7 @@ class ClipTypesController < ApplicationController
     def remove_channel(tx)
       channel = Channel.find(params[:channel_id])
       @clip_type = ClipType.find(params[:id])
-      num = @clip_type.delete_channel(channel, tx)
+      num = @clip_type.delete_channel(channel, tx == :tx)
       if num > 0 then
         notice = channel_display(tx, channel.name) + ' removed'
       else
@@ -164,29 +160,29 @@ class ClipTypesController < ApplicationController
     end
 
     def channel_display(tx, name)
-      (tx ? "TX " : "Promo ") + "Channel: " + name
+      (tx == :tx ? "TX " : "Promo ") + "Channel: " + name
     end
 
     def device_display(name)
       'Device Type: ' + name
     end
 
-    def show_details(tx, promo, device, the_params)
+    def show_details(the_format, the_params)
       my_params = {}
       my_params[:search] = the_params[:search]
-      if tx
+      if the_format == :tx
         my_params[:tx_data_show] = true
         my_params[:promo_data_show] = the_params[:promo_data_show]
         my_params[:channel_add_show] = true
         my_params[:device_data_show] = the_params[:device_data_show]
         my_params[:device_add_show] = the_params[:device_add_show]
-      elsif promo
+      elsif the_format = :promo
         my_params[:tx_data_show] = the_params[:tx_data_show]
         my_params[:promo_data_show] = true
         my_params[:channel_add_show] = true
         my_params[:device_data_show] = the_params[:device_data_show]
         my_params[:device_add_show] = the_params[:device_add_show]
-      elsif device
+      elsif the_format = :device
         my_params[:tx_data_show] = the_params[:tx_data_show]
         my_params[:promo_data_show] = the_params[:promo_data_show]
         my_params[:channel_add_show] = the_params[:channel_add_show]
