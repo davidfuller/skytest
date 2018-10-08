@@ -131,7 +131,7 @@ class ClipsController < ApplicationController
     def clip_params
       params.require(:clip).permit(:name, :note, :filename, :folder_id, :has_audio, :audio_filename, 
                                       :clip_type_id, :duration, :start_season, :start_episode, :end_season, :end_episode, 
-                                      :season_generic, :totally_generic, :first_use, :last_use, :completion, :completion_date_string, :user_id, :status_id)
+                                      :season_generic, :totally_generic, :first_use, :first_use_date_string, :last_use, :last_use_date_string, :completion, :completion_date_string, :user_id, :status_id)
     end
     
     def channel_display(tx, name)
