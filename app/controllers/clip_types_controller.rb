@@ -97,14 +97,14 @@ class ClipTypesController < ApplicationController
   end
   
   def remove_tx_channel
-    notice = remove_channel(true)
+    notice = remove_channel(:tx)
   	respond_to do |format|
 	  	format.html {redirect_to clip_type_path(@clip_type, show_details(:tx, params)), notice: notice}
 	  	format.json {render :show, status: :removed, location: @clip_type}
   	end
   end
   def remove_promo_channel
-    notice = remove_channel(false)
+    notice = remove_channel(:promo)
   	respond_to do |format|
 	  	format.html {redirect_to clip_type_path(@clip_type, show_details(:promo, params)), notice: notice}
 	  	format.json {render :show, status: :removed, location: @clip_type}
