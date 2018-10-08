@@ -173,7 +173,7 @@ class ClipsController < ApplicationController
         notice = channel_display(tx, channel.name) + " already present"
         json_notice = :present
       else
-        @clip_type.clip_channel_joins.create(channel: channel, tx: tx == :tx)
+        @clip.clip_channel_joins.create(channel: channel, tx: tx == :tx)
         notice = channel_display(tx, channel.name) + " added"
         json_notice = :created
       end
