@@ -69,12 +69,12 @@ class Clip < ActiveRecord::Base
     num
   end
 
-  def view_options(params)
-    device_data_show = params[:device_data_show] == 'true'
-    device_add_show = params[:device_add_show] == 'true'
-    tx_channel_data_show = params[:tx_data_show] == 'true'
-    promo_channel_data_show = params[:promo_data_show] == 'true'
-    channel_add_show = params[:channel_add_show] == 'true'
+  def view_options=(params)
+    self.device_data_show = params[:device_data_show] == 'true'
+    self.device_add_show = params[:device_add_show] == 'true'
+    self.tx_channel_data_show = params[:tx_data_show] == 'true'
+    self.promo_channel_data_show = params[:promo_data_show] == 'true'
+    self.channel_add_show = params[:channel_add_show] == 'true'
   end
 
   private
