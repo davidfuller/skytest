@@ -44,6 +44,14 @@ class Clip < ActiveRecord::Base
     end
   end
 
+  def channel_already_present(channel_id, tx)
+    if channel_id
+      clip_type_channel_joins.where('channel_id = ? AND tx = ?', channel_id, tx == :tx).present?
+    else
+      false
+    end
+  end
+
   def tx_channels
     clip_channel_joins.where('tx = ?', true).joins(:channel).order('channels.name')
   end
@@ -51,6 +59,15 @@ class Clip < ActiveRecord::Base
     clip_channel_joins.where('tx = ?', false).joins(:channel).order('channels.name')
   end
 
+  def delete_channel(channel, tx)
+    num = 0
+    channel_joins = clip_type_channel_joins.where('channel_id = ? AND tx = ?', channel, tx == :tx)
+    channel_joins.each do |join|
+      join.delete
+      num += 1
+    end
+    num
+  end
 
 
   private

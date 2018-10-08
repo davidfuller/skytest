@@ -74,7 +74,7 @@ class ClipsController < ApplicationController
     @clip = Clip.find(params[:id])
   	@clip.device_types.delete(device)
   	respond_to do |format|
-	  	format.html {redirect_to clip_path(@clip, show_details(false, false, true, params)), notice: device_display(device.name) + ' removed'}
+	  	format.html {redirect_to clip_path(@clip, show_details(:device, params)), notice: device_display(device.name) + ' removed'}
 	  	format.json {render :show, status: :removed, location: @clip}
   	end
   end
@@ -91,12 +91,33 @@ class ClipsController < ApplicationController
       json_notice = :created
     end
     respond_to do |format|
-      format.html {redirect_to clip_path(@clip, show_details(false, false, true, params)), notice: notice}
+      format.html {redirect_to clip_path(@clip, show_details(:device, params)), notice: notice}
       format.json {render :show, status: json_notice, location: @clip}
     end
   end
   
-  
+  def add_tx_channel
+    add_channel(:tx)
+  end
+
+  def add_promo_channel
+    add_channel(:promo)
+  end
+
+  def remove_tx_channel
+    notice = remove_channel(:tx)
+  	respond_to do |format|
+	  	format.html {redirect_to clip_path(@clip, show_details(:tx, params)), notice: notice}
+	  	format.json {render :show, status: :removed, location: @clip}
+  	end
+  end
+  def remove_promo_channel
+    notice = remove_channel(:promo)
+  	respond_to do |format|
+	  	format.html {redirect_to clip_path(@clip, show_details(:promo, params)), notice: notice}
+	  	format.json {render :show, status: :removed, location: @clip}
+  	end
+  end
   
 
   private
@@ -113,29 +134,29 @@ class ClipsController < ApplicationController
     end
     
     def channel_display(tx, name)
-      (tx ? "TX " : "Promo ") + "Channel: " + name
+      (tx == :tx ? "TX " : "Promo ") + "Channel: " + name
     end
 
     def device_display(name)
       'Device Type: ' + name
     end
 
-    def show_details(tx, promo, device, the_params)
+    def show_details(the_format, the_params)
       my_params = {}
       my_params[:search] = the_params[:search]
-      if tx
+      if the_format == :tx
         my_params[:tx_data_show] = true
         my_params[:promo_data_show] = the_params[:promo_data_show]
         my_params[:channel_add_show] = true
         my_params[:device_data_show] = the_params[:device_data_show]
         my_params[:device_add_show] = the_params[:device_add_show]
-      elsif promo
+      elsif the_format == :promo
         my_params[:tx_data_show] = the_params[:tx_data_show]
         my_params[:promo_data_show] = true
         my_params[:channel_add_show] = true
         my_params[:device_data_show] = the_params[:device_data_show]
         my_params[:device_add_show] = the_params[:device_add_show]
-      elsif device
+      elsif the_format == :device
         my_params[:tx_data_show] = the_params[:tx_data_show]
         my_params[:promo_data_show] = the_params[:promo_data_show]
         my_params[:channel_add_show] = the_params[:channel_add_show]
@@ -143,6 +164,34 @@ class ClipsController < ApplicationController
         my_params[:device_add_show] = true
       end
       my_params
+    end
+    
+    def add_channel(tx)
+      @clip = Clip.find(params[:id])
+      channel= Channel.find(params[:channel_id])
+      if @clip.channel_already_present(params[:channel_id], tx)
+        notice = channel_display(tx, channel.name) + " already present"
+        json_notice = :present
+      else
+        @clip_type.clip_channel_joins.create(channel: channel, tx: tx == :tx)
+        notice = channel_display(tx, channel.name) + " added"
+        json_notice = :created
+      end
+      respond_to do |format|
+        format.html {redirect_to clip_path(@clip, show_details(tx, params)), notice: notice}
+        format.json {render :show, status: json_notice, location: @clip}
+      end
+    end
+
+    def remove_channel(tx)
+      channel = Channel.find(params[:channel_id])
+      @clip = Clip.find(params[:id])
+      num = @clip.delete_channel(channel, tx)
+      if num > 0 then
+        notice = channel_display(tx, channel.name) + ' removed'
+      else
+        notice = channel_display(tx, channel.name) + ' not found'
+      end
     end
 
 end
