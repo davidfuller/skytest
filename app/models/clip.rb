@@ -44,6 +44,15 @@ class Clip < ActiveRecord::Base
     end
   end
 
+  def tx_channels
+    clip_channel_joins.where('tx = ?', true).joins(:channel).order('channels.name')
+  end
+  def promo_channels
+    clip_channel_joins.where('tx = ?', false).joins(:channel).order('channels.name')
+  end
+
+
+
   private
 
   def parse_my_date(the_date_string)
