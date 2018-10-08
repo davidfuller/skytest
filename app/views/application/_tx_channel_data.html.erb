@@ -1,20 +1,29 @@
 <div class="panel-group">
   <div class="panel panel-default">
     <div class="panel-heading">
+
+      <% if @clip_type %>
+        <% my_clip = @clip_type %>
+        <% my_source = :clip_type %>
+      <% elsif @clip %>
+        <% my_clip = @clip %>
+        <% my_source = :clip %>
+      <% end %>
+
       <h3 class="panel-title title-episode-bold">
-        <a data-toggle="collapse" href="#tx-channels"><%= pluralize(@clip_type.tx_channels.count, 'TX Channel') %></a>
+        <a data-toggle="collapse" href="#tx-channels"><%= pluralize(my_clip.tx_channels.count, 'TX Channel') %></a>
       </h3>
-      <% if @clip_type.tx_channel_data_show %>
+      <% if my_clip.tx_channel_data_show %>
         <div id="tx-channels" class="panel-collapse collapse in">
       <% else %>
         <div id="tx-channels" class="panel-collapse collapse">
       <% end %>
         <table class="table table-condensed">
           <tbody>
-            <% @clip_type.tx_channels.each do |tx| %>
+            <% my_clip.tx_channels.each do |tx| %>
               <tr>
                 <td><%= tx.channel.name %></td>
-                <td class='table-links'><%= link_to 'Remove', remove_tx_channel_clip_type_path(id: @clip_type, channel_id: tx.channel, search: params[:search], promo_data_show: params[:promo_data_show], device_add_show: params[:device_add_show], device_data_show: params[:device_data_show]) %> </td>
+                <td class='table-links'><%= link_to 'Remove', remove_channel(my_source, :tx, my_clip, tx.channel, params) %> </td>
               </tr>
             <% end %>
           </tbody>

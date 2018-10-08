@@ -4,13 +4,22 @@
       <h3 class="panel-title title-episode-bold">
         <a data-toggle="collapse" href="#channels-add">Add Channel (TX and Promo)</a>
       </h3>
-      <% if @clip_type.channel_add_show %>
+
+      <% if @clip_type %>
+        <% my_clip = @clip_type %>
+        <% my_source = :clip_type %>
+      <% elsif @clip %>
+        <% my_clip = @clip %>
+        <% my_source = :clip %>
+      <% end %>
+
+      <% if my_clip.channel_add_show %>
         <div id="channels-add" class="panel-collapse collapse in">
       <% else %>
         <div id="channels-add" class="panel-collapse collapse">
       <% end %>
 
-        <%= form_tag @clip_type, :method => 'get', :class => 'form-inline', :remote => true do %>
+        <%= form_tag my_clip, :method => 'get', :class => 'form-inline', :remote => true do %>
           <span class="input-group-btn">
               <%= text_field_tag :search, params[:search], {:class => 'form-control field-title-search', :placeholder => "Search", :autofocus => true} %>
               <%= button_tag type: 'submit', :class => 'btn btn-default', :name => nil do %>

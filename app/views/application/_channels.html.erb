@@ -1,0 +1,20 @@
+<% if @clip_type %>
+  <% my_clip = @clip_type %>
+  <% my_source = :clip_type %>
+<% elsif @clip %>
+  <% my_clip = @clip %>
+  <% my_source = :clip %>
+<% end %>
+
+
+<table class="table table-condensed">
+  <tbody>
+    <% @channels.each do |channel| %>
+      <tr>
+        <td><%= channel.name %></td>
+        <td><%= link_to 'Add TX', add_channel(my_source, :tx, my_clip, channel, params) %></td>
+        <td><%= link_to 'Add Promo',add_channel(my_source, :promo, my_clip, channel, params) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
