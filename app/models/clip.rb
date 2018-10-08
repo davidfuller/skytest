@@ -7,6 +7,9 @@ class Clip < ActiveRecord::Base
   has_many :clip_device_joins
   has_many :device_types, through: :clip_device_joins
 
+  has_many :clip_channel_joins
+  has_many :channels, through: :clip_channel_joins
+
   attr_accessor :device_data_show, :tx_channel_data_show, :promo_channel_data_show, :device_add_show, :channel_add_show
 
   def completion_date_string
