@@ -12,6 +12,11 @@ class ClipsController < ApplicationController
   def show
     @device_types = DeviceType.all
     @channels = Channel.bss_title_id_search(params[:search])
+    @clip.device_data_show = params[:device_data_show] == 'true'
+    @clip.device_add_show = params[:device_add_show] == 'true'
+    @clip.tx_channel_data_show = params[:tx_data_show] == 'true'
+    @clip.promo_channel_data_show = params[:promo_data_show] == 'true'
+    @clip.channel_add_show = params[:channel_add_show] == 'true'
   end
 
   # GET /clips/new
