@@ -13,14 +13,14 @@
       <h3 class="panel-title title-episode-bold">
         <a data-toggle="collapse" href="#promo-channels"><%= pluralize(my_clip.promo_channels.count, 'Promo Channel') %></a>
       </h3>
-      <% if @my_clip.promo_channel_data_show %>
+      <% if my_clip.promo_channel_data_show %>
         <div id="promo-channels" class="panel-collapse collapse in">
       <% else %>
         <div id="promo-channels" class="panel-collapse collapse">
       <% end %>
         <table class="table table-condensed">
           <tbody>
-            <% @my_clip.promo_channels.each do |promo| %>
+            <% my_clip.promo_channels.each do |promo| %>
               <tr>
                 <td><%= promo.channel.name %></td>
                 <td class='table-links'><%= link_to 'Remove', remove_channel(my_source, :promo, my_clip, promo.channel, params) %> </td>
