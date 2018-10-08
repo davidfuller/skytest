@@ -120,6 +120,33 @@ class ClipsController < ApplicationController
   	end
   end
   
+  def remove_bss
+    bss = BssTitleId.find(params[:bss_id])
+    @clip = Clip.find(params[:id])
+  	@clip.bss_title_ids.delete(bss)
+  	respond_to do |format|
+	  	format.html {redirect_to clip_path(@clip, show_details(:bss, params)), notice: bss_display(bss) + ' removed'}
+	  	format.json {render :show, status: :removed, location: @clip}
+  	end
+  end
+  
+  def add_bss
+    bss = BssTitleId.find(params[:bss_id])
+    @clip = Clip.find(params[:id])
+    if @clip.bss_already_present(params[:bss_id])
+      notice = bss_display(bss) + ' already present'
+      json_notice = :present
+    else
+      @clip.bss_clip_joins.create(bss_title_id: bss)
+      notice = bss_display(bss) + ' added'
+      json_notice = :created
+    end
+    respond_to do |format|
+      format.html {redirect_to clip_path(@clip, show_details(:bss, params)), notice: notice}
+      format.json {render :show, status: json_notice, location: @clip}
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -141,7 +168,11 @@ class ClipsController < ApplicationController
     def device_display(name)
       'Device Type: ' + name
     end
-
+    
+    def bss_display(bss)
+      'Title ID: ' + bss.bss_title_id
+    end
+    
     def show_details(the_format, the_params)
       my_params = {}
       my_params[:search] = the_params[:search]
@@ -151,18 +182,32 @@ class ClipsController < ApplicationController
         my_params[:channel_add_show] = true
         my_params[:device_data_show] = the_params[:device_data_show]
         my_params[:device_add_show] = the_params[:device_add_show]
+        my_params[:bss_data_show] = the_params[:bss_data_show]
+        my_params[:bss_add_show] = the_params[:bss_add_show]
       elsif the_format == :promo
         my_params[:tx_data_show] = the_params[:tx_data_show]
         my_params[:promo_data_show] = true
         my_params[:channel_add_show] = true
         my_params[:device_data_show] = the_params[:device_data_show]
         my_params[:device_add_show] = the_params[:device_add_show]
+        my_params[:bss_data_show] = the_params[:bss_data_show]
+        my_params[:bss_add_show] = the_params[:bss_add_show]
       elsif the_format == :device
         my_params[:tx_data_show] = the_params[:tx_data_show]
         my_params[:promo_data_show] = the_params[:promo_data_show]
         my_params[:channel_add_show] = the_params[:channel_add_show]
         my_params[:device_data_show] = true
         my_params[:device_add_show] = true
+        my_params[:bss_data_show] = the_params[:bss_data_show]
+        my_params[:bss_add_show] = the_params[:bss_add_show]
+      elsif the_format == :bss
+        my_params[:tx_data_show] = the_params[:tx_data_show]
+        my_params[:promo_data_show] = the_params[:promo_data_show]
+        my_params[:channel_add_show] = the_params[:channel_add_show]
+        my_params[:device_data_show] = the_params[:device_data_show]
+        my_params[:device_add_show] = the_params[:device_add_show]
+        my_params[:bss_data_show] = true
+        my_params[:bss_add_show] = true
       end
       my_params
     end

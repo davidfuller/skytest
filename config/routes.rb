@@ -29,6 +29,8 @@ Rails.application.routes.draw do
       get 'remove_promo_channel'
       get 'add_tx_channel'
       get 'add_promo_channel'
+      get 'remove_bss'
+      get 'add_bss'
     end
   end
 

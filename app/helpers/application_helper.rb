@@ -6,7 +6,7 @@ module ApplicationHelper
 
 
   def remove_device(source, clip_type, device, params)
-    my_params = {id: clip_type, device_id: device, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], channel_add_show: params[:channel_add_show]}
+    my_params = {id: clip_type, device_id: device, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], channel_add_show: params[:channel_add_show], bss_add_show: params[:bss_add_show], bss_data_show: params[:bss_data_show]}
     
     if source == :clip_type
       remove_device_type_clip_type_path(my_params)
@@ -16,7 +16,8 @@ module ApplicationHelper
   end
   
   def add_device(source, clip_type, device, params)
-    my_params = {id: clip_type, device_id: device, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], channel_add_show: params[:channel_add_show]}
+    my_params = {id: clip_type, device_id: device, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], channel_add_show: params[:channel_add_show], bss_add_show: params[:bss_add_show], bss_data_show: params[:bss_data_show]}
+    
     if source == :clip_type
       add_device_type_clip_type_path(my_params)
     elsif source == :clip
@@ -25,7 +26,8 @@ module ApplicationHelper
   end
 
   def remove_channel(source, tx, clip_type, channel, params)
-    my_params = {id: clip_type, channel_id: channel, search: params[:search], tx_data_show: params[:tx_data_show], device_add_show: params[:device_add_show], device_data_show: params[:device_data_show] }
+    my_params = {id: clip_type, channel_id: channel, search: params[:search], tx_data_show: params[:tx_data_show], device_add_show: params[:device_add_show], device_data_show: params[:device_data_show], bss_add_show: params[:bss_add_show], bss_data_show: params[:bss_data_show]}
+    
     if source == :clip_type
       if tx == :tx
         remove_tx_channel_clip_type_path(my_params)
@@ -42,7 +44,8 @@ module ApplicationHelper
   end
 
   def add_channel(source, tx, clip_type, channel, params)
-    my_params = {id: clip_type, channel_id: channel, search: params[:search], promo_data_show: params[:promo_data_show], device_add_show: params[:device_add_show], device_data_show: params[:device_data_show]}
+    my_params = {id: clip_type, channel_id: channel, search: params[:search], promo_data_show: params[:promo_data_show], device_add_show: params[:device_add_show], device_data_show: params[:device_data_show], bss_add_show: params[:bss_add_show], bss_data_show: params[:bss_data_show]}
+    
     if source == :clip_type
         if tx == :tx
           add_tx_channel_clip_type_path(my_params)
@@ -57,8 +60,4 @@ module ApplicationHelper
         end
     end
   end
-  
-
-
-  
 end

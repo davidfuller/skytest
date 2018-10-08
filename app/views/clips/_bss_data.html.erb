@@ -1,0 +1,36 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      
+      <% if @clip_type %>
+        <% my_clip = @clip_type %>
+        <% my_source = :clip_type %>
+      <% elsif @clip %>
+        <% my_clip = @clip %>
+        <% my_source = :clip %>
+      <% end %>
+      
+      <h3 class="panel-title title-episode-bold">
+        <a data-toggle="collapse" href="#device-types"><%= pluralize(my_clip.bss_title_ids.count, 'Episode') %></a>
+      </h3>
+      
+    
+      <% if my_clip.bss_data_show %>
+        <div id="bss" class="panel-collapse collapse in">
+      <% else %>
+        <div id="bss" class="panel-collapse collapse">
+      <% end %>
+        <table class="table table-condensed">
+          <tbody>
+            <% my_clip.bss_title_ids.each do |bss| %>
+              <tr>
+                <td><%= bss.bss_title_id %></td>
+                <td class='table-links'><%= link_to 'Remove', remove_bss(my_clip, bss, params) %> </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

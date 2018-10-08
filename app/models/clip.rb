@@ -12,7 +12,7 @@ class Clip < ActiveRecord::Base
 
   has_many :bss_clip_joins
   has_many :bss_title_ids, through: :bss_clip_joins
-  attr_accessor :device_data_show, :tx_channel_data_show, :promo_channel_data_show, :device_add_show, :channel_add_show
+  attr_accessor :device_data_show, :tx_channel_data_show, :promo_channel_data_show, :device_add_show, :channel_add_show, :bss_add_show, :bss_data_show
 
   def completion_date_string
     format_my_date completion
@@ -54,6 +54,14 @@ class Clip < ActiveRecord::Base
     end
   end
 
+  def bss_already_present(bss_id)
+    if bss_id
+      bss_title_ids.where('bss_title_ids.id = ?', bss_id).present?
+    else
+      false
+    end
+  end
+
   def tx_channels
     clip_channel_joins.where('tx = ?', true).joins(:channel).order('channels.name')
   end
@@ -77,6 +85,9 @@ class Clip < ActiveRecord::Base
     self.tx_channel_data_show = params[:tx_data_show] == 'true'
     self.promo_channel_data_show = params[:promo_data_show] == 'true'
     self.channel_add_show = params[:channel_add_show] == 'true'
+    self.bss_data_show = params[:bss_data_show] == 'true'
+    self.bss_add_show = params[:bss_add_show] == 'true'
+    
   end
 
   private
