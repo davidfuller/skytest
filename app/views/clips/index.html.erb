@@ -9,6 +9,7 @@
   <thead>
     <tr class='title-episode-bold'>
       <th>Name</th>
+      <%#
       <th>Note</th>
       <th>Filename</th>
       <th>Folder</th>
@@ -26,7 +27,8 @@
       <th>Last use</th>
       <th>Completion</th>
       <th>User</th>
-      <th>Status</th>
+      <th>Status</th>   
+      %>
       <th></th>
     </tr>
   </thead>
@@ -35,6 +37,7 @@
     <% @clips.each do |clip| %>
       <tr>
         <td><%= clip.name %></td>
+        <% if false %>
         <td><%= clip.note %></td>
         <td><%= clip.filename %></td>
         <td><%= clip.folder.name unless clip.folder.nil? %></td>
@@ -53,6 +56,7 @@
         <td><%= clip.completion_date_string %></td>
         <td><%= clip.user.name unless clip.user.nil? %></td>
         <td><%= clip.status.name unless clip.status.nil? %></td>
+        <% end %>
         <td class='table-links'><%= link_to 'Show', clip %> <%= link_to 'Edit', edit_clip_path(clip) %> <%= link_to 'Destroy', clip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

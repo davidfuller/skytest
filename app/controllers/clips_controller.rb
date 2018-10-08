@@ -11,6 +11,7 @@ class ClipsController < ApplicationController
   # GET /clips/1.json
   def show
     @device_types = DeviceType.all
+    @channels = Channel.bss_title_id_search(params[:search])
   end
 
   # GET /clips/new
