@@ -11,7 +11,7 @@
       <% end %>
 
       <h3 class="panel-title title-episode-bold">
-        <a data-toggle="collapse" href="#promo-channels"><%= pluralize(@my_clip.promo_channels.count, 'Promo Channel') %></a>
+        <a data-toggle="collapse" href="#promo-channels"><%= pluralize(my_clip.promo_channels.count, 'Promo Channel') %></a>
       </h3>
       <% if @my_clip.promo_channel_data_show %>
         <div id="promo-channels" class="panel-collapse collapse in">
