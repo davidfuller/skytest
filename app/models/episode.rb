@@ -25,6 +25,14 @@ class Episode < ActiveRecord::Base
     description.squish
   end
 
+  def title_description
+    if title
+      title.title + ' ' +episode_description
+    else
+      'No title'
+    end
+  end
+
   def season_episode_year
     if int_season && int_episode
       if int_season > 0 && int_episode > 0
