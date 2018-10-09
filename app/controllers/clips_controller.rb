@@ -12,6 +12,7 @@ class ClipsController < ApplicationController
   def show
     @device_types = DeviceType.all
     @channels = Channel.bss_title_id_search(params[:search])
+    @bss_ids = BssTitleId.all
     @clip.view_options = params
   end
 
