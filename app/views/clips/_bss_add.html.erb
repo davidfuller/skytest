@@ -11,6 +11,16 @@
         <% my_clip = @clip %>
         <% my_source = :clip %>
       <% end %>
+
+      <%= form_tag my_clip, :method => 'get', :class => 'form-inline', :remote => true do %>
+        <span class="input-group-btn">
+          <%= text_field_tag :search_bss, params[:search_bss], {:class => 'form-control field-title-search', :placeholder => "Search", :autofocus => true} %>
+          <%= button_tag type: 'submit', :class => 'btn btn-default' do %>
+            <i class='glyphicon glyphicon-search'></i>
+          <% end %>
+          <%= button_tag "Clear", type: :button, :class => 'btn btn-default', :onclick =>'document.getElementById("search").value=""' %>
+        </span>
+      <% end %>
         
       <% if my_clip.bss_add_show %>
         <div id="bss-add" class="panel-collapse collapse in">
