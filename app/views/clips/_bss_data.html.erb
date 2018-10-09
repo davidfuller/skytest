@@ -25,6 +25,7 @@
             <% my_clip.bss_title_ids.each do |bss| %>
               <tr>
                 <td><%= bss.bss_title_id %></td>
+                <td><%= bss.episode.title_description unless bss.episode.nil? %></td>
                 <td class='table-links'><%= link_to 'Remove', remove_bss(my_clip, bss, params) %> </td>
               </tr>
             <% end %>
