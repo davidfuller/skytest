@@ -98,7 +98,7 @@ class Clip < ActiveRecord::Base
     elsif start_season.strip.downcase == end_season.strip.downcase && start_episode.strip.downcase == end_episode.strip.downcase
       'Episodic ' + season_episode_string(start_season, start_episode)
     else
-      'Episode Range ' + season_episode_string(start_season, start_episode) + ' to ' season_episode_string(end_season, end_episode)
+      'Episode Range ' + season_episode_string(start_season, start_episode) + ' to ' + season_episode_string(end_season, end_episode)
     end
   end
 
