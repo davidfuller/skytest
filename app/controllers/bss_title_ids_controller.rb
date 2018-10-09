@@ -5,7 +5,7 @@ class BssTitleIdsController < ApplicationController
   # GET /bss_title_ids.json
   def index
     respond_to do |format|
-      format.html { @bss_title_ids = BssTitleId.search_title_and_bss_id(params[:search], params[:page])}
+      format.html { @bss_title_ids = BssTitleId.search_title_and_bss_id_paged(params[:search], params[:page])}
       format.json { @bss_title_ids = BssTitleId.search_bss_title_id(params[:search])}
     end
   end
