@@ -27,7 +27,7 @@ class Episode < ActiveRecord::Base
 
   def title_description
     if title
-      title.title + ' ' +episode_description
+      title.title + ' ' + season_episode_year
     else
       'No title'
     end
