@@ -12,7 +12,7 @@ class Clip < ActiveRecord::Base
 
   has_many :bss_clip_joins
   has_many :bss_title_ids, through: :bss_clip_joins
-  
+
   attr_accessor :device_data_show, :tx_channel_data_show, :promo_channel_data_show, :device_add_show, :channel_add_show, :bss_add_show, :bss_data_show
 
   def completion_date_string
@@ -95,7 +95,9 @@ class Clip < ActiveRecord::Base
 
   def parse_my_date(the_date_string)
     t = Time.zone.parse(the_date_string)
-    t = t + 12.hour - t.hour
+    if t
+      t = t + 12.hour - t.hour
+    end
   end
 
   def format_my_date(the_date)
