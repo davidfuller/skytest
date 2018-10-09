@@ -7,16 +7,24 @@
   <%= link_to 'Edit this Clip', edit_clip_path(@clip) %> |
   <%= link_to 'Clip List', clips_path %>
 </div>
-
-<p>
-  <div class='title-episode-bold'><b>Name</b></div>
-  <div class='title-normal-condensed'><%= @clip.name %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>Note</b></div>
-  <div class='title-normal-condensed'><%= @clip.note %></div>
-</p>
+<div class='row'>
+  <div class='col-sm-6'>
+    <p>
+      <div class='title-episode-bold'><b>Name</b></div>
+      <div class='title-normal-condensed'><%= @clip.name %></div>
+    </p>
+    <p>
+      <div class='title-episode-bold'><b>Specificity</b></div>
+      <div class='title-normal-condensed'><%= @clip.specificity %></div>
+    </p>
+  </div>
+  <div class='col-sm-6'>   
+    <p>
+      <div class='title-episode-bold'><b>Notes</b></div>
+      <div class='title-normal-condensed'><%= @clip.note %></div>
+    </p>
+  </div>
+</div>
 <div class='row'>
   <div class='col-sm-6'>
     <%= render 'bss_data' %>
@@ -60,44 +68,6 @@
   <div class='title-episode-bold'><b>Duration</b></div>
   <div class='title-normal-condensed'><%= @clip.duration %></div>
 </p>
-<div class='row'>
-  <div class='col-sm-2'>
-    <p>
-      <div class='title-episode-bold'><b>Start season</b></div>
-      <div class='title-normal-condensed'><%= @clip.start_season %></div>
-    </p>
-  </div>
-  <div class='col-sm-2'>
-    <p>
-      <div class='title-episode-bold'><b>Start episode</b></div>
-      <div class='title-normal-condensed'><%= @clip.start_episode %></div>
-    </p>
-  </div>
-  <div class='col-sm-2'>
-    <p>
-      <div class='title-episode-bold'><b>End season</b></div>
-      <div class='title-normal-condensed'><%= @clip.end_season %></div>
-    </p>
-  </div>
-  <div class='col-sm-2'>
-    <p>
-      <div class='title-episode-bold'><b>End episode</b></div>
-      <div class='title-normal-condensed'><%= @clip.end_episode %></div>
-    </p>
-  </div>
-  <div class='col-sm-2'>
-    <p>
-      <div class='title-episode-bold'><b>Season generic</b></div>
-      <div class='title-normal-condensed'><%= @clip.season_generic %></div>
-    </p>
-  </div>
-  <div class='col-sm-2'>
-    <p>
-      <div class='title-episode-bold'><b>Totally generic</b></div>
-      <div class='title-normal-condensed'><%= @clip.totally_generic %></div>
-    </p>
-  </div>
-</div>
 <div class='row'>
   <div class='col-sm-2'>
     <p>

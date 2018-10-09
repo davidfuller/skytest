@@ -88,7 +88,18 @@ class Clip < ActiveRecord::Base
     self.channel_add_show = params[:channel_add_show] == 'true'
     self.bss_data_show = params[:bss_data_show] == 'true'
     self.bss_add_show = params[:bss_add_show] == 'true'
-    
+  end
+
+  def specificity
+    if totally_generic
+      'Totally Generic'
+    elsif season_generic
+      'Season ' + start_season.strip + 'Generic'
+    elsif start_season.strip.downcase == end_season.strip.downcase && start_episode.strip.downcase == end_episode.strip.downcase
+      'Episodic ' + season_episode_string(start_season, start_episode)
+    else
+      'Episode Range ' + season_episode_string(start_season, start_episode) + ' to ' season_episode_string(end_season, end_episode)
+    end
   end
 
   private
@@ -107,6 +118,19 @@ class Clip < ActiveRecord::Base
       ''
     end
   end
-
+  
+  def season_episode_string(season, episode)
+    int_season = season.to_i
+    int_episode = episode.to_i
+    if int_season && int_episode
+      'S' + format('%02d', int_season) + 'E' + format('%02d', int_episode)
+    elsif int_season
+      'S' + format('%02d', int_season) + 'E' + episode.strip
+    elsif int_episode
+      'S' + season.strip + 'E' + format('%02d', int_episode)
+    else
+      'S' + season.strip + 'E' + episode.strip
+    end
+  end
 
 end
