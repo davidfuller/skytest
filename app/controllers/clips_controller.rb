@@ -14,7 +14,7 @@ class ClipsController < ApplicationController
     @channels = Channel.bss_title_id_search(params[:search])
     @bss_ids = BssTitleId.search_title_and_bss_id(params[:search_bss])
     @clip.view_options = params
-    @search_bss = params[:search].present?
+    @search_bss = params[:search_bss].present?
   end
 
   # GET /clips/new
