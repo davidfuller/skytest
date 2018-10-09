@@ -12,6 +12,7 @@ class Clip < ActiveRecord::Base
 
   has_many :bss_clip_joins
   has_many :bss_title_ids, through: :bss_clip_joins
+  
   attr_accessor :device_data_show, :tx_channel_data_show, :promo_channel_data_show, :device_add_show, :channel_add_show, :bss_add_show, :bss_data_show
 
   def completion_date_string

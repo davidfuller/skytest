@@ -178,6 +178,7 @@ class ClipsController < ApplicationController
     def show_details(the_format, the_params)
       my_params = {}
       my_params[:search] = the_params[:search]
+      my_params[:search_bss] = the_params[:search_bss]
       if the_format == :tx
         my_params[:tx_data_show] = true
         my_params[:promo_data_show] = the_params[:promo_data_show]
