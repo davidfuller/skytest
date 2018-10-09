@@ -48,14 +48,12 @@
   </div>
   <div class='col-sm-3'>
     <p>
-      <div class='title-episode-bold'><b>Has audio</b></div>
-      <div class='title-normal-condensed'><%= @clip.has_audio %></div>
-    </p>
-  </div>
-  <div class='col-sm-3'>
-    <p>
-      <div class='title-episode-bold'><b>Audio filename</b></div>
-      <div class='title-normal-condensed'><%= @clip.audio_filename %></div>
+      <% if @clip.has_audio %>
+        <div class='title-episode-bold'><b>Audio filename</b></div>
+        <div class='title-normal-condensed'><%= @clip.audio_filename %></div>
+      <% else %>
+        <div class='title-episode-bold'><b>No Audio</b></div>
+      <% end %>
     </p>
   </div>
 </div>
