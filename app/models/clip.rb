@@ -94,7 +94,7 @@ class Clip < ActiveRecord::Base
     if totally_generic
       'Totally Generic'
     elsif season_generic
-      'Season ' + start_season.strip + 'Generic'
+      'Season ' + start_season.strip + ' Generic'
     elsif start_season.strip.downcase == end_season.strip.downcase && start_episode.strip.downcase == end_episode.strip.downcase
       'Episodic ' + season_episode_string(start_season, start_episode)
     else
