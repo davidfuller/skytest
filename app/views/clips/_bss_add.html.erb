@@ -22,6 +22,7 @@
             <% @bss_ids.each do |bss| %>
               <tr>
                 <td><%= link_to bss.bss_title_id, add_bss(my_clip, bss, params) %></td>
+                <td><%= bss.episode.title_description unless bss.episode.nil? %></td>
                 <td><%= link_to 'Add', add_bss(my_clip, bss, params) %></td>
               </tr>
             <% end %>
