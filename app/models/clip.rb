@@ -120,8 +120,8 @@ class Clip < ActiveRecord::Base
   end
   
   def season_episode_string(season, episode)
-    int_season = season.to_i
-    int_episode = episode.to_i
+    int_season = Integer(season) rescue nil
+    int_episode = Integer(episode) rescue nil
     if int_season && int_episode
       'S' + format('%02d', int_season) + 'E' + format('%02d', int_episode)
     elsif int_season
