@@ -18,26 +18,11 @@
           <%= button_tag type: 'submit', :class => 'btn btn-default' do %>
             <i class='glyphicon glyphicon-search'></i>
           <% end %>
-          <%= button_tag "Clear", type: :button, :class => 'btn btn-default', :onclick =>'document.getElementById("search").value=""' %>
+          <%= button_tag "Clear", type: :button, :class => 'btn btn-default', :onclick =>'document.getElementById("search_bss").value=""' %>
         </span>
       <% end %>
-        
-      <% if my_clip.bss_add_show %>
-        <div id="bss-add" class="panel-collapse collapse in">
-      <% else %>
-        <div id="bss-add" class="panel-collapse collapse">
-      <% end %>
-        <table class="table table-condensed">
-          <tbody>
-            <% @bss_ids.each do |bss| %>
-              <tr>
-                <td><%= link_to bss.bss_title_id, add_bss(my_clip, bss, params) %></td>
-                <td><%= bss.episode.title_description unless bss.episode.nil? %></td>
-                <td><%= link_to 'Add', add_bss(my_clip, bss, params) %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+      <div id = 'bss-titles-list'>
+        <%= render 'bss_titles'%>
       </div>
     </div>
   </div>
