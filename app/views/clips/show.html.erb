@@ -34,19 +34,19 @@
   </div>
 </div>
 <div class='row'>
-  <div class='col-sm-3'>
+  <div class='col-sm-4'>
     <p>
       <div class='title-episode-bold'><b>Filename</b></div>
       <div class='title-normal-condensed'><%= @clip.filename %></div>
     </p>
   </div>
-  <div class='col-sm-3'>
+  <div class='col-sm-4'>
     <p>
       <div class='title-episode-bold'><b>Folder</b></div>
       <div class='title-normal-condensed'><%= @clip.folder.name unless @clip.folder.nil?%></div>
     </p>
   </div>
-  <div class='col-sm-3'>
+  <div class='col-sm-4'>
     <p>
       <% if @clip.has_audio %>
         <div class='title-episode-bold'><b>Audio filename</b></div>
@@ -57,15 +57,20 @@
     </p>
   </div>
 </div>
-<p>
-  <div class='title-episode-bold'><b>Clip type</b></div>
-  <div class='title-normal-condensed'><%= @clip.clip_type.name unless @clip.clip_type.nil? %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>Duration</b></div>
-  <div class='title-normal-condensed'><%= @clip.duration %></div>
-</p>
+<div class='row'>
+  <div class='col-sm-2'>
+    <p>
+      <div class='title-episode-bold'><b>Clip type</b></div>
+      <div class='title-normal-condensed'><%= @clip.clip_type.name unless @clip.clip_type.nil? %></div>
+    </p>
+  </div>
+  <div class='col-sm-2'>
+    <p>
+      <div class='title-episode-bold'><b>Duration</b></div>
+      <div class='title-normal-condensed'><%= @clip.duration %></div>
+    </p>
+  </div>
+</div>
 <div class='row'>
   <div class='col-sm-2'>
     <p>
