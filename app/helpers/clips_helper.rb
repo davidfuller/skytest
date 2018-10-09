@@ -12,7 +12,7 @@ module ClipsHelper
   end
   
   def add_bss(clip, bss, params)
-    my_params = {id: clip_type, bss_id: bss, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], channel_add_show: params[:channel_add_show]}
+    my_params = {id: clip, bss_id: bss, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], channel_add_show: params[:channel_add_show]}
     
     add_bss_clip_path(my_params)
   end
