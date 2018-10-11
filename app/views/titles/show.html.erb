@@ -44,7 +44,7 @@
                           <% episode.bss_title_ids.each do |bss| %>
                             <tr>
                               <td><%= bss.bss_title_id %></td>
-                              <td><%= pluralize(bss.bss_title_id.clips.count, 'Clip') %></td>
+                              <td><%= pluralize(bss.clips.count, 'Clip') %></td>
                             </tr>
                           <% end %>
                         </tbody>
