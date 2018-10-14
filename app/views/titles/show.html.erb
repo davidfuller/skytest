@@ -45,6 +45,16 @@
                             <tr>
                               <td><%= bss.bss_title_id %></td>
                               <td class='table-clips'><%= pluralize(bss.clips.count, 'Clip') %></td>
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <% bss.clips.each do |clip| %>
+                                      <tr>
+                                        <td><%= clip.name %></td>
+                                      </tr>
+                                  </tbody>
+                                </table>
+                              </td>
                             </tr>
                           <% end %>
                         </tbody>

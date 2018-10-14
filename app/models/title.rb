@@ -41,5 +41,8 @@ class Title < ActiveRecord::Base
       ''
     end
   end
+  
+  def clips
+  end
 
 end
