@@ -37,16 +37,22 @@
       <thead class='title-episode-bold'>
           <tr>
               <th>Channel(s)</th>
+              <th>Clip(s)
               <th></th>
           </tr>
       </thead>
       <tbody>
-        <% @bss_title_id.channels.each do |channel| %>
-          <tr>
+        <tr>
+          <% @bss_title_id.channels.each do |channel| %>
             <td><%= channel.name %></td>
             <td class='table-links'><%= link_to 'Remove', remove_channel_bss_title_id_path(id: @bss_title_id, channel_id: channel) %> </td>
-          </tr>
-        <% end %>
+          <% end %>
+          <% @bss_title_id.clips.each do |clip| %>
+            <td><%= clip.name %></td>
+            <td class='table-links'><%= link_to 'Remove (does not work)', remove_channel_bss_title_id_path(id: @bss_title_id, channel_id: clip) %> </td>
+          <% end %>
+        </tr>
+        
       </tbody>
     </table>
   </div>
