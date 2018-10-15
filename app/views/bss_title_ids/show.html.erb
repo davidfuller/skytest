@@ -32,7 +32,7 @@
 </p>
 
 <div class='row'>
-  <div class='col-xs-6'>
+  <div class='col-sm-6'>
     <table class="table">
       <thead class='title-episode-bold'>
           <tr>
@@ -43,10 +43,7 @@
       </thead>
       <tbody>
         <tr>
-          <% @bss_title_id.channels.each do |channel| %>
-            <td><%= channel.name %></td>
-            <td class='table-links'><%= link_to 'Remove', remove_channel_bss_title_id_path(id: @bss_title_id, channel_id: channel) %> </td>
-          <% end %>
+          <%= render 'channel_data' %>
           <% @bss_title_id.clips.each do |clip| %>
             <td><%= clip.name %></td>
             <td class='table-links'><%= link_to 'Remove (does not work)', remove_channel_bss_title_id_path(id: @bss_title_id, channel_id: clip) %> </td>
