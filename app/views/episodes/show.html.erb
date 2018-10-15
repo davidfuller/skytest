@@ -52,6 +52,17 @@
                         </tbody>
                       </table>
                     </td>
+                    <td>
+                      <table>
+                        <tbody>
+                          <% bss.clips.each do |clip| %>
+                            <tr>
+                              <td><%= clip.name %></td>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </td>
                     <td class='table-links'><%= link_to 'Show', bss %> <%= link_to 'Edit', edit_bss_title_id_path(bss, source: :episode_show) %> <%= link_to 'Destroy', bss_title_id_path(bss, source: :episode_show), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
             <% end %>
