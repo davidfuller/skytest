@@ -61,6 +61,7 @@ Rails.application.routes.draw do
     member do
       get 'remove_channel'
       get 'add_channel'
+      get 'remove_clip'
     end
   end
 

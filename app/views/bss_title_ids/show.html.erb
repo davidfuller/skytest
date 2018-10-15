@@ -33,26 +33,11 @@
 
 <div class='row'>
   <div class='col-sm-6'>
-    <table class="table">
-      <thead class='title-episode-bold'>
-          <tr>
-              <th>Channel(s)</th>
-              <th>Clip(s)
-              <th></th>
-          </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= render 'channel_data' %></td>
-          <% @bss_title_id.clips.each do |clip| %>
-            <td><%= clip.name %></td>
-            <td class='table-links'><%= link_to 'Remove (does not work)', remove_channel_bss_title_id_path(id: @bss_title_id, channel_id: clip) %> </td>
-          <% end %>
-        </tr>
-        
-      </tbody>
-    </table>
+    <%= render 'channel_data' %>
   </div>
+  <div class='col-sm-6'>
+    <%= render 'clip_data' %>
+  </div>  
 </div>
 
 <%= link_to 'Edit', edit_bss_title_id_path(@bss_title_id) %> |
