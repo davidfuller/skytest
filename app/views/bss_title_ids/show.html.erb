@@ -43,7 +43,7 @@
       </thead>
       <tbody>
         <tr>
-          <%= render 'channel_data' %>
+          <td><%= render 'channel_data' %></td>
           <% @bss_title_id.clips.each do |clip| %>
             <td><%= clip.name %></td>
             <td class='table-links'><%= link_to 'Remove (does not work)', remove_channel_bss_title_id_path(id: @bss_title_id, channel_id: clip) %> </td>
