@@ -1,0 +1,30 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title title-episode-bold">
+        <a data-toggle="collapse" href="#channels-add">Add Channel</a>
+      </h3>
+
+      <% if @bss_title_id.channel_add_show %>
+        <div id="channels-add" class="panel-collapse collapse in">
+      <% else %>
+        <div id="channels-add" class="panel-collapse collapse">
+      <% end %>
+
+        <%= form_tag @bss_title_id, :method => 'get', :class => 'form-inline', :remote => true do %>
+          <span class="input-group-btn">
+              <%= text_field_tag :search, params[:search], {:class => 'form-control field-title-search', :placeholder => "Search", :autofocus => true} %>
+              <%= button_tag type: 'submit', :class => 'btn btn-default', :name => nil do %>
+                  <i class='glyphicon glyphicon-search'></i>
+              <% end %>
+              <%= button_tag "Clear", type: :button, :class => 'btn btn-default', :onclick =>'document.getElementById("search").value=""' %>
+          </span>
+        <% end %>
+        <br>
+        <div id = 'bss-title-id-channels'>
+          <%= render 'channels'%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

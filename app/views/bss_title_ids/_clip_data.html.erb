@@ -1,0 +1,25 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title title-episode-bold">
+        <a data-toggle="collapse" href="#clips-data"><%= pluralize(@bss_title_id.channels.count, 'Clip') %></a>
+      </h3>
+      <% if @bss_title_id.clip_data_show %>
+        <div id="clips-data" class="panel-collapse collapse in">
+      <% else %>
+        <div id="clips-data" class="panel-collapse collapse">
+      <% end %>
+        <table class="table table-condensed">
+          <tbody>
+            <% @bss_title_id.clips.each do |clip| %>
+              <tr>
+                <td><%= clip.name %></td>
+                <td class='table-links'><%= link_to 'Remove', remove_clip(@bss_title_id, clip, params) %> </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
