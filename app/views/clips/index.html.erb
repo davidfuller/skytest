@@ -5,7 +5,7 @@
 
 <h3 class="title-episode-bold">Clips</h3>
 
-<%= my_search(clips_path) %>
+<%= render 'search', path: clips_path %>
 
 <%= form_tag clips_path, :method => 'get', :class => 'form-inline' do %>
     <span class="input-group-btn">

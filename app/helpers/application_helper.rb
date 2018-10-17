@@ -4,10 +4,6 @@ module ApplicationHelper
 		will_paginate items
   end
   
-  def my_search(path)
-    a=link_to 'Hello', path
-  end
-
   def remove_device(source, clip_type, device, params)
     my_params = {id: clip_type, device_id: device, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], 
                   channel_add_show: params[:channel_add_show], bss_add_show: params[:bss_add_show], bss_data_show: params[:bss_data_show], search_bss: params[:search_bss]}
