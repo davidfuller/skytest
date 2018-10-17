@@ -17,6 +17,15 @@ class Clip < ActiveRecord::Base
 
   attr_accessor :device_data_show, :tx_channel_data_show, :promo_channel_data_show, :device_add_show, :channel_add_show, :bss_add_show, :bss_data_show
 
+
+  def self.search(search)
+		if search
+			where('name LIKE ?', "%#{search}%").paginate(page: page)
+		else
+			all
+		end
+	end
+
   def completion_date_string
     format_my_date completion
   end
