@@ -111,7 +111,7 @@ class BssTitleIdsController < ApplicationController
   end
   
   def remove_clip
-    clip = Channel.find(params[:clip_id])
+    clip = Clip.find(params[:clip_id])
     @bss_title_id = BssTitleId.find(params[:id])
   	@bss_title_id.clips.delete(clip)
   	respond_to do |format|
