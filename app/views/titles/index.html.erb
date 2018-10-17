@@ -4,7 +4,7 @@
 
 
 <h3 class="title-episode-bold">Titles</h3>
-<%= render 'search', path: titles_path, remote: false %>
+<%= render 'search', path: titles_path, remote: false, search: :search %>
 <%= my_paginate @titles %>
 <table class="table table-condensed">
     <thead>

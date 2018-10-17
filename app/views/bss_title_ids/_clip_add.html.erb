@@ -1,0 +1,22 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title title-episode-bold">
+        <a data-toggle="collapse" href="#clips-add">Add Clip</a>
+      </h3>
+
+      <% if @bss_title_id.clip_add_show %>
+        <div id="clips-add" class="panel-collapse collapse in">
+      <% else %>
+        <div id="clips-add" class="panel-collapse collapse">
+      <% end %>
+
+        <%= render 'search', path: @bss_title_id, remote: true %>
+        <br>
+        <div id = 'bss-title-id-clips'>
+          <%= render 'clips'%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

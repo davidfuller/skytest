@@ -1,0 +1,14 @@
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th class='title-episode-bold'>Name (Click to add)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clips.each do |clip| %>
+      <tr>
+        <td><%= link_to clip.name, add_clip_bss_title_id_path(id: @bss_title_id, clip_id: clip) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
