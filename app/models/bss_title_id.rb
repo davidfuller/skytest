@@ -12,7 +12,7 @@ class BssTitleId < ActiveRecord::Base
   validates_presence_of :bss_title_id, on: :update
   default_scope { order(:bss_title_id) }
   
-  attr_accessor :source, :channel_data_show, :clip_data_show, :channel_add_show
+  attr_accessor :source, :channel_data_show, :clip_data_show, :channel_add_show, :clip_add_show
 
 	self.per_page = 12
 	
