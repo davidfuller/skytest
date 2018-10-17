@@ -5,7 +5,7 @@ module ApplicationHelper
   end
   
   def my_search(path)
-    link_to 'Hello', path
+    a=link_to 'Hello', path
   end
 
   def remove_device(source, clip_type, device, params)
