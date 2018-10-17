@@ -15,6 +15,7 @@ class BssTitleIdsController < ApplicationController
   def show
     @channels = Channel.bss_title_id_search(params[:search])
     @clips = Clip.search(params[:search_clip])
+    @bss_title_id.view_options = params
     @search_clip = params[:clip] == 'clip'
   end
 
@@ -95,7 +96,7 @@ class BssTitleIdsController < ApplicationController
     @bss_title_id = BssTitleId.find(params[:id])
   	@bss_title_id.channels.delete(channel)
   	respond_to do |format|
-	  	format.html {redirect_to @bss_title_id, notice: 'Channel removed'}
+	  	format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:channel, params)), notice: 'Channel removed'}
 	  	format.json {render :show, status: :removed, location: @bss_title_id}
   	end
   end
@@ -105,7 +106,7 @@ class BssTitleIdsController < ApplicationController
     @bss_title_id = BssTitleId.find(params[:id])
     @bss_title_id.bss_channel_joins.create(channel: channel)
     respond_to do |format|
-      format.html {redirect_to @bss_title_id, notice: 'Channel added'}
+      format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:channel, params)), notice: 'Channel added'}
       format.json {render :show, status: :created, location: @bss_title_id}
     end
   end
@@ -115,7 +116,7 @@ class BssTitleIdsController < ApplicationController
     @bss_title_id = BssTitleId.find(params[:id])
   	@bss_title_id.clips.delete(clip)
   	respond_to do |format|
-	  	format.html {redirect_to @bss_title_id, notice: 'Clip removed'}
+	  	format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:clip, params)), notice: 'Clip removed'}
 	  	format.json {render :show, status: :removed, location: @bss_title_id}
   	end
   end
@@ -125,7 +126,7 @@ class BssTitleIdsController < ApplicationController
     @bss_title_id = BssTitleId.find(params[:id])
     @bss_title_id.bss_clip_joins.create(clip: clip)
     respond_to do |format|
-      format.html {redirect_to @bss_title_id, notice: 'Clip added'}
+      format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:clip, params)), notice: 'Clip added'}
       format.json {render :show, status: :created, location: @bss_title_id}
     end
   end
@@ -140,4 +141,23 @@ class BssTitleIdsController < ApplicationController
     def bss_title_id_params
       params.require(:bss_title_id).permit(:bss_title_id, :episode_id, :source, :channel_id)
     end
+    
+    def show_details(the_format, the_params)
+      my_params = {}
+      my_params[:search] = the_params[:search]
+      my_params[:search_clip] = the_params[:search_clip]
+      if the_format == :channel
+        my_params[:channel_data_show] = true
+        my_params[:channel_add_show] = true
+        my_params[:clip_data_show] = the_params[:clip_data_show]
+        my_params[:clip_add_show] = the_params[:clip_add_show]
+      elsif the_format == :clip
+        my_params[:channel_data_show] = the_params[:channel_data_show]
+        my_params[:channel_add_show] = the_params[:channel_add_show]
+        my_params[:clip_data_show] = true
+        my_params[:clip_add_show] = true
+      end
+      my_params
+    end
+
 end

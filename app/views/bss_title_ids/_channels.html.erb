@@ -7,7 +7,7 @@
   <tbody>
     <% @channels.each do |channel| %>
       <tr>
-        <td><%= link_to channel.name, add_channel_bss_title_id_path(id: @bss_title_id, channel_id: channel) %></td>
+        <td><%= link_to channel.name, add_channel_bss(@bss_title_id, channel, params) %></td>
       </tr>
     <% end %>
   </tbody>

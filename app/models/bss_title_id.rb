@@ -51,4 +51,12 @@ class BssTitleId < ActiveRecord::Base
     where('bss_title_id = ?', search)
   end
   
+  def view_options=(params)
+    self.clip_data_show = params[:clip_data_show] == 'true'
+    self.clip_add_show = params[:clip_add_show] == 'true'
+    self.channel_data_show = params[:channel_data_show] == 'true'
+    self.channel_add_show = params[:channel_add_show] == 'true'
+  end
+
+  
 end

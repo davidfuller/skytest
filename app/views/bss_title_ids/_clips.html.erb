@@ -7,7 +7,7 @@
   <tbody>
     <% @clips.each do |clip| %>
       <tr>
-        <td><%= link_to clip.name, add_clip_bss_title_id_path(id: @bss_title_id, clip_id: clip) %></td>
+        <td><%= link_to clip.name, add_clip_bss(@bss_title_id, clip, params) %></td>
       </tr>
     <% end %>
   </tbody>
