@@ -19,10 +19,9 @@
         <div id="channels-add" class="panel-collapse collapse">
       <% end %>
 
-        <%= render 'search', path: my_clip, remote: true, search: :search %>
+        <%= render 'search', path: my_clip, remote: true, search: :search, name: nil %>
         <br>
         <div id = 'clip-type-channels'>
-
           <%= render 'channels'%>
         </div>
       </div>
