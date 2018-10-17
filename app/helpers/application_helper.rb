@@ -2,7 +2,19 @@ module ApplicationHelper
 
 	def my_paginate(items)
 		will_paginate items
-	end
+  end
+  
+  def my_search(path)
+    form_tag path, :method => 'get', :class => 'form-inline' do
+    concat  <span class="input-group-btn">
+    concat text_field_tag :search, params[:search], {:class => 'form-control field-title-search', :placeholder => "Search", :autofocus => true}
+    concat button_tag type: 'submit', :class => 'btn btn-default' do %>
+    concat <i class='glyphicon glyphicon-search'></i>
+    concat end
+    concat button_tag "Clear", type: :button, :class => 'btn btn-default', :onclick =>'document.getElementById("search").value=""'
+    concat </span>
+    concat end
+  end
 
 
   def remove_device(source, clip_type, device, params)
