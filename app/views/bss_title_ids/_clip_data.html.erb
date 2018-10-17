@@ -14,7 +14,7 @@
             <% @bss_title_id.clips.each do |clip| %>
               <tr>
                 <td><%= clip.name %></td>
-                <td class='table-links'><%= link_to 'Remove', remove_clip(@bss_title_id, clip, params) %> </td>
+                <td class='table-links'><%= link_to 'Remove', remove_clip_bss(@bss_title_id, clip, params) %> </td>
               </tr>
             <% end %>
           </tbody>

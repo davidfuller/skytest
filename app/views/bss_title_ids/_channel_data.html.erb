@@ -14,7 +14,7 @@
             <% @bss_title_id.channels.each do |channel| %>
               <tr>
                 <td><%= channel.name %></td>
-                <td class='table-links'><%= link_to 'Remove', remove_channel(@bss_title_id, channel, params) %> </td>
+                <td class='table-links'><%= link_to 'Remove', remove_channel_bss(@bss_title_id, channel, params) %> </td>
               </tr>
             <% end %>
           </tbody>
