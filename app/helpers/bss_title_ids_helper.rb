@@ -9,7 +9,7 @@ module BssTitleIdsHelper
   def remove_clip_bss(bss, clip, params)
     my_params = my_params_bss(bss, params)
     my_params[:clip_id] = clip
-    remove_clip_bss_title_id_path(my_params_bss)
+    remove_clip_bss_title_id_path(my_params)
   end
   
   
