@@ -5,17 +5,8 @@ module ApplicationHelper
   end
   
   def my_search(path)
-    form_tag path, :method => 'get', :class => 'form-inline' do
-    concat  '<span class="input-group-btn">'
-    concat text_field_tag :search, params[:search], {:class => 'form-control field-title-search', :placeholder => "Search", :autofocus => true}
-    concat button_tag type: 'submit', :class => 'btn btn-default' do %>
-    concat <i class="glyphicon glyphicon-search"></i>'
-    concat end
-    concat button_tag "Clear", type: :button, :class => 'btn btn-default', :onclick =>'document.getElementById("search").value=""'
-    concat '</span>'
-    concat end
+    link_to 'Hello', path
   end
-
 
   def remove_device(source, clip_type, device, params)
     my_params = {id: clip_type, device_id: device, promo_data_show: params[:promo_data_show], tx_data_show: params[:tx_data_show], search: params[:search], 
