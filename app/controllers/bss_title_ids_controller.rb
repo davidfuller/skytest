@@ -118,6 +118,16 @@ class BssTitleIdsController < ApplicationController
 	  	format.json {render :show, status: :removed, location: @bss_title_id}
   	end
   end
+  
+  def add_clip
+    clip = Channel.find(params[:clip_id])
+    @bss_title_id = BssTitleId.find(params[:id])
+    @bss_title_id.bss_clip_joins.create(clip: clip)
+    respond_to do |format|
+      format.html {redirect_to @bss_title_id, notice: 'Clip added'}
+      format.json {render :show, status: :created, location: @bss_title_id}
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
