@@ -96,7 +96,7 @@ class BssTitleIdsController < ApplicationController
     @bss_title_id = BssTitleId.find(params[:id])
   	@bss_title_id.channels.delete(channel)
   	respond_to do |format|
-	  	format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:channel, params)), notice: 'Channel removed'}
+	  	format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:channel, params)), notice: 'Channel: ' + channel.name + ' removed'}
 	  	format.json {render :show, status: :removed, location: @bss_title_id}
   	end
   end
@@ -106,7 +106,7 @@ class BssTitleIdsController < ApplicationController
     @bss_title_id = BssTitleId.find(params[:id])
     @bss_title_id.bss_channel_joins.create(channel: channel)
     respond_to do |format|
-      format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:channel, params)), notice: 'Channel added'}
+      format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:channel, params)), notice: 'Channel: ' + channel.name + ' added'}
       format.json {render :show, status: :created, location: @bss_title_id}
     end
   end
@@ -116,7 +116,7 @@ class BssTitleIdsController < ApplicationController
     @bss_title_id = BssTitleId.find(params[:id])
   	@bss_title_id.clips.delete(clip)
   	respond_to do |format|
-	  	format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:clip, params)), notice: 'Clip removed'}
+	  	format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:clip, params)), notice: 'Clip: ' + clip.name + ' removed'}
 	  	format.json {render :show, status: :removed, location: @bss_title_id}
   	end
   end
@@ -126,7 +126,7 @@ class BssTitleIdsController < ApplicationController
     @bss_title_id = BssTitleId.find(params[:id])
     @bss_title_id.bss_clip_joins.create(clip: clip)
     respond_to do |format|
-      format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:clip, params)), notice: 'Clip added'}
+      format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:clip, params)), notice: 'Clip: ' + clip.name + ' added'}
       format.json {render :show, status: :created, location: @bss_title_id}
     end
   end
