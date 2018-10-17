@@ -4,6 +4,6 @@
         <%= button_tag type: 'submit', :class => 'btn btn-default', name: name, value: name do %>
             <i class='glyphicon glyphicon-search'></i>
         <% end %>
-        <%= button_tag "Clear", type: :button, :class => 'btn btn-default', :onclick =>'document.getElementById("' + search + '").value=""' %>
-    </span>
+        <%= button_tag "Clear", type: :button, :class => 'btn btn-default', :onclick =>'document.getElementById("' + search.to_s + '").value=""' %>
+    </span> 
 <% end %>
