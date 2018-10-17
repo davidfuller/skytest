@@ -33,29 +33,10 @@
 
 <div class='row'>
   <div class='col-xs-6'>
-    <table class="table">
-      <thead class='title-episode-bold'>
-          <tr>
-              <th>Channel(s)</th>
-              <th></th>
-              <th>Clip(s)
-              <th></th>
-          </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <% @bss_title_id.channels.each do |channel| %>
-            <td><%= channel.name %></td>
-            <td class='table-links'><%= link_to 'Remove', remove_channel_bss_title_id_path(id: @bss_title_id, channel_id: channel) %> </td>
-          <% end %>
-          <% @bss_title_id.clips.each do |clip| %>
-            <td><%= clip.name %></td>
-            <td class='table-links'><%= link_to 'Remove (does not work)', remove_channel_bss_title_id_path(id: @bss_title_id, channel_id: clip) %> </td>
-          <% end %>
-        </tr>
-        
-      </tbody>
-    </table>
+    <%= render 'channel_data'%>
+  </div>
+  <div class='col-xs-6'>
+    <%= render 'clip_data'%>
   </div>
 </div>
 
@@ -65,52 +46,13 @@
 
 <div class='row'>
   <div class='col-sm-6'>
-    <%= render 'tx_channel_data'%>
-  </div>
-  <div class='col-sm-4'>
-    <%= render 'promo_channel_data'%>
-  </div>
-  <div class='col-sm-4'>
-    <%= render 'device_type_data'%>
-  </div>
-</div>
-
-<div class='row'>
-  <div class='col-sm-6'>
     <%= render 'channel_add'%>
   </div>
-  <div class='col-sm-6'>
-    <%= render 'device_type_add'%>
-  </div>
 </div>
 
 
 
 
-<%= link_to 'Show Channels', '#', :id => 'myLink' %>
+
 <br>
-
-<% if params[:search].present? %>
-  <div class = 'channel-display' id='channel-search'>
-<% else %>
-  <div class = 'channel-display'>
-<% end %>
-  <br>
-
-  <%= form_tag @bss_title_id, :method => 'get', :class => 'form-inline', :remote => true do %>
-    <span class="input-group-btn">
-        <%= text_field_tag :search, params[:search], {:class => 'form-control field-title-search', :placeholder => "Search", :autofocus => true} %>
-        <%= button_tag type: 'submit', :class => 'btn btn-default', :name => nil do %>
-            <i class='glyphicon glyphicon-search'></i>
-        <% end %>
-        <%= button_tag "Clear", type: :button, :class => 'btn btn-default', :onclick =>'document.getElementById("search").value=""' %>
-    </span>
-  <% end %>
-  
-  <br>
-  <div id = 'bss-title-id-channels'>
-    <%= render 'channels' %>
-  </div>
-
-</div>
 
