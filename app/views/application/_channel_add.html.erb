@@ -19,7 +19,7 @@
         <div id="channels-add" class="panel-collapse collapse">
       <% end %>
 
-        <%= render 'search', path: my_clip %>
+        <%= render 'search', path: my_clip, remote: true %>
         <%= form_tag my_clip, :method => 'get', :class => 'form-inline', :remote => true do %>
           <span class="input-group-btn">
               <%= text_field_tag :search, params[:search], {:class => 'form-control field-title-search', :placeholder => "Search", :autofocus => true} %>
@@ -31,7 +31,7 @@
         <% end %>
         <br>
         <div id = 'clip-type-channels'>
-        
+
           <%= render 'channels'%>
         </div>
       </div>
