@@ -2,7 +2,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title title-episode-bold">
-        <a data-toggle="collapse" href="#clips-data"><%= pluralize(@bss_title_id.channels.count, 'Clip') %></a>
+        <a data-toggle="collapse" href="#clips-data"><%= pluralize(@bss_title_id.clips.count, 'Clip') %></a>
       </h3>
       <% if @bss_title_id.clip_data_show %>
         <div id="clips-data" class="panel-collapse collapse in">

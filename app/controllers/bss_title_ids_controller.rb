@@ -14,7 +14,8 @@ class BssTitleIdsController < ApplicationController
   # GET /bss_title_ids/1.json
   def show
     @channels = Channel.bss_title_id_search(params[:search])
-    @clips = Clip.all
+    @clips = Clip.search(params[:search_clip])
+    @search_clip = params[:clip] == 'clip'
   end
 
   # GET /bss_title_ids/new

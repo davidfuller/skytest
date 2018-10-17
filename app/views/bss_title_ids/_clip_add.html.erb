@@ -11,7 +11,7 @@
         <div id="clips-add" class="panel-collapse collapse">
       <% end %>
 
-        <%= render 'search', path: @bss_title_id, remote: true, search: :search, name: nil%>
+        <%= render 'search', path: @bss_title_id, remote: true, search: :search_clip, name: 'clip' %>
         <br>
         <div id = 'bss-title-id-clips'>
           <%= render 'clips'%>

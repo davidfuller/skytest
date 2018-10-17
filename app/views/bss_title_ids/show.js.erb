@@ -1,1 +1,5 @@
-$('#bss-title-id-channels').html('<%= escape_javascript(render("channels")) %>');
+<% if @search_clip %>
+  $('#bss-title-id-clips').html('<%= escape_javascript(render("clips")) %>');
+<% else %>
+  $('#bss-title-id-channels').html('<%= escape_javascript(render("channels")) %>');
+<% end %>
