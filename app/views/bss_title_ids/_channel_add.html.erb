@@ -11,7 +11,7 @@
         <div id="channels-add" class="panel-collapse collapse">
       <% end %>
 
-        <%= render 'search', path: @bss_title_id, remote: true %>
+        <%= render 'search', path: @bss_title_id, remote: true, search: :search %>
         <br>
         <div id = 'bss-title-id-channels'>
           <%= render 'channels'%>
