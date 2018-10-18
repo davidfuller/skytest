@@ -68,7 +68,7 @@ class BssTitleId < ActiveRecord::Base
 
   def channel_already_present(channel_id)
     if channel_id
-      channels.where('channels.channel_id = ?', channel_id).present?
+      channels.where('channels.id = ?', channel_id).present?
     else
       false
     end
