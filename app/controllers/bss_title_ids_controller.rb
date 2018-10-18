@@ -104,10 +104,17 @@ class BssTitleIdsController < ApplicationController
   def add_channel
     channel = Channel.find(params[:channel_id])
     @bss_title_id = BssTitleId.find(params[:id])
-    @bss_title_id.bss_channel_joins.create(channel: channel)
+    if @bss_title_id.channel_already_present(params[:channel_id])
+      notice = 'Channel: ' + channel.name + ' already present'
+      json_notice = :present
+    else
+      @bss_title_id.bss_channel_joins.create(channel: channel)
+      notice = 'Channel: ' + channel.name + ' added'
+      json_notice = :created
+    end
     respond_to do |format|
-      format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:channel, params)), notice: 'Channel: ' + channel.name + ' added'}
-      format.json {render :show, status: :created, location: @bss_title_id}
+      format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:channel, params)), notice: notice}
+      format.json {render :show, status: json_notice, location: @bss_title_id}
     end
   end
   
