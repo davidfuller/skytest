@@ -58,5 +58,21 @@ class BssTitleId < ActiveRecord::Base
     self.channel_add_show = params[:channel_add_show] == 'true'
   end
 
+  def clip_already_present(clip_id)
+    if clip_id
+      clips.where('clips.id = ?', clip_id).present?
+    else
+      false
+    end
+  end
+
+  def channel_already_present(channel_id)
+    if channel_id
+      channels.where('channels.channel_id = ?', channel_id).present?
+    else
+      false
+    end
+  end
+
   
 end

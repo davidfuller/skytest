@@ -124,10 +124,17 @@ class BssTitleIdsController < ApplicationController
   def add_clip
     clip = Clip.find(params[:clip_id])
     @bss_title_id = BssTitleId.find(params[:id])
-    @bss_title_id.bss_clip_joins.create(clip: clip)
+    if @bss_title_id.clip_already_present(params[:clip_id])
+      notice = 'Clip: ' + clip.name + ' already present'
+      json_notice = :present
+    else
+      @bss_title_id.bss_clip_joins.create(clip: clip)
+      notice = 'Clip: ' + clip.name + ' added'
+      json_notice = :created
+    end
     respond_to do |format|
-      format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:clip, params)), notice: 'Clip: ' + clip.name + ' added'}
-      format.json {render :show, status: :created, location: @bss_title_id}
+      format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:clip, params)), notice: notice}
+      format.json {render :show, status: json_notice, location: @bss_title_id}
     end
   end
 
