@@ -63,7 +63,7 @@
                           <% end %>
                           <tr>
                             <td><%= form_tag(new_clip_path, {:method => :get}) do %>
-                                  <%= collection_select(:clip_type, :id, ClipType.all, :id, :name, {class='form-control'} %>
+                                  <%= collection_select(:clip_type, :id, ClipType.all, :id, :name, {class: 'form-control'} %>
                                   <%= hidden_field_tag :bss_id , bss.id %>
                                   <button type = "submit" class = "btn btn-default"> New Clip</button>
                                 <% end %>
