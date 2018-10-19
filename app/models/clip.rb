@@ -121,7 +121,7 @@ class Clip < ActiveRecord::Base
         self.note = 'Auto created at ' + format_my_date(Time.current)
         self.filename = self.name.upcase.tr(" ", "_")
         self.folder = Folder.find_by(name: 'Ents 2018')
-        clip_type = ClipType.find(clip_type.id)
+        clip_type = ClipType.find(clip_type[:id])
         if clip_type then
           self.clip_type = clip_type
           self.has_audio = clip_type.default_has_audio
