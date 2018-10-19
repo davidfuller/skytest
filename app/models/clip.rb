@@ -113,7 +113,7 @@ class Clip < ActiveRecord::Base
     end
   end
 
-  def clip_from_bss(bss_title_id)
+  def clip_from_bss(bss_title_id, clip_type)
     if bss_title_id.present?
       bss = BssTitleId.find(bss_title_id)
       if bss
@@ -121,7 +121,7 @@ class Clip < ActiveRecord::Base
         self.note = 'Auto created at ' + format_my_date(Time.current)
         self.filename = self.name.upcase.tr(" ", "_")
         self.folder = Folder.find_by(name: 'Ents 2018')
-        clip_type = ClipType.find_by(name: 'Ents')
+        clip_type = ClipType.find(clip_type.id)
         if clip_type then
           self.clip_type = clip_type
           self.has_audio = clip_type.default_has_audio
