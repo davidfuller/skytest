@@ -136,7 +136,7 @@ class Clip < ActiveRecord::Base
         self.end_episode = bss.episode.episode
         self.season_generic = false
         self.totally_generic = false
-        self.completion = Time.current.next_week.advance(days: 3m hours: 16) #next Thursday 18:00
+        self.completion = Time.current.next_week.advance(days: 3, hours: 16) #next Thursday 18:00
         self.first_use = self.completion.next_week.advance(hours: 6) #the following Monday 06:00
         self.last_use = self.first_use + 3.weeks
         self.user = User.find_by(name: 'Unallocated')
