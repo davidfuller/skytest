@@ -59,9 +59,11 @@
                           <% bss.clips.each do |clip| %>
                             <tr>
                               <td><%= clip.name %></td>
-                              <td><%= link_to 'Add Clip', new_clip_path(bss_id: bss) %></td>
                             </tr>
                           <% end %>
+                          <tr>
+                            <td><%= link_to 'Add Clip', new_clip_path(bss_id: bss) %></td>
+                          </tr>
                         </tbody>
                       </table>
                     </td>
