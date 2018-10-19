@@ -114,9 +114,34 @@ class Clip < ActiveRecord::Base
   end
 
   def clip_from_bss(bss_title_id)
-    bss = BssTitleId.find(bss_title_id)
     if bss
-      self.name = bss.episode.title.title + " " + bss.episode.season_episode_or_year
+      bss = BssTitleId.find(bss_title_id)
+      if bss
+        self.name = bss.episode.title.title + " " + bss.episode.season_episode_or_year
+        self.note = 'Auto created at ' + format_my_date(Time.current)
+        self.filename = self.name.upcase.tr(" ", "_")
+        self.folder_id = Folder.find_by(name: 'Ents 2018')
+        clip_type = ClipType.find_by(name: 'Ents 2018')
+        if clip_type then
+          self.clip_type = clip_type
+          self.has_audio = clip_type.default_has_audio
+          if self.has_audio == true
+            self.audio_filename = self.filename + ' (A1&2)'
+          end
+          self.duration = clip_type.default_duration
+        end
+        self.start_season = bss.episode.season
+        self.end_season = bss.episode.season
+        self.start_episode = bss.episode.episode
+        self.end_episode = bss.episode.episode
+        self.season_generic = false
+        self.totally_generic = false
+        self.completion = Time.current.next_week.advance(days: 3m hours: 16) #next Thursday 18:00
+        self.first_use = self.completion.next_week.advance(hours: 6) #the following Monday 06:00
+        self.last_use = self.first_use + 3.weeks
+        self.user = User.find_by(name: 'Unallocated')
+        self.status = Status.find_by(name: 'Commissioned')
+      end
     end
   end
 
