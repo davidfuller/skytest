@@ -31,7 +31,7 @@ class ClipsController < ApplicationController
   # POST /clips.json
   def create
     @clip = Clip.new(clip_params)
-    bss = BssTitleId.find(params[:dummy_bss_id])
+    bss = BssTitleId.find(clip_params[:dummy_bss_id])
 
 
     respond_to do |format|
