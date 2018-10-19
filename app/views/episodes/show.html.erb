@@ -59,12 +59,13 @@
                           <% bss.clips.each do |clip| %>
                             <tr>
                               <td><%= clip.name %></td>
+                              <td><%= link_to 'Add Clip', new_clip_path(bss_id: bss) %></td>
                             </tr>
                           <% end %>
                         </tbody>
                       </table>
                     </td>
-                    <td class='table-links'><%= link_to 'Show', bss %> <%= link_to 'Edit', edit_bss_title_id_path(bss, source: :episode_show) %> <%= link_to 'Destroy', bss_title_id_path(bss, source: :episode_show), method: :delete, data: { confirm: 'Are you sure?' } %> <%= link_to 'New Clip', new_clip_path(bss_id: bss) %></td>
+                    <td class='table-links'><%= link_to 'Show', bss %> <%= link_to 'Edit', edit_bss_title_id_path(bss, source: :episode_show) %> <%= link_to 'Destroy', bss_title_id_path(bss, source: :episode_show), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
             <% end %>
         </tbody>
