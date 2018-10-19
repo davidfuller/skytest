@@ -115,7 +115,9 @@ class Clip < ActiveRecord::Base
 
   def clip_from_bss(bss_title_id)
     bss = BssTitleId.find(bss_title_id)
-    self.name = bss.episode.title.title + " " + bss.episode.season_episode_or_year
+    if bss
+      self.name = bss.episode.title.title + " " + bss.episode.season_episode_or_year
+    end
   end
 
   private
