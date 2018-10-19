@@ -20,6 +20,7 @@ class ClipsController < ApplicationController
   # GET /clips/new
   def new
     @clip = Clip.new
+    @clip.name ='Fred'
   end
 
   # GET /clips/1/edit
