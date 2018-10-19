@@ -31,12 +31,12 @@ class ClipsController < ApplicationController
   # POST /clips.json
   def create
     @clip = Clip.new(clip_params)
-    bss = BssTitleId.find(params[:bss_id])
+    bss = BssTitleId.find(params[:dummy_bss_id])
 
 
     respond_to do |format|
       if @clip.save
-        if @clip.bss_already_present(params[:bss_id])
+        if @clip.bss_already_present(params[:dummy_bss_id])
           notice = bss_display(bss) + ' already present'
           json_notice = :present
         else
@@ -173,7 +173,7 @@ class ClipsController < ApplicationController
                                       :clip_type_id, :duration, :start_season, :start_episode, :end_season, :end_episode, 
                                       :season_generic, :totally_generic, :first_use, :first_use_date_string, :last_use, 
                                       :last_use_date_string, :completion, :completion_date_string, :user_id, :status_id, 
-                                      :bss_id)
+                                      :bss_id, :dummy_bss_id)
     end
     
     def channel_display(tx, name)
