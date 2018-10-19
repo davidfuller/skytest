@@ -15,7 +15,7 @@ class Clip < ActiveRecord::Base
 
   default_scope { order(:name) }
 
-  attr_accessor :device_data_show, :tx_channel_data_show, :promo_channel_data_show, :device_add_show, :channel_add_show, :bss_add_show, :bss_data_show
+  attr_accessor :device_data_show, :tx_channel_data_show, :promo_channel_data_show, :device_add_show, :channel_add_show, :bss_add_show, :bss_data_show, :dummy_bss_id
 
 
   def self.search(search)
@@ -141,6 +141,7 @@ class Clip < ActiveRecord::Base
         self.last_use = self.first_use + 3.weeks
         self.user = User.find_by(name: 'Unallocated')
         self.status = Status.find_by(name: 'Commissioned')
+        self.dummy_bss_id = bss_title_id
       end
     end
   end

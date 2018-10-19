@@ -31,9 +31,19 @@ class ClipsController < ApplicationController
   # POST /clips.json
   def create
     @clip = Clip.new(clip_params)
+    bss = BssTitleId.find(params[:bss_id])
+
 
     respond_to do |format|
       if @clip.save
+        if @clip.bss_already_present(params[:bss_id])
+          notice = bss_display(bss) + ' already present'
+          json_notice = :present
+        else
+          @clip.bss_clip_joins.create(bss_title_id: bss)
+          notice = bss_display(bss) + ' added'
+          json_notice = :created
+        end
         format.html { redirect_to clips_path, notice: 'Clip was successfully created.' }
         format.json { render :show, status: :created, location: @clip }
       else
