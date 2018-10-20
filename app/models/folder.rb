@@ -3,6 +3,9 @@ class Folder < ActiveRecord::Base
   after_initialize :set_defaults
 
   has_many :clips
+  
+  has_many :clip_type_folder_joins
+  has_many :clip_types, through: :clip_type_folder_joins
 
   validate :overflow_cannot_be_itself, on: :update
 

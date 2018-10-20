@@ -9,6 +9,10 @@ class ClipType < ActiveRecord::Base
   has_many :channels, through: :clip_type_channel_joins
 
   has_many :clips
+  
+  has_many :clip_type_folder_joins
+  has_many :folders, through: :clip_type_folder_joins
+
 
 	validates_uniqueness_of :name, :messsage => " is already in system"
   validates_presence_of :name
