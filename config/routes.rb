@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   resources :folders do
     member do
       get 'duplicate'
+      get 'add_clip_type'
+      get 'remove_clip_type'
     end
   end
 

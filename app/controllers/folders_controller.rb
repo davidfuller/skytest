@@ -10,7 +10,10 @@ class FoldersController < ApplicationController
   # GET /folders/1
   # GET /folders/1.json
   def show
+    @clip_types = ClipType.search(params[:search])
+    @folder.view_options = params
   end
+
 
   # GET /folders/new
   def new
@@ -76,6 +79,35 @@ class FoldersController < ApplicationController
       end
     end
   end
+  
+  def remove_clip_type
+    clip_type = ClipType.find(params[:clip_type_id])
+    @folder = Folder.find(params[:id])
+  	@folder.clip_types.delete(bss)
+  	respond_to do |format|
+	  	format.html {redirect_to folder_path(@folder, show_details(params)), notice: clip_type.name + ' removed'}
+	  	format.json {render :show, status: :removed, location: @folder}
+  	end
+  end
+  
+  def add_clip_type
+    clip_type = ClipType.find(params[:clip_type_id])
+    @folder = Folder.find(params[:id])
+    if @folder.clip_type_already_present(params[:clip_type_id])
+      notice = clip_type.name + ' already present'
+      json_notice = :present
+    else
+      @folder.clip_type_folder_joins.create(clip_type: clip_type)
+      notice = clip_type.name + ' added'
+      json_notice = :created
+    end
+    respond_to do |format|
+      format.html {redirect_to folder_path(@folder, show_details(params)), notice: notice}
+      format.json {render :show, status: json_notice, location: @folder}
+    end
+  end
+  
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -87,4 +119,13 @@ class FoldersController < ApplicationController
     def folder_params
       params.require(:folder).permit(:name, :note, :clipstore, :proxy, :jpeg, :clip_limit, :overflow_id, :year)
     end
+    
+    def show_details(the_params)
+      my_params = {}
+      my_params[:search] = the_params[:search]
+      my_params[:clip_type_data_show] = true
+      my_params[:clip_type_add_show] = true
+      my_params
+    end
+    
 end

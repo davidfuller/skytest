@@ -1,0 +1,19 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title title-episode-bold">
+        <a data-toggle="collapse" href="#clip-type-add">Add Clip Type</a>
+      </h3>
+      <% if @folder.clip_type_add_show %>
+        <div id="clip=-type-add" class="panel-collapse collapse in">
+      <% else %>
+        <div id="clip-type-add" class="panel-collapse collapse">
+      <% end %>
+        <%= render 'search', path: @folder, remote: true, search: :search, name: nil%>
+        <div id = 'clip-types-list'>
+          <%= render 'clip_types'%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

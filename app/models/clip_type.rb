@@ -67,4 +67,12 @@ class ClipType < ActiveRecord::Base
     self.promo_channel_data_show = params[:promo_data_show] == 'true'
     self.channel_add_show = params[:channel_add_show] == 'true'
   end
+  
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
 end

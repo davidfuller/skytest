@@ -1,0 +1,28 @@
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+            
+      <h3 class="panel-title title-episode-bold">
+        <a data-toggle="collapse" href="#clip-type-data"><%= pluralize(@folder.clip_types.count, 'Clip Type') %></a>
+      </h3>
+      
+    
+      <% if @folder.clip_type_data_show %>
+        <div id="clip-type-data" class="panel-collapse collapse in">
+      <% else %>
+        <div id="clip-type-data" class="panel-collapse collapse">
+      <% end %>
+        <table class="table table-condensed">
+          <tbody>
+            <% @folder.clip_types.each do |clip_type| %>
+              <tr>
+                <td><%= clip_type.name %></td>
+                <td class='table-links'><%= link_to 'Remove', remove_clip_type(@folder, clip_type, params) %> </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
