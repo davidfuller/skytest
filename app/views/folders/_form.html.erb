@@ -20,6 +20,10 @@
     <%= f.text_area :note, class: 'form-control field-normal' %>
   </div>
   <div class="field">
+    <%= f.label :year, class: 'title-episode-bold' %><br>
+    <%= f.number_field :year, class: 'form-control spinner' %>
+  </div>
+  <div class="field">
     <%= f.label :clipstore, 'Clarity Clipstore Folder', class: 'title-episode-bold' %><br>
     <%= f.text_field :clipstore, :class => "form-control field-normal" %>
   </div>
