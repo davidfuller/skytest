@@ -83,7 +83,7 @@ class FoldersController < ApplicationController
   def remove_clip_type
     clip_type = ClipType.find(params[:clip_type_id])
     @folder = Folder.find(params[:id])
-  	@folder.clip_types.delete(bss)
+  	@folder.clip_types.delete(clip_type)
   	respond_to do |format|
 	  	format.html {redirect_to folder_path(@folder, show_details(params)), notice: clip_type.name + ' removed'}
 	  	format.json {render :show, status: :removed, location: @folder}
