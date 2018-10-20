@@ -65,7 +65,7 @@
                             <td>
                               <%= form_tag new_clip_path, method: :get, class: 'form inline' do %>
                                 <span class='form-inline'>
-                                  <%= button_tag 'Create clip', type: 'submit', class: 'btn btn-link' %>
+                                  <%= button_tag 'Create clip', type: 'submit', class: 'btn btn-link my-link-button' %>
                                   <%= collection_select(:clip_type, :id, ClipType.all, :id, :name, {}, {class: 'form-control'}) %>
                                   <%= hidden_field_tag :bss_id , bss.id %>
                                 </span>
