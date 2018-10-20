@@ -23,18 +23,6 @@ class Folder < ActiveRecord::Base
     where.not(name: '<None>')
   end
 
-  private
-
-  def set_defaults
-    self.clip_limit ||= 500 if self.new_record?
-  end
-
-  def overflow_cannot_be_itself
-    if id == overflow_id
-      errors.add(:overflow_id, 'cannot be the same folder')
-    end
-  end
-  
   def clip_type_already_present(clip_type_id)
     if clip_type_id
       clip_types.where('clip_types.id = ?', clip_type_id).present?
@@ -48,5 +36,19 @@ class Folder < ActiveRecord::Base
     self.clip_type_add_show = params[:clip_type_add_show] == 'true'
   end
 
+
+  private
+
+  def set_defaults
+    self.clip_limit ||= 500 if self.new_record?
+  end
+
+  def overflow_cannot_be_itself
+    if id == overflow_id
+      errors.add(:overflow_id, 'cannot be the same folder')
+    end
+  end
+  
+  
 
 end
