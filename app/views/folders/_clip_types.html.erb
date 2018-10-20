@@ -2,7 +2,7 @@
   <tbody>
     <% @clip_types.each do |clip_type| %>
       <tr>
-        <td><%= link_to clip_type.name, add_clip_type(@folder, clip_type, params) %></td>
+        <td><%= clip_type.name %></td>
         <td><%= link_to 'Add', add_clip_type(@folder, clip_type, params) %></td>
       </tr>
     <% end %>
