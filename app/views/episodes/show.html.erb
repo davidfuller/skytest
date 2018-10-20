@@ -62,11 +62,12 @@
                             </tr>
                           <% end %>
                           <tr>
-                            <td><%= form_tag(new_clip_path, {:method => :get}) do %>
-                                  <%= collection_select(:clip_type, :id, ClipType.all, :id, :name, {}, {class: 'form-control form-select'}) %>
-                                  <%= hidden_field_tag :bss_id , bss.id %>
-                                  <button type = "submit" class = "btn btn-link">Add Clip</button>
-                                <% end %>
+                            <td>
+                              <%= form_tag(new_clip_path, {:method => :get}) do %>
+                                <button type = "submit" class = "btn btn-link">Add Clip</button>
+                                <%= collection_select(:clip_type, :id, ClipType.all, :id, :name, {}, {class: 'form-control form-select'}) %>
+                                <%= hidden_field_tag :bss_id , bss.id %>
+                              <% end %>
                             </td>
                           </tr>
                         </tbody>
