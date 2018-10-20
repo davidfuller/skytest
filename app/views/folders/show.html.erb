@@ -17,6 +17,15 @@
   <div class='title-episode-bold'><b>Year</b></div>
   <div class='title-normal-condensed'><%= @folder.year %></div>
 </p>
+<div class='row'>
+  <div class='col-sm-6'>
+    <%= render 'clip_type_data' %>
+  </div>
+  <div class='col-sm-6'>
+    <%= render 'clip_type_add' %>
+  </div>
+</div>
+
 <p>
   <div class='title-episode-bold'><b>Note</b></div>
   <div class='title-normal-condensed'><%= @folder.note %></div>
