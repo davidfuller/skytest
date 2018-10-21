@@ -67,6 +67,7 @@
                                 <span class='form-inline'>
                                   <%= button_tag 'Create clip', type: 'submit', class: 'btn btn-link my-link-button' %>
                                   <%= collection_select(:clip_type, :id, ClipType.all, :id, :name, {}, {class: 'form-control'}) %>
+                                  <%= select_tag(:specifty, options_for_select(['Totally Generic', 'Season Generic', 'Episodic']), prompt: 'Choose specificity', class: 'form-control') %>
                                   <%= hidden_field_tag :bss_id , bss.id %>
                                 </span>
                               <% end %>
