@@ -119,7 +119,7 @@ class Clip < ActiveRecord::Base
       if bss
         self.season_generic = specificity == 'Season Generic'
         self.totally_generic = specificity == 'Totally Generic'
-        self.name = bss.episode.title.title + " " + bss.episode.clip_desciption(self.totally_generic, self.season_generic)
+        self.name = bss.episode.title.title + " " + bss.episode.clip_description(self.totally_generic, self.season_generic)
         self.note = 'Auto created at ' + format_my_date(Time.current)
         
         self.completion = Time.current.next_week.advance(days: 3, hours: 16) #next Thursday 18:00
