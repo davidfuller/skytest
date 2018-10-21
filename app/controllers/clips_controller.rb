@@ -20,7 +20,7 @@ class ClipsController < ApplicationController
   # GET /clips/new
   def new
     @clip = Clip.new
-    @clip.clip_from_bss(params[:bss_id], params[:clip_type])
+    @clip.clip_from_bss(params[:bss_id], params[:clip_type], params[:specificity])
   end
 
   # GET /clips/1/edit

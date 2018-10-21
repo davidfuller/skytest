@@ -113,7 +113,7 @@ class Clip < ActiveRecord::Base
     end
   end
 
-  def clip_from_bss(bss_title_id, clip_type)
+  def clip_from_bss(bss_title_id, clip_type, specificity)
     if bss_title_id.present?
       bss = BssTitleId.find(bss_title_id)
       if bss
@@ -135,8 +135,8 @@ class Clip < ActiveRecord::Base
         self.end_season = bss.episode.season
         self.start_episode = bss.episode.episode
         self.end_episode = bss.episode.episode
-        self.season_generic = false
-        self.totally_generic = false
+        self.season_generic = specificity == 'Season Generic'
+        self.totally_generic = specificity == 'Totally Generic'
         self.first_use = self.completion.next_week.advance(hours: 6) #the following Monday 06:00
         self.last_use = self.first_use + 3.weeks
         self.user = User.find_by(name: 'Unallocated')
