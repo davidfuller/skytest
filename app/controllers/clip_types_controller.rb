@@ -128,7 +128,7 @@ class ClipTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clip_type_params
-      params.require(:clip_type).permit(:name, :description, :default_duration, :default_has_audio, :device_data_show)
+      params.require(:clip_type).permit(:name, :description, :default_duration, :default_has_audio, :device_data_show, :clip_code)
     end
 
     def add_channel(tx)
