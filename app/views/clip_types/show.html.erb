@@ -17,15 +17,21 @@
   <div class='title-episode-bold'><b>Description</b></div>
   <div class='title-normal-condensed'><%= @clip_type.description %></div>
 </p>
-
 <p>
-  <div class='title-episode-bold'><b>Default Duration (seconds)</b></div>
-  <div class='title-normal-condensed'><%= @clip_type.default_duration %></div>
-</p>
-
-<p>
-  <div class='title-episode-bold'><b>Default Has Audio</b></div>
-  <div class='title-normal-condensed'><%= @clip_type.default_has_audio_display %></div>
+  <div class='row'>
+    <div class='col-sm-4'>
+      <div class='title-episode-bold'><b>Clip Code</b></div>
+      <div class='title-normal-condensed'><%= @clip_type.clip_code %></div>
+    </div>
+    <div class='col-sm-4'>
+      <div class='title-episode-bold'><b>Default Duration (seconds)</b></div>
+      <div class='title-normal-condensed'><%= @clip_type.default_duration %></div>
+    </div>
+    <div class='col-sm-4'>
+      <div class='title-episode-bold'><b>Default Has Audio</b></div>
+      <div class='title-normal-condensed'><%= @clip_type.default_has_audio_display %></div>
+    </div>
+  </div>
 </p>
 <br>
 <div class='row'>

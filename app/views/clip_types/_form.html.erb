@@ -22,6 +22,11 @@
   </div>
   <br>
   <div class="field">
+    <%= f.label :clip_code, class: 'title-episode-bold'%><br>
+    <%= f.text_field :clip_code, :class => "form-control field-normal" %>
+  </div>
+  <br>
+  <div class="field">
     <%= f.label :default_duration, 'Default Duration (Seconds)', class: 'title-episode-bold'%><br>
     <%= f.number_field :default_duration, class: 'form-control spinner'%>
   </div>
