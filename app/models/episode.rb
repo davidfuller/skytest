@@ -33,7 +33,7 @@ class Episode < ActiveRecord::Base
     end
   end
   
-  def clip_descripton(totally_generic, season_generic)
+  def clip_description(totally_generic, season_generic)
     if totally_generic
       'Gen'
     elsif season_generic
