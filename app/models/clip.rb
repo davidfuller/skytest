@@ -120,7 +120,7 @@ class Clip < ActiveRecord::Base
         self.name = bss.episode.title.title + " " + bss.episode.season_episode_or_year
         self.note = 'Auto created at ' + format_my_date(Time.current)
         self.filename = self.name.upcase.tr(" ", "_")
-        self.folder = Folder.find_by(name: 'Ents 2018')
+        self.completion = Time.current.next_week.advance(days: 3, hours: 16) #next Thursday 18:00
         clip_type = ClipType.find(clip_type[:id])
         if clip_type then
           self.clip_type = clip_type
@@ -129,6 +129,7 @@ class Clip < ActiveRecord::Base
             self.audio_filename = self.filename + ' (A1&2)'
           end
           self.duration = clip_type.default_duration
+          self.folder = Folder.folder_for_clip(clip_type.id, self.completion.year)
         end
         self.start_season = bss.episode.season
         self.end_season = bss.episode.season
@@ -136,7 +137,6 @@ class Clip < ActiveRecord::Base
         self.end_episode = bss.episode.episode
         self.season_generic = false
         self.totally_generic = false
-        self.completion = Time.current.next_week.advance(days: 3, hours: 16) #next Thursday 18:00
         self.first_use = self.completion.next_week.advance(hours: 6) #the following Monday 06:00
         self.last_use = self.first_use + 3.weeks
         self.user = User.find_by(name: 'Unallocated')
