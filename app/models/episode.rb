@@ -38,7 +38,7 @@ class Episode < ActiveRecord::Base
       'Gen'
     elsif season_generic
       if int_season 
-        if int_seaon > 0
+        if int_season > 0
           description = 'S' + format('%02d', int_season) + ' GN'
         end
       end
