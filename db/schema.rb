@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181020203148) do
+ActiveRecord::Schema.define(version: 20181021204111) do
 
   create_table "bss_channel_joins", force: :cascade do |t|
     t.integer  "channel_id",      limit: 4
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20181020203148) do
     t.boolean  "default_has_audio"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "clip_code",         limit: 255
   end
 
   create_table "clips", force: :cascade do |t|
