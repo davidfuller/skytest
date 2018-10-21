@@ -32,6 +32,28 @@ class Episode < ActiveRecord::Base
       'No title'
     end
   end
+  
+  def clip_descripton(totally_generic, season_generic)
+    if totally_generic
+      'Gen'
+    elsif season_generic
+      if int_season 
+        if int_seaon > 0
+          description = 'S' + format('%02d', int_season) + ' GN'
+        end
+      end
+      if int_year && description.blank?
+        if int_year > 0
+          description = format('%04d', int_year) + ' GN'
+        end
+      end
+      description
+    else
+      season_episode_or_year
+    end
+  end
+        
+  
 
   def season_episode_or_year
     if int_season && int_episode

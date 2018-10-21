@@ -117,26 +117,28 @@ class Clip < ActiveRecord::Base
     if bss_title_id.present?
       bss = BssTitleId.find(bss_title_id)
       if bss
-        self.name = bss.episode.title.title + " " + bss.episode.season_episode_or_year
+        self.season_generic = specificity == 'Season Generic'
+        self.totally_generic = specificity == 'Totally Generic'
+        self.name = bss.episode.title.title + " " + bss.episode.clip_desciption(self.totally_generic, self.season_generic)
         self.note = 'Auto created at ' + format_my_date(Time.current)
-        self.filename = self.name.upcase.tr(" ", "_")
+        
         self.completion = Time.current.next_week.advance(days: 3, hours: 16) #next Thursday 18:00
         clip_type = ClipType.find(clip_type[:id])
         if clip_type then
           self.clip_type = clip_type
           self.has_audio = clip_type.default_has_audio
-          if self.has_audio == true
-            self.audio_filename = self.filename + ' (A1&2)'
-          end
           self.duration = clip_type.default_duration
           self.folder = Folder.folder_for_clip(clip_type.id, self.completion.year)
+          self.name += ' ' + clip_type.clip_code
+        end
+        self.filename = self.name.upcase.tr(" ", "_")
+        if self.has_audio
+          self.audio_filename = self.filename + ' (A1&2)'
         end
         self.start_season = bss.episode.season
         self.end_season = bss.episode.season
         self.start_episode = bss.episode.episode
         self.end_episode = bss.episode.episode
-        self.season_generic = specificity == 'Season Generic'
-        self.totally_generic = specificity == 'Totally Generic'
         self.first_use = self.completion.next_week.advance(hours: 6) #the following Monday 06:00
         self.last_use = self.first_use + 3.weeks
         self.user = User.find_by(name: 'Unallocated')
