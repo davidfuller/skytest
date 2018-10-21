@@ -36,6 +36,17 @@ class Folder < ActiveRecord::Base
     self.clip_type_add_show = params[:clip_type_add_show] == 'true'
   end
 
+  def folder_for_clip(clip_type_id, year)
+    folders = joins(:clip_types).where("clip_types.id=? AND year=?", clip_type_id, year)
+    folders.each do |folder|
+      return folder if folder.clips.count < folder.clip_limit
+    end
+    folders.each do |folder|
+      overflow = find(overflow_id)
+      return overflow if overflow.clips.count 
+    end    
+    nil
+  end
 
   private
 
