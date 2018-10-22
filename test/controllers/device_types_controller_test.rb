@@ -18,7 +18,7 @@ class DeviceTypesControllerTest < ActionController::TestCase
 
   test "should create device_type" do
     assert_difference('DeviceType.count') do
-      post :create, device_type: { name: @device_type.name }
+      post :create, device_type: { name: MyDevice }
     end
 
     assert_redirected_to device_type_path(assigns(:device_type))
