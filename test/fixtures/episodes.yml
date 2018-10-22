@@ -4,10 +4,10 @@ one:
   year: MyString
   season: MyString
   episode: MyString
-  title_id: 
+  title: one
 
 two:
   year: MyString
   season: MyString
   episode: MyString
-  title_id: 
+  title: one
