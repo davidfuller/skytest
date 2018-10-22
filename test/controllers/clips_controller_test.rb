@@ -17,7 +17,7 @@ class ClipsControllerTest < ActionController::TestCase
   end
 
   test "should create clip" do
-    bss = BssTitleIds(:one)
+    bss = BssTitleIds.first
     assert_difference('Clip.count') do
       post :create, clip: { audio_filename: @clip.audio_filename, clip_type_id: @clip.clip_type_id, completion: @clip.completion, duration: @clip.duration, end_episode: @clip.end_episode, end_season: @clip.end_season, filename: @clip.filename, first_use: @clip.first_use, folder_id: @clip.folder_id, has_audio: @clip.has_audio, last_use: @clip.last_use, name: @clip.name, note: @clip.note, season_generic: @clip.season_generic, start_episode: @clip.start_episode, start_season: @clip.start_season, status_id: @clip.status_id, totally_generic: @clip.totally_generic, user_id: @clip.user_id, dummy_bss_id: bss}
     end
