@@ -5,9 +5,11 @@ one:
   season: MyString
   episode: MyString
   title: one
+  episode_title: MyString
 
 two:
   year: MyString
   season: MyString
   episode: MyString
   title: one
+  episode_title: MyString
