@@ -21,7 +21,7 @@ class FoldersControllerTest < ActionController::TestCase
       post :create, folder: { clip_limit: @folder.clip_limit, clipstore: @folder.clipstore, jpeg: @folder.jpeg, name: @folder.name, note: @folder.note, overflow_id: @folder.overflow_id, proxy: @folder.proxy }
     end
 
-    assert_redirected_to folder_path(assigns(:folder))
+    assert_redirected_to folders_path
   end
 
   test "should show folder" do
@@ -36,7 +36,7 @@ class FoldersControllerTest < ActionController::TestCase
 
   test "should update folder" do
     patch :update, id: @folder, folder: { clip_limit: @folder.clip_limit, clipstore: @folder.clipstore, jpeg: @folder.jpeg, name: @folder.name, note: @folder.note, overflow_id: @folder.overflow_id, proxy: @folder.proxy }
-    assert_redirected_to folder_path(assigns(:folder))
+    assert_redirected_to folders_path
   end
 
   test "should destroy folder" do

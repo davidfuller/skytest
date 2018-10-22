@@ -13,7 +13,12 @@ class Folder < ActiveRecord::Base
 
   def overflow_name
     if overflow_id
-      Folder.find(overflow_id).name
+      folder=Folder.find_by(id: overflow_id)
+      if folder
+        folder.name
+      else
+        ''
+      end
     else
       ''
     end
