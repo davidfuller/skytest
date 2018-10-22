@@ -18,10 +18,10 @@ class DeviceTypesControllerTest < ActionController::TestCase
 
   test "should create device_type" do
     assert_difference('DeviceType.count') do
-      post :create, device_type: { name: MyDevice }
+      post :create, device_type: { name: 'MyDevice' }
     end
 
-    assert_redirected_to device_type_path(assigns(:device_type))
+    assert_redirected_to device_types_path
   end
 
   test "should show device_type" do
@@ -36,7 +36,7 @@ class DeviceTypesControllerTest < ActionController::TestCase
 
   test "should update device_type" do
     patch :update, id: @device_type, device_type: { name: @device_type.name }
-    assert_redirected_to device_type_path(assigns(:device_type))
+    assert_redirected_to device_types_path
   end
 
   test "should destroy device_type" do
