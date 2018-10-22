@@ -2,8 +2,8 @@
 
 one:
   bss_title_id: MyString
-  episode_id: 1
+  episode: one
 
 two:
   bss_title_id: MyString
-  episode_id: 1
+  episode: two
