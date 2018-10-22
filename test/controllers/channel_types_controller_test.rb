@@ -21,7 +21,7 @@ class ChannelTypesControllerTest < ActionController::TestCase
       post :create, channel_type: { has_promotion: @channel_type.has_promotion, name: @channel_type.name, tx: @channel_type.tx }
     end
 
-    assert_redirected_to channel_type_path(assigns(:channel_type))
+    assert_redirected_to channel_types_path
   end
 
   test "should show channel_type" do
@@ -36,7 +36,7 @@ class ChannelTypesControllerTest < ActionController::TestCase
 
   test "should update channel_type" do
     patch :update, id: @channel_type, channel_type: { has_promotion: @channel_type.has_promotion, name: @channel_type.name, tx: @channel_type.tx }
-    assert_redirected_to channel_type_path(assigns(:channel_type))
+    assert_redirected_to channel_types_path
   end
 
   test "should destroy channel_type" do

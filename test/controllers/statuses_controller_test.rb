@@ -21,7 +21,7 @@ class StatusesControllerTest < ActionController::TestCase
       post :create, status: { name: @status.name, position: @status.position }
     end
 
-    assert_redirected_to status_path(assigns(:status))
+    assert_redirected_to statuses_path
   end
 
   test "should show status" do
@@ -36,7 +36,7 @@ class StatusesControllerTest < ActionController::TestCase
 
   test "should update status" do
     patch :update, id: @status, status: { name: @status.name, position: @status.position }
-    assert_redirected_to status_path(assigns(:status))
+    assert_redirected_to statuses_path
   end
 
   test "should destroy status" do
