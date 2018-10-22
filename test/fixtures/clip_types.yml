@@ -5,9 +5,11 @@ one:
   description: MyText
   default_duration: 1
   default_has_audio: false
+  clip_code: MyString
 
 two:
   name: MyString
   description: MyText
   default_duration: 1
   default_has_audio: false
+  clip_code: MyString

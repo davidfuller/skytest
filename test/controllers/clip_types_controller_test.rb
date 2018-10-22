@@ -18,7 +18,7 @@ class ClipTypesControllerTest < ActionController::TestCase
 
   test "should create clip_type" do
     assert_difference('ClipType.count') do
-      post :create, clip_type: { default_duration: @clip_type.default_duration, default_has_audio: @clip_type.default_has_audio, description: @clip_type.description, name: @clip_type.name }
+      post :create, clip_type: { default_duration: @clip_type.default_duration, default_has_audio: @clip_type.default_has_audio, description: @clip_type.description, name: 'Clip Type Name'}
     end
 
     assert_redirected_to clip_types_path
