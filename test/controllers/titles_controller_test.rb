@@ -18,10 +18,10 @@ class TitlesControllerTest < ActionController::TestCase
 
   test "should create title" do
     assert_difference('Title.count') do
-      post :create, title: { title: @title.title }
+      post :create, title: { title: 'MyTitle' }
     end
 
-    assert_redirected_to title_path(assigns(:title))
+    assert_redirected_to titles_path
   end
 
   test "should show title" do
@@ -36,7 +36,7 @@ class TitlesControllerTest < ActionController::TestCase
 
   test "should update title" do
     patch :update, id: @title, title: { title: @title.title }
-    assert_redirected_to title_path(assigns(:title))
+    assert_redirected_to titles_path
   end
 
   test "should destroy title" do
