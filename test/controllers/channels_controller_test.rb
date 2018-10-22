@@ -18,10 +18,10 @@ class ChannelsControllerTest < ActionController::TestCase
 
   test "should create channel" do
     assert_difference('Channel.count') do
-      post :create, channel: { channel_type_id: @channel.channel_type_id, code: @channel.code, name: @channel.name }
+      post :create, channel: { channel_type_id: @channel.channel_type_id, code: @channel.code, name: 'MyChannel'}
     end
 
-    assert_redirected_to channel_path(assigns(:channel))
+    assert_redirected_to channels_path
   end
 
   test "should show channel" do
@@ -36,7 +36,7 @@ class ChannelsControllerTest < ActionController::TestCase
 
   test "should update channel" do
     patch :update, id: @channel, channel: { channel_type_id: @channel.channel_type_id, code: @channel.code, name: @channel.name }
-    assert_redirected_to channel_path(assigns(:channel))
+    assert_redirected_to channels_path
   end
 
   test "should destroy channel" do
