@@ -21,7 +21,7 @@ class ClipTypesControllerTest < ActionController::TestCase
       post :create, clip_type: { default_duration: @clip_type.default_duration, default_has_audio: @clip_type.default_has_audio, description: @clip_type.description, name: @clip_type.name }
     end
 
-    assert_redirected_to clip_type_path(assigns(:clip_type))
+    assert_redirected_to clip_types_path
   end
 
   test "should show clip_type" do
@@ -36,7 +36,7 @@ class ClipTypesControllerTest < ActionController::TestCase
 
   test "should update clip_type" do
     patch :update, id: @clip_type, clip_type: { default_duration: @clip_type.default_duration, default_has_audio: @clip_type.default_has_audio, description: @clip_type.description, name: @clip_type.name }
-    assert_redirected_to clip_type_path(assigns(:clip_type))
+    assert_redirected_to clip_types_path
   end
 
   test "should destroy clip_type" do
