@@ -7,8 +7,16 @@ class TitleTest < ActiveSupport::TestCase
   end
   
   test 'invalid without title' do
-    title = Title.new()
+    title = Title.new(title: ' ')
     refute title.valid?, 'title is valid without a title'
-    assert_nil title.errors[:title], 'no validation error for title present'
+    assert_not_nil title.errors[:title], 'no validation error for title present'
   end
+  
+  test 'invalid duplicate' do
+    title = Title.new(title: 'Duplicate title')
+    title1 = title.dup
+    assert title1.valid?, 'duplicate title valid'
+    assert_not_nil title.errors[:title], 'no validation error for  duplicate title'
+  end
+    
 end
