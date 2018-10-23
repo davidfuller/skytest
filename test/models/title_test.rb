@@ -18,7 +18,7 @@ class TitleTest < ActiveSupport::TestCase
     title1 = Title.new(title: 'Duplicate title')
     title1.save
     refute title1.valid?, 'duplicate title valid'
-    assert_nil title1.errors[:title], 'no validation error forduplicate title'
+    assert_not_nil title1.errors[:title], 'no validation error forduplicate title'
   end
     
 end
