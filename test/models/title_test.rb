@@ -3,7 +3,12 @@ require 'test_helper'
 class TitleTest < ActiveSupport::TestCase
   test 'valid title' do
     title = Title.new(title: 'Test Title')
-    assert_not title.valid?, "Title not created"
+    assert title.valid?, "Title not created"
   end
-
+  
+  test 'invalid without title' do
+    title = Title.new()
+    refute title.valid?, 'title is valid without a title'
+    assert_not_nil title.errors[:title], 'no validation error for title present'
+  end
 end
