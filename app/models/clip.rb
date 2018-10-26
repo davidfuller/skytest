@@ -178,5 +178,10 @@ class Clip < ActiveRecord::Base
       'S' + season.strip + 'E' + episode.strip
     end
   end
+  
+  def clip_title_join
+    joins(bss_title_ids: {episode: :title})
+  end
+  
 
 end
