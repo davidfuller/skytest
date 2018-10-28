@@ -6,3 +6,10 @@
     <% end %>
   </div> <!-- alert -->
 <% end %> <!-- if flash[:notice] -->
+
+<% if flash[:alert] != nil %>
+  <div class="alert alert-danger alert-dismissible">
+    <a href="#" class="close" data-dismuss="alert" aria-label="close">&times;</a>
+    <%= flash[:alert] %>
+  </div> <!-- alert -->
+<% end %> <!-- if flash[:alert] -->

@@ -63,7 +63,7 @@ class TitlesController < ApplicationController
   def destroy
     @title.destroy
     respond_to do |format|
-      format.html { redirect_to titles_url, notice: 'Title was successfully destroyed.' }
+      format.html { redirect_to titles_url, alert: 'Title: ' + @title.title + ' was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
