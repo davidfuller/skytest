@@ -47,7 +47,7 @@ class AddDeviseToUsers < ActiveRecord::Migration
     # By default, we don't want to make any assumption about how to roll back a migration when your
     # model already existed. Please edit below which fields you would like to remove in this migration.
     
-=begin
+
     remove_column :users, :email
     remove_column :users, :encrypted_password
     remove_column :users, :reset_password_token
@@ -69,7 +69,7 @@ class AddDeviseToUsers < ActiveRecord::Migration
     remove_column :users, :failed_attempts
     remove_column :users, :unlock_token # Only if unlock strategy is :email or :both
     remove_column :users, :locked_at
-=end
+
 
   end
 end
