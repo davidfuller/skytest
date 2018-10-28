@@ -68,7 +68,7 @@ class AddDeviseToUsers < ActiveRecord::Migration
     remove_column :users, :unlock_token # Only if unlock strategy is :email or :both
     remove_column :users, :locked_at
 
-    remove_index :users, column: :email
+    #remove_index :users, column: :email
     remove_index :users, column: :reset_password_token
     remove_index :users, column: :confirmation_token
     remove_index :users, column: :unlock_token
