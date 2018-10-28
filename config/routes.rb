@@ -7,13 +7,11 @@ Rails.application.routes.draw do
   resources :channels
   resources :channel_types
   resources :bss_title_ids
-  get 'home' => 'home#index'
 
   resources :homes
   resources :episodes
   resources :titles
   resources :users
-  root 'titles#index'
   
   resources :titles do
   	member do
