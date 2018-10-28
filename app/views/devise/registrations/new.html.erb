@@ -8,9 +8,24 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email, class: 'title-episode-bold' %><br />
+    <%= f.label :email, class: 'title-episode-bold' %>
+    <em>(Used for login)</em>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control field-normal' %>
   </div>
+
+  <p>
+  <div class="field">
+    <%= f.label :name, class: 'title-episode-bold'%>
+    <em>(Used for display)/em
+    <%= f.text_field :name, class: 'form-control field-normal' %>
+  </div>
+  </p>
+  <p>
+  <div class="field">
+    <%= f.label :role, class: 'title-episode-bold' %>
+    <%= f.text_field :role, class: 'form-control field-normal' %>
+  </div>
+  </p>
 
   <div class="field">
     <%= f.label :password, class: 'title-episode-bold' %>
