@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
 	
 	validates_uniqueness_of :name, :messsage => " is already in system"
 	validates_presence_of :name, :role
+	
 end
