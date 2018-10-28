@@ -1,0 +1,8 @@
+<% if flash[:notice] != nil %>
+  <div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismuss="alert" aria-label="close">&times;</a>
+    <% flash[:notice].split(". ").each do |fl| %>
+      <%= fl %> <br />
+    <% end %>
+  </div> <!-- alert -->
+<% end %> <!-- if flash[:notice] -->

@@ -13,14 +13,7 @@
   <body>
     <div class="container-fluid">
       <%= render 'layouts/navigation' %>
-      <% if flash[:notice] != nil %>
-        <div class="alert alert-success alert-dismissible">
-          <a href="#" class="close" data-dismuss="alert" aria-label="close">&times;</a>
-          <% flash[:notice].split(". ").each do |fl| %>
-            <%= fl %> <br />
-          <% end %>
-        </div> <!-- alert -->
-      <% end %> <!-- if flash[:notice] -->
+      <%= render 'layouts/notice' %>
       <div class="row">
         <div class="col-xs-1"></div>
         <div class="col-xs-10 title-episode-info">
