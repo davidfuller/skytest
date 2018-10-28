@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181028153723) do
+ActiveRecord::Schema.define(version: 20181028174527) do
 
   create_table "bss_channel_joins", force: :cascade do |t|
     t.integer  "channel_id",      limit: 4
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(version: 20181028153723) do
     t.integer  "failed_attempts",        limit: 4,   default: 0,  null: false
     t.string   "unlock_token",           limit: 255
     t.datetime "locked_at"
+    t.boolean  "admin"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
