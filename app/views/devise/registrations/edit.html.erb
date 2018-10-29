@@ -7,9 +7,9 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   
-  <h2><= resource %></h2>
-  <h2><= resource_name %></h2>
-  <h2><= registration_path(resource_name) %></h2>
+  <h2><%= resource %></h2>
+  <h2><%= resource_name %></h2>
+  <h2><%= registration_path(resource_name) %></h2>
   
   <div class="field">
     <%= f.label :email, class: 'title-episode-bold' %><br />
