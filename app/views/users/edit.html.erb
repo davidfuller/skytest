@@ -1,6 +1,63 @@
 <h3 class="title-episode-bold">Editing User</h3>
 
-<%= render 'form' %>
+
+<%= #render 'form' %>
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>
+
+<% content_for(:title) do%>
+	<%= 'Edit User: Sky Clarity Media Management' %>
+<% end %>
+
+<div class='title-episode-bold'><b>Edit <%= resource_name.to_s.humanize %></b></div>
+
+<%= form_for(@user) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email, class: 'title-episode-bold' %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control field-normal' %>
+  </div>
+
+  <p>
+    <div class="field">
+      <%= f.label :name, class: 'title-episode-bold'%>
+      <em>(Used for display)</em>
+      <%= f.text_field :name, class: 'form-control field-normal' %>
+    </div>
+  </p>
+  <p>
+    <div class="field">
+      <%= f.label :role, class: 'title-episode-bold' %>
+      <%= f.text_field :role, class: 'form-control field-normal' %>
+    </div>
+  </p>
+
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password, class: 'title-episode-bold' %> <i>(leave blank if you don't want to change it)</i>
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />    
+    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control field-normal' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, class: 'title-episode-bold' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control field-normal' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password, class: 'title-episode-bold'%> <i>(we need the current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control field-normal' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update", class: 'btn btn-default' %>
+  </div>
+<% end %>
