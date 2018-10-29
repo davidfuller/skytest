@@ -5,5 +5,15 @@ class RegistrationsController < Devise::RegistrationsController
   def new
     super
   end
+  
+  def create
+    super
+  end
+  
+  protected
+  
+  def sign_up(resource_name, resource)
+    true
+  end
 
 end
