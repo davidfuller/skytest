@@ -7,7 +7,7 @@
 	<%= 'Edit User: Sky Clarity Media Management' %>
 <% end %>
 
-<div class='title-episode-bold'><b>Edit <%= resource_name.to_s.humanize %></b></div>
+<div class='title-episode-bold'><b>Edit User</b></div>
 
 <%= form_for(@user) do |f| %>
   <%= devise_error_messages! %>
@@ -30,11 +30,6 @@
       <%= f.text_field :role, class: 'form-control field-normal' %>
     </div>
   </p>
-
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
   <div class="field">
     <%= f.label :password, class: 'title-episode-bold' %> <i>(leave blank if you don't want to change it)</i>
