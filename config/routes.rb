@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, path_names: { registration: "registrations" } 
+  devise_for :users
   resources :clips
   resources :statuses
   resources :folders
