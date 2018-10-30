@@ -47,11 +47,13 @@
     <%= f.label :password_confirmation, class: 'title-episode-bold' %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control field-normal' %>
   </div>
+<% if false %>
 
   <div class="field">
     <%= f.label :current_password, class: 'title-episode-bold'%> <i>(we need the current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control field-normal' %>
   </div>
+<% end %>
 
   <div class="actions">
     <%= f.submit "Update", class: 'btn btn-default' %>
