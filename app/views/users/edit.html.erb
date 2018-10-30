@@ -10,7 +10,7 @@
 <div class='title-episode-bold'><b>Edit User</b></div>
 
 <%= form_for(@user) do |f| %>
-  
+  <%= devise_error_messages! %>
   <div class="field">
     <%= f.label :email, class: 'title-episode-bold' %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control field-normal' %>
