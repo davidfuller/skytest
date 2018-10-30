@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     if current_user && current_user.admin
       @minimum_password_length = User.password_length.min
     else
-      redirect_to users_path, notice: 'You must be logged in as an admin to edit users'
+      redirect_to users_path, notice: 'You must be logged in as an Admin to edit users'
     end
   end
 
