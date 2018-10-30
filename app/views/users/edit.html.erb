@@ -29,6 +29,11 @@
       <%= f.text_field :role, class: 'form-control field-normal' %>
     </div>
   </p>
+  
+  <div class="field">
+    <%= f.label :admin, class: 'title-episode-bold' %><br>
+    <%= f.check_box :admin, class: 'field-check-box' %>
+  </div>
 
   <div class="field">
     <%= f.label :password, class: 'title-episode-bold' %> <i>(leave blank if you don't want to change it)</i>
