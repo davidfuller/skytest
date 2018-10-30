@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @minimum_password_length = User.password_length.min
   end
 
   # POST /users
