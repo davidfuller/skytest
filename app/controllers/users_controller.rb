@@ -19,7 +19,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @minimum_password_length = User.password_length.min
+    if current_user && current_user.admin
+      @minimum_password_length = User.password_length.min
+    else
+      redirect_to users_path, notice: 'You must be logged in as an admin to edit users'
+    end
   end
 
   # POST /users
