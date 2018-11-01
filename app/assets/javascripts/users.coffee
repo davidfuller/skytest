@@ -4,4 +4,7 @@
 
 $(document).on "turbolinks:load", ->
   console.log "Users has loaded on turbolinks load!"
+  navbar = $('#bs-example-navbar-collapse-1')
+  console.log "XXXXXX"
+  console.log navbar.Height()
   
