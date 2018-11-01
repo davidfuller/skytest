@@ -9,11 +9,15 @@ adjustPadding = ->
   aria = navbar.attr 'aria-expanded'
   console.log aria
   if aria
-    bodyTopPadding = navbar.height() + 20
-    console.log "navbar"
+    if aria is 'true'
+      bodyTopPadding = navbar.height() + 20
+      console.log "navbar aria true"
+    else
+      bodyTopPadding = header.height() + 20
+      console.log "header aria false"
   else
-    bodyTopPadding = header.height() + 20
-    console.log "header"
+    bodyTopPadding = navbar.height() + 20
+    console.log "navbar aria undefined"
 
   $('body').css "paddingTop" : bodyTopPadding + "px"
   console.log $('body').css "paddingTop"
