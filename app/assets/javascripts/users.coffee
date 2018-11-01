@@ -6,6 +6,9 @@ $(document).on "turbolinks:load", ->
   console.log "Users has loaded on turbolinks load!"
   navbar = $('#bs-example-navbar-collapse-1')
   console.log "XXXXXX"
-  console.log navbar.height()
-  $('body').css "paddingTop" : "120px"
+  navbarHeight = navbar.height()
+  console.log navbarHeight
+  bodyTopPadding = navbarHeight + 20
+  console.log "body top padding " + bodyTopPadding + "px"
+  $('body').css "paddingTop" : bodyTopPadding + "px"
   console.log $('body').css "paddingTop"
