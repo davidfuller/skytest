@@ -7,4 +7,4 @@ $(document).on "turbolinks:load", ->
   navbar = $('#bs-example-navbar-collapse-1')
   console.log "XXXXXX"
   console.log navbar.height()
-  console.log body.paddingTop
+  console.log $('body').paddingTop
