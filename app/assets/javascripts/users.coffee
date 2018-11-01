@@ -19,4 +19,4 @@ $(document).on "turbolinks:load", ->
     bodyTopPadding = navbarHeight + 20
     $('body').css "paddingTop" : bodyTopPadding + "px"
     console.log $('body').css "paddingTop"
-    console.log $('aria-expanded')
+    console.log navbar.attr "aria-expanded"
