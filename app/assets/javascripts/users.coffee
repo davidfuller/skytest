@@ -2,6 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+adjustPadding = ->
+  navbar = $('#bs-example-navbar-collapse-1')
+  header = $('.navbar-header')
+
+
+
 $(document).on "turbolinks:load", ->
   console.log "Users has loaded on turbolinks load!"
   navbar = $('#bs-example-navbar-collapse-1')
@@ -19,4 +25,5 @@ $(document).on "turbolinks:load", ->
     bodyTopPadding = navbarHeight + 20
     $('body').css "paddingTop" : bodyTopPadding + "px"
     console.log $('body').css "paddingTop"
+    console.log $('#bs-example-navbar-collapse-1').attr "aria-expanded"
     console.log navbar.attr "aria-expanded"
