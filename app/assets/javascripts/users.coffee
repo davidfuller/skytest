@@ -4,12 +4,13 @@
 
 adjustPadding = ->
   navbar = $('#bs-example-navbar-collapse-1')
+  console.log navbar.height()
   header = $('.navbar-header')
   aria = navbar.attr 'aria-expanded'
   if aria is "true"
     bodyTopPadding = header.height() + 20
   else
-    bodyTopPadding = navbar.height() +20
+    bodyTopPadding = navbar.height() + 20
   $('body').css "paddingTop" : bodyTopPadding + "px"
   console.log $('body').css "paddingTop"
 
