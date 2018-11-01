@@ -5,25 +5,19 @@
 adjustPadding = ->
   navbar = $('#bs-example-navbar-collapse-1')
   header = $('.navbar-header')
-
+  aria = navbar.attr 'aria-expanded'
+  if aria is "true"
+    bodyTopPadding = header.height() + 20
+  else
+    bodyTopPadding = navbar.height() +20
+  $('body').css "paddingTop" : bodyTopPadding + "px"
+  console.log $('body').css "paddingTop"
 
 
 $(document).on "turbolinks:load", ->
   console.log "Users has loaded on turbolinks load!"
-  navbar = $('#bs-example-navbar-collapse-1')
-  console.log "XXXXXX"
-  navbarHeight = navbar.height()
-  console.log navbarHeight
-  bodyTopPadding = navbarHeight + 20
-  console.log "body top padding " + bodyTopPadding + "px"
-  $('body').css "paddingTop" : bodyTopPadding + "px"
-  console.log $('body').css "paddingTop"
+  adjustPadding()
 
   $(window).resize ->
     console.log "Window Width: " + $(window).width()
-    navbarHeight = navbar.height()
-    bodyTopPadding = navbarHeight + 20
-    $('body').css "paddingTop" : bodyTopPadding + "px"
-    console.log $('body').css "paddingTop"
-    console.log $('#bs-example-navbar-collapse-1').attr "aria-expanded"
-    console.log navbar.attr "aria-expanded"
+    adjustPadding()
