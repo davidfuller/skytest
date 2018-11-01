@@ -15,5 +15,7 @@ $(document).on "turbolinks:load", ->
 
   $(window).resize ->
     console.log "Window Width: " + $(window).width()
+    navbarHeight = navbar.height()
+    bodyTopPadding = navbarHeight + 20
     $('body').css "paddingTop" : bodyTopPadding + "px"
     console.log $('body').css "paddingTop"
