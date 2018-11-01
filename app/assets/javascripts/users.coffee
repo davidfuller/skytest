@@ -12,3 +12,7 @@ $(document).on "turbolinks:load", ->
   console.log "body top padding " + bodyTopPadding + "px"
   $('body').css "paddingTop" : bodyTopPadding + "px"
   console.log $('body').css "paddingTop"
+
+  $(window).resize ->
+    console.log "Window Width: " + $(window).width()
+
