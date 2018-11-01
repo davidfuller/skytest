@@ -6,6 +6,7 @@ adjustPadding = ->
   navbar = $('#bs-example-navbar-collapse-1')
   console.log navbar.height()
   header = $('.navbar-header')
+  console.log header.height()
   aria = navbar.attr 'aria-expanded'
   console.log aria
   if aria
