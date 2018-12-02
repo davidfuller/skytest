@@ -17,11 +17,13 @@ class FoldersController < ApplicationController
 
   # GET /folders/new
   def new
+    @clip_types = ClipType.search(params[:search])
     @folder = Folder.new
   end
 
   # GET /folders/1/edit
   def edit
+    @clip_types = ClipType.search(params[:search])
   end
 
   # POST /folders
