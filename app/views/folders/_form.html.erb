@@ -19,6 +19,16 @@
     <%= f.label :note, 'Notes', class: 'title-episode-bold' %><br>
     <%= f.text_area :note, class: 'form-control field-normal' %>
   </div>
+  
+  <div class='row'>
+    <div class='col-sm-6'>
+      <%= render 'clip_type_data' %>
+    </div>
+    <div class='col-sm-6'>
+      <%= render 'clip_type_add' %>
+    </div>
+  </div>
+
   <div class="field">
     <%= f.label :year, class: 'title-episode-bold' %><br>
     <%= f.number_field :year, class: 'form-control spinner' %>
