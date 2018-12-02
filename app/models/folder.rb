@@ -43,6 +43,11 @@ class Folder < ActiveRecord::Base
 
   def self.folder_for_clip(clip_type_id, year)
     folders = joins(:clip_types).where("clip_types.id=? AND year=?", clip_type_id, year)
+    logger.debug "=========="
+    logger.debug clip_type_id
+    logger.debug year
+    logger.debug folders.length
+    
     folders.each do |folder|
       return folder if folder.clips.count < folder.clip_limit
     end

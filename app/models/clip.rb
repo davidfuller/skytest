@@ -129,7 +129,7 @@ class Clip < ActiveRecord::Base
           self.has_audio = clip_type.default_has_audio
           self.duration = clip_type.default_duration
           self.folder = Folder.folder_for_clip(clip_type.id, self.completion.year)
-          self.name += ' ' + clip_type.clip_code
+          self.name += ' ' + clip_type.clip_code if clip_type.clip_code
         end
         self.filename = self.name.upcase.tr(" ", "_")
         if self.has_audio
