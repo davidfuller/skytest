@@ -17,6 +17,7 @@
                 <% if source %>
                   <% params[:source] = source %>
                 <% end %>
+                <td><%= params %></td>
                 <td class='table-links'><%= link_to 'Remove', remove_channel_bss(bss_title_id, channel, params) %> </td>
               </tr>
             <% end %>
