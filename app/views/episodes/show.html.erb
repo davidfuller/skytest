@@ -45,13 +45,11 @@
                 <tr>
                     <td><b><%= link_to bss.bss_title_id, edit_bss_title_id_path(bss, source: :episode_show) %></b></td>
                     <td>
-                      <table>
-                        <tbody>
-                          <% bss.channels.each do |channel| %>
-                            <tr><td><%= channel.name %></td></tr>
-                          <% end %>
-                        </tbody>
-                      </table>
+                      <div class='row'>
+                        <div class='col-xs-12'>
+                          <%= render 'channel_data', bss_title_id: bss%>
+                        </div>
+                      </div>
                     </td>
                     <td>
                       <table>

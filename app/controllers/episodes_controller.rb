@@ -19,6 +19,12 @@ class EpisodesController < ApplicationController
   # GET /episodes/new
   def new
     @episode = Episode.new
+    if params[:title]
+      @episode.title_id = params[:title]
+    end
+    if params[:source] 
+      @episode.source = params[:source]
+    end
   end
 
   # GET /episodes/1/edit
@@ -92,10 +98,8 @@ class EpisodesController < ApplicationController
   # add_bss_title_id 
   def add_bss_title_id
   	@episode = Episode.find(params[:id])
-  	@bss_title_id = @episode.bss_title_ids.create(bss_title_id: "")
-    @bss_title_id.source = params[:source]
-    respond_to do |format|
-	  	format.html {redirect_to edit_bss_title_id_path(@bss_title_id, :source => params[:source]), notice: 'Add BSS Title ID details'}
+  	respond_to do |format|
+	  	format.html {redirect_to new_bss_title_id_path(episode: @episode, source: params[:source]), notice: 'Add BSS Title ID details'}
 	  	format.json {render :show, status: :created, location: @episode}
   	end
   end

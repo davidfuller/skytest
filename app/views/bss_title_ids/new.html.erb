@@ -1,4 +1,22 @@
-<h1>New Bss Title</h1>
+<% if @bss_title_id.episode && @bss_title_id.episode.title && @bss_title_id.episode.title.title && @bss_title_id.episode.episode_title %>
+  <% content_for(:title) do%>
+    <%= 'New BSS Title ID: ' + @bss_title_id.episode.title.title + ': Sky Clarity Media Management' %>
+  <% end %>
+  <p>
+    <div class='title-episode-bold'><b>New BSS Title ID</b></div>
+    <div class='title-normal'><%= @bss_title_id.episode.title.title %></div>
+  </p>
+
+  <p>
+    <label class='title-episode-bold-condensed'>Episode</label>
+    <%= @bss_title_id.episode.episode_description %>
+  </p>
+<% else %>
+  <% content_for(:title) do%>
+    New BSS Title ID: Sky Clarity Media Management
+  <% end %>
+  <div class='title-episode-bold'><b>New BSS Title ID</b></div>
+<% end %>
 
 <%= render 'form' %>
 

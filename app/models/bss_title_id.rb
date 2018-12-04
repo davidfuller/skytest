@@ -74,5 +74,20 @@ class BssTitleId < ActiveRecord::Base
     end
   end
 
+  def self.dummy_prefix
+    'DUM#'
+  end
+
+  def self.create_dummy_id
+    last_one = where('bss_title_id LIKE ?', "#{dummy_prefix}%").last
+    if last_one && last_one.bss_title_id
+      num = last_one.bss_title_id.delete("^0-9").to_i + 1
+    else
+      num = 1
+    end
+    dummy_prefix + "%07d" % num
+  end
+      
+      
   
 end

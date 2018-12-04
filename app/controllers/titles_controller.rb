@@ -35,7 +35,7 @@ class TitlesController < ApplicationController
     
     respond_to do |format|
       if @title.save
-        format.html { redirect_to titles_url, notice: 'Title was successfully created.' }
+        format.html { redirect_to titles_url(search: @title.title), notice: 'Title was successfully created.' }
         format.json { render :show, status: :created, location: @title }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class TitlesController < ApplicationController
   def update
     respond_to do |format|
       if @title.update(title_params)
-        format.html { redirect_to titles_url, notice: 'Title was successfully updated.' }
+        format.html { redirect_to titles_url(search: @title.title), notice: 'Title was successfully updated.' }
         format.json { render :show, status: :ok, location: @title }
       else
         format.html { render :edit }
@@ -76,10 +76,8 @@ class TitlesController < ApplicationController
   # add_episode 
   def add_episode
   	@title = Title.find(params[:id])
-  	@episode = @title.episodes.create(episode_title: "")
-  	@episode.source = params[:source]
   	respond_to do |format|
-	  	format.html {redirect_to edit_episode_path(@episode, :source => params[:source]), notice: 'Add Episode details'}
+      format.html {redirect_to new_episode_path(title: @title, source: params[:source]), notice: 'Add Episode details'}
 	  	format.json {render :show, status: :created, location: @title}
   	end
   end

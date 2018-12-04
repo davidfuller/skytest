@@ -1,4 +1,17 @@
-<h1>New Episode</h1>
+<% if @episode.title && @episode.title.title %>
+  <% content_for(:title) do%>
+    <%= 'New Episode : ' + @episode.title.title + ': Sky Clarity Media Management' %>
+  <% end %>
+  <p>
+    <div class='title-episode-bold'><b>New Episode</b></div>
+    <div class='title-normal'><%= @episode.title.title %></div>
+  </p>
+<% else %>
+  <% content_for(:title) do%>
+    New Episode: Sky Clarity Media Management
+  <% end %>
+  <div class='title-episode-bold'><b>New Episode</b></div>
+<% end %>
 
 <%= render 'form' %>
 

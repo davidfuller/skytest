@@ -22,6 +22,13 @@ class BssTitleIdsController < ApplicationController
   # GET /bss_title_ids/new
   def new
     @bss_title_id = BssTitleId.new
+    @bss_title_id.bss_title_id = BssTitleId.create_dummy_id
+    if params[:episode]
+      @bss_title_id.episode_id = params[:episode]
+    end
+    if params[:source]
+      @bss_title_id.source = params[:source]
+    end
   end
 
   # GET /bss_title_ids/1/edit
