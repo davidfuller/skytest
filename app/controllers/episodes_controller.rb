@@ -14,6 +14,7 @@ class EpisodesController < ApplicationController
   # GET /episodes/1
   # GET /episodes/1.json
   def show
+    params[:source] = :episode_show
   end
 
   # GET /episodes/new

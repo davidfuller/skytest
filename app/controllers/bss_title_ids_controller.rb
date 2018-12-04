@@ -17,6 +17,7 @@ class BssTitleIdsController < ApplicationController
     @clips = Clip.search(params[:search_clip])
     @bss_title_id.view_options = params
     @search_clip = params[:clip] == 'clip'
+    params[:source] = :bss_show
   end
 
   # GET /bss_title_ids/new
