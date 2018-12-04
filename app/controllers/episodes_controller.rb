@@ -15,6 +15,7 @@ class EpisodesController < ApplicationController
   # GET /episodes/1.json
   def show
     params[:source] = :episode_show
+    @episode.bss_title_id.view_options = params
   end
 
   # GET /episodes/new
