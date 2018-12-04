@@ -1,11 +1,6 @@
 <div class="panel-group">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <% if @bss_title_id %>
-        <% bss_title_id = @bss_title_id %>
-      <% end %>
-
-
       <h3 class="panel-title title-episode-bold">
         <a data-toggle="collapse" href="#channels-data"><%= pluralize(bss_title_id.channels.count, 'Channel') %></a>
       </h3>
@@ -19,6 +14,9 @@
             <% bss_title_id.channels.each do |channel| %>
               <tr>
                 <td><%= channel.name %></td>
+                <% if source %>
+                  <% params[:source] = source %>
+                <% end %>
                 <td class='table-links'><%= link_to 'Remove', remove_channel_bss(bss_title_id, channel, params) %> </td>
               </tr>
             <% end %>

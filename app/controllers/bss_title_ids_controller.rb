@@ -103,7 +103,13 @@ class BssTitleIdsController < ApplicationController
     @bss_title_id = BssTitleId.find(params[:id])
   	@bss_title_id.channels.delete(channel)
   	respond_to do |format|
-	  	format.html {redirect_to bss_title_id_path(@bss_title_id, show_details(:channel, params)), notice: 'Channel: ' + channel.name + ' removed'}
+      format.html {
+        if params[:source] == 'episode_show'
+          redirect_to episode_path(@bss_title_id.episode, show_details(:channel, params)), notice: 'Channel: ' + channel.name + ' removed'
+        else
+          redirect_to bss_title_id_path(@bss_title_id, show_details(:channel, params)), notice: 'Channel: ' + channel.name + ' removed'
+        end
+      }
 	  	format.json {render :show, status: :removed, location: @bss_title_id}
   	end
   end
